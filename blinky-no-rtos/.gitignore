@@ -1,0 +1,8 @@
+xpacks/
+build-*/
+Debug/
+Release/
+build/
+.settings/
+*.tgz
+
