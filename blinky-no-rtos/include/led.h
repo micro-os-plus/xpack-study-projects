@@ -64,6 +64,7 @@ private:
   GPIO_TypeDef* gpio_ptr_;
   uint16_t port_number_;
   uint16_t bit_number_;
+  uint16_t bit_mask_;
   bool is_active_low_;
 };
 
