@@ -62,10 +62,10 @@ namespace
 // Instantiate a static array of led objects.
 led blink_leds[] =
   {
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_LOW },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_ORANGE, BLINK_ACTIVE_LOW },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_LOW },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_LOW },
+    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
+    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_ORANGE, BLINK_ACTIVE_HIGH },
+    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_HIGH },
+    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
   /**/
   };
 #else
@@ -86,8 +86,6 @@ bool button_released = false;
 int
 main (int argc, char *argv[])
 {
-  trace::dump_args (argc, argv);
-
   // Send a greeting to the trace device (skipped on Release).
   trace::puts ("Hello World!");
 
