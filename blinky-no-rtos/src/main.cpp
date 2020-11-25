@@ -115,10 +115,6 @@ main (int argc, char *argv[])
       // If defined, get the number of loops from the command line,
       // configurable via semihosting.
       loops = atoi (argv[1]);
-      if (loops < LOOP_COUNT)
-        {
-          loops = LOOP_COUNT;
-        }
     }
 
   // Turn on all LEDs.
@@ -141,6 +137,63 @@ main (int argc, char *argv[])
   ++seconds;
   trace::printf ("Second %u\n", seconds);
 
+  if (sizeof(blink_leds) / sizeof(blink_leds[0]) > 1)
+    {
+      for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+        {
+          // Blink individual LEDs.
+          blink_leds[i].turn_on ();
+          sysclock.sleep_for (BLINK_ON_TICKS);
+
+          blink_leds[i].turn_off ();
+          sysclock.sleep_for (BLINK_OFF_TICKS);
+
+          ++seconds;
+          trace::printf ("Second %u\n", seconds);
+        }
+
+      // Blink lEDs in binary code.
+      for (int loop = 0; loop < loops; ++loop)
+        {
+          for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+            {
+              blink_leds[i].toggle();
+
+              if (blink_leds[i].is_on())
+                {
+                  break;
+                }
+            }
+
+          if (button_pushed)
+            {
+              break; // Quit loop and go to the button blink code.
+            }
+
+          sysclock.sleep_for (sysclock.frequency_hz);
+
+          ++seconds;
+          trace::printf ("Second %u\n", seconds);
+        }
+    }
+  else
+    {
+      for (int loop = 0; loop < loops; ++loop)
+        {
+          // Blink individual LEDs.
+          blink_leds[0].turn_on ();
+          sysclock.sleep_for (BLINK_ON_TICKS);
+
+          blink_leds[0].turn_off ();
+          sysclock.sleep_for (BLINK_OFF_TICKS);
+
+          ++seconds;
+          trace::printf ("Second %u\n", seconds);
+        }
+
+    }
+
+#if 0
   size_t count = 0;
   // Loop forever, one second at a time.
   while (true)
@@ -170,6 +223,9 @@ main (int argc, char *argv[])
           count = 0;
         }
     }
+#endif
+
+  size_t count = 0;
 
   // Button actions.
   if (button_pushed)
@@ -203,6 +259,15 @@ main (int argc, char *argv[])
           button_pushed = false;
         }
     }
+
+  for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+    {
+      blink_leds[i].turn_on ();
+    }
+
+  sysclock.sleep_for (sysclock.frequency_hz);
+
+  return 0;
 }
 
 #pragma GCC diagnostic pop
