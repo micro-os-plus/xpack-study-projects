@@ -36,7 +36,7 @@
 
 // On the STM32F4-Discovery board, the coloured LEDs are
 // connected to PD12-PD15, active high.
-#define BLINK_PORT_NUMBER         (0)
+#define BLINK_PORT_NUMBER         (3)
 #define BLINK_PIN_NUMBER_GREEN    (12)
 #define BLINK_PIN_NUMBER_ORANGE   (13)
 #define BLINK_PIN_NUMBER_RED      (14)
