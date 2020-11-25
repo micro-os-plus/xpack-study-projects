@@ -42,7 +42,10 @@ os_startup_initialize_hardware_early (void)
 // #pragma GCC diagnostic ignored "-Wsign-conversion"
 
 extern "C"
-void SystemClock_Config(void);
+{
+  void SystemClock_Config(void);
+  void MX_GPIO_Init(void);
+}
 
 // Called before running the static constructors.
 void
@@ -58,6 +61,13 @@ os_startup_initialize_hardware (void)
   // Call the CSMSIS system clock routine to store the clock frequency
   // in the SystemCoreClock global RAM location.
   SystemCoreClockUpdate();
+
+  // Initialize all configured peripherals.
+  MX_GPIO_Init();
+
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 }
 
 #pragma GCC diagnostic pop
