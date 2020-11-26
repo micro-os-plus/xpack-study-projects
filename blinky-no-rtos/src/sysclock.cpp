@@ -29,10 +29,10 @@
 #include <micro-os-plus/diag/trace.h>
 #include "sysclock.h"
 
-#include "../xpacks/micro-os-plus-arch-cortexm/include/micro-os-plus/arch-cortexm/exception-handlers.h"
+#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 
 #if defined(STM32F4)
-#include "../board-stm32f4disco/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+#include <stm32f4xx_hal.h>
 #else
 #error "No family definitions."
 #endif
