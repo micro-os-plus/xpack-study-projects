@@ -26,55 +26,50 @@
  */
 
 #include <micro-os-plus/board.h>
-#include <micro-os-plus/diag/trace.h>
-#include "sysclock.h"
-
-#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
-
-#if defined(STM32F4)
-#include <stm32f4xx_hal.h>
-#elif defined(STM32F0)
-#include <stm32f0xx_hal.h>
-#else
-#error "No family definitions."
-#endif
+#include <micro-os-plus/startup/hooks.h>
 
 // ----------------------------------------------------------------------------
 
-// Constructor. Not much to do.
-os::sysclock::sysclock (void)
-{
-  ;
-}
-
+// Called early, before copying .data and clearing .bss.
+// Should initialize the clocks and possible other RAM areas.
 void
-os::sysclock::sleep_for (duration_t duration)
+os_startup_initialize_hardware_early (void)
 {
-  // Compute the timestamp when the sleep should end.
-  timestamp_t then = steady_now () + duration;
-
-  // Busy wait until the current time reaches the desired timestamp.
-  while (steady_now () < then)
-    {
-      os::arch::wfi ();
-    }
+  ; // None so far.
 }
 
-// ----------------------------------------------------------------------------
+#pragma GCC diagnostic push
+// #pragma GCC diagnostic ignored "-Wsign-conversion"
 
-namespace os 
+extern "C"
 {
-  // Instantiate a static system clock object.
-  class os::sysclock sysclock;
+  void SystemClock_Config(void);
+  void MX_GPIO_Init(void);
 }
 
-// ----------------------------------------------------------------------------
-
-void __attribute__ ((section(".after_vectors")))
-SysTick_Handler (void)
+// Called before running the static constructors.
+void
+os_startup_initialize_hardware (void)
 {
-  os::sysclock.internal_increment_count();
-  HAL_IncTick();
+  // Initialise the HAL Library; it must be the first function
+  // to be executed before the call of any HAL function.
+  HAL_Init();
+
+  // Enable HSE Oscillator and activate PLL with HSE as source
+  SystemClock_Config();
+
+  // Call the CSMSIS system clock routine to store the clock frequency
+  // in the SystemCoreClock global RAM location.
+  SystemCoreClockUpdate();
+
+  // Initialize all configured peripherals.
+  MX_GPIO_Init();
+
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 }
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------

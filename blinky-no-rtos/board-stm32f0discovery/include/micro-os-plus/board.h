@@ -25,56 +25,19 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <micro-os-plus/board.h>
-#include <micro-os-plus/diag/trace.h>
-#include "sysclock.h"
+#ifndef MICRO_OS_PLUS_BOARD_H_
+#define MICRO_OS_PLUS_BOARD_H_
 
-#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
+#include <micro-os-plus/device.h>
 
-#if defined(STM32F4)
-#include <stm32f4xx_hal.h>
-#elif defined(STM32F0)
-#include <stm32f0xx_hal.h>
-#else
-#error "No family definitions."
-#endif
+#include <micro-os-plus/board-stm32f0discovery/defines.h>
 
-// ----------------------------------------------------------------------------
+// Include common declarations.
+// #include <micro-os-plus/arch-cortexm/board-functions.h>
+// #include <micro-os-plus/arch-cortexm/board-functions-inlines.h>
 
-// Constructor. Not much to do.
-os::sysclock::sysclock (void)
-{
-  ;
-}
+// Currently not used.
+// #include <micro-os-plus/board-stm32f4discovery/functions.h>
+// #include <micro-os-plus/board-stm32f4discovery/functions-inlines.h>
 
-void
-os::sysclock::sleep_for (duration_t duration)
-{
-  // Compute the timestamp when the sleep should end.
-  timestamp_t then = steady_now () + duration;
-
-  // Busy wait until the current time reaches the desired timestamp.
-  while (steady_now () < then)
-    {
-      os::arch::wfi ();
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-namespace os 
-{
-  // Instantiate a static system clock object.
-  class os::sysclock sysclock;
-}
-
-// ----------------------------------------------------------------------------
-
-void __attribute__ ((section(".after_vectors")))
-SysTick_Handler (void)
-{
-  os::sysclock.internal_increment_count();
-  HAL_IncTick();
-}
-
-// ----------------------------------------------------------------------------
+#endif /* MICRO_OS_PLUS_BOARD_H_ */
