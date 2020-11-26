@@ -31,9 +31,6 @@
 
 // ----- LED definitions ------------------------------------------------------
 
-#define BLINK_ACTIVE_LOW          (true)
-#define BLINK_ACTIVE_HIGH         (false)
-
 // On the STM32F4-Discovery board, the coloured LEDs are
 // connected to PD12-PD15, active high.
 #define BLINK_PORT_NUMBER         (3)

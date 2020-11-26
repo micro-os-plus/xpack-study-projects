@@ -58,7 +58,7 @@ namespace
 }
 
 #if defined(BOARD_STM32F4DISCO)
-// Specific to STMM32F4DISCOVERY.
+// Specific to STM32F4DISCOVERY.
 // Instantiate a static array of led objects.
 led blink_leds[] =
   {

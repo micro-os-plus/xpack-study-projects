@@ -32,6 +32,9 @@
 
 #include <stdint.h>
 
+#define BLINK_ACTIVE_LOW          (true)
+#define BLINK_ACTIVE_HIGH         (false)
+
 // ----------------------------------------------------------------------------
 
 #pragma GCC diagnostic push
