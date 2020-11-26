@@ -30,14 +30,14 @@
 
 #include <micro-os-plus/device.h>
 
-#include <micro-os-plus/board-stm32f4disco/defines.h>
+#include <micro-os-plus/board-stm32f4discovery/defines.h>
 
 // Include common declarations.
 // #include <micro-os-plus/arch-cortexm/board-functions.h>
 // #include <micro-os-plus/arch-cortexm/board-functions-inlines.h>
 
 // Currently not used.
-// #include <micro-os-plus/board-stm32f4disco/functions.h>
-// #include <micro-os-plus/board-stm32f4disco/functions-inlines.h>
+// #include <micro-os-plus/board-stm32f4discovery/functions.h>
+// #include <micro-os-plus/board-stm32f4discovery/functions-inlines.h>
 
 #endif /* MICRO_OS_PLUS_BOARD_H_ */
