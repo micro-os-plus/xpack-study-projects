@@ -43,7 +43,7 @@
     <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
     <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
     <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="build-stm32f4disco-debug/blinky-no-rtos.elf"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="build-stm32f4discovery-debug/blinky-no-rtos.elf"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="blinky-no-rtos"/>
     <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180"/>
