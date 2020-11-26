@@ -14,12 +14,12 @@
    },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<user-id>/stm32f4disco-micro-os-plus.git"
+    "url": "git+https://github.com/<user-id>/test-xpack-projects.git"
   },
   "bugs": {
-    "url": "https://github.com/<user-id>/stm32f4disco-micro-os-plus/issues"
+    "url": "https://github.com/<user-id>/test-xpack-projects/issues"
   },
-  "homepage": "https://github.com/<user-id>/stm32f4disco-micro-os-plus",
+  "homepage": "https://github.com/<user-id>/test-xpack-projects",
   "keywords": [
     "xpack"
   ],
