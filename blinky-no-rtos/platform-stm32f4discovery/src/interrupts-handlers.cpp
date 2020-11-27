@@ -1,7 +1,7 @@
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
- * Copyright (c) 2017 Liviu Ionescu.
+ * Copyright (c) 2020 Liviu Ionescu.
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -26,37 +26,20 @@
  */
 
 #include <micro-os-plus/platform.h>
+#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 #include <micro-os-plus/diag/trace.h>
 
 #include "sysclock.h"
 
-// ----------------------------------------------------------------------------
-
-// Constructor. Not much to do.
-os::sysclock::sysclock (void)
-{
-  ;
-}
-
-void
-os::sysclock::sleep_for (duration_t duration)
-{
-  // Compute the timestamp when the sleep should end.
-  timestamp_t then = steady_now () + duration;
-
-  // Busy wait until the current time reaches the desired timestamp.
-  while (steady_now () < then)
-    {
-      os::arch::wfi ();
-    }
-}
+using namespace os;
 
 // ----------------------------------------------------------------------------
 
-namespace os 
+void __attribute__ ((section(".after_vectors")))
+SysTick_Handler (void)
 {
-  // Instantiate a static system clock object.
-  class os::sysclock sysclock;
+  os::sysclock.internal_increment_count();
+  HAL_IncTick();
 }
 
 // ----------------------------------------------------------------------------
