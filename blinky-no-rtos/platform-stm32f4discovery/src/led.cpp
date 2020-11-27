@@ -25,9 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <micro-os-plus/platform.h>
 #include "led.h"
 
-#include "stm32f4xx_hal.h"
+// ----------------------------------------------------------------------------
 
 #define BLINK_GPIOx(_N)       ((GPIO_TypeDef *)(GPIOA_BASE + (GPIOB_BASE-GPIOA_BASE)*(_N)))
 #define BLINK_PIN_MASK(_N)    (1 << (_N))

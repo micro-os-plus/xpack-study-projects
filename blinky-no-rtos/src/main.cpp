@@ -57,29 +57,27 @@ namespace
       - BLINK_ON_TICKS;
 }
 
-#if defined(PLATFORM_STM32F4DISCOVERY)
-// Specific to STM32F4DISCOVERY.
 // Instantiate a static array of led objects.
 led blink_leds[] =
   {
+#if defined(PLATFORM_STM32F4DISCOVERY)
+// Specific to STM32F4DISCOVERY.
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_ORANGE, BLINK_ACTIVE_HIGH },
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_HIGH },
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
-  /**/
-  };
 #elif defined(PLATFORM_STM32F0DISCOVERY)
 // Specific to STM32F0DISCOVERY.
-// Instantiate a static array of led objects.
-led blink_leds[] =
-  {
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
-  /**/
-  };
+#elif defined(PLATFORM_SIFIVE_HIFIVE1)
+    { BLINK_PORT_NUMBER, RED_LED_OFFSET, BLINK_ACTIVE_LOW },
+    { BLINK_PORT_NUMBER, GREEN_LED_OFFSET, BLINK_ACTIVE_LOW },
+    { BLINK_PORT_NUMBER, BLUE_LED_OFFSET, BLINK_ACTIVE_LOW },
 #else
 #error "No platform definition."
 #endif
+  };
 
 // ----------------------------------------------------------------------------
 

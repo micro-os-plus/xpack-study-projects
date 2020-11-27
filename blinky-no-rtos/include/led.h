@@ -28,12 +28,31 @@
 #ifndef LED_H_
 #define LED_H_
 
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/platform.h>
 
 #include <stdint.h>
 
+// ----------------------------------------------------------------------------
+
 #define BLINK_ACTIVE_LOW          (true)
 #define BLINK_ACTIVE_HIGH         (false)
+
+// ----------------------------------------------------------------------------
+
+#if defined(STM32F4)
+typedef GPIO_TypeDef led_gpio_t;
+typedef uint16_t led_maks_t;
+#elif defined (STM32F051x8)
+typedef GPIO_TypeDef led_gpio_t;
+typedef uint16_t led_maks_t;
+#elif defined (SIFIVE_FE310)
+typedef sifive_fe310_gpio_t led_gpio_t;
+typedef uint32_t led_maks_t;
+#else
+#error "Unsupported device"
+#endif
 
 // ----------------------------------------------------------------------------
 
@@ -64,10 +83,10 @@ public:
   is_on ();
 
 private:
-  GPIO_TypeDef* gpio_ptr_;
+  led_gpio_t* gpio_ptr_;
   uint16_t port_number_;
   uint16_t bit_number_;
-  uint16_t bit_mask_;
+  led_maks_t bit_mask_;
   bool is_active_low_;
 };
 
