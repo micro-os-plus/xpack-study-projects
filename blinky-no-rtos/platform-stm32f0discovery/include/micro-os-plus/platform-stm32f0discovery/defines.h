@@ -26,17 +26,15 @@
  */
 
 
-#ifndef MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_
-#define MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_
+#ifndef MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
+#define MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
 
 // ----- LED definitions ------------------------------------------------------
 
-// On the STM32F4-Discovery board, the coloured LEDs are
-// connected to PD12-PD15, active high.
-#define BLINK_PORT_NUMBER         (3)
-#define BLINK_PIN_NUMBER_GREEN    (12)
-#define BLINK_PIN_NUMBER_ORANGE   (13)
-#define BLINK_PIN_NUMBER_RED      (14)
-#define BLINK_PIN_NUMBER_BLUE     (15)
+// On the STM32F0-Discovery board, the coloured LEDs are
+// connected to PC8-PC9, active high.
+#define BLINK_PORT_NUMBER         (2)
+#define BLINK_PIN_NUMBER_GREEN    (3)
+#define BLINK_PIN_NUMBER_BLUE     (4)
 
-#endif /* MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_ */
+#endif /* MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_ */

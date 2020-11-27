@@ -28,7 +28,7 @@
 #ifndef LED_H_
 #define LED_H_
 
-#include <micro-os-plus/board.h>
+#include <micro-os-plus/platform.h>
 
 #include <stdint.h>
 

@@ -1,5 +1,5 @@
 /*
- * Memory Spaces Definitions for the STM32F0DISCOVERYVERYVERYVERYVERY board (STM32F051R8T6).
+ * Memory Spaces Definitions for the STM32F0DISCOVERY board (STM32F051R8T6).
  *
  *   FLASH.ORIGIN: starting address of flash
  *   FLASH.LENGTH: length of flash

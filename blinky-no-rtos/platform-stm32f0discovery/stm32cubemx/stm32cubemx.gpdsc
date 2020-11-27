@@ -9,7 +9,7 @@
   <vendor>STMicroelectronics</vendor>
   <name>stm32cubemx</name>
   <description>STM32CubeMX generated pack description</description>
-  <url>/Users/ilg/My Files/WKS Projects/micro-os-plus.github/xpack-test-projects.git/blinky-no-rtos/board-stm32f0disco/stm32cubemx</url>
+  <url>/Users/ilg/My Files/WKS Projects/micro-os-plus.github/xpack-test-projects.git/blinky-no-rtos/platform-stm32f0disco/stm32cubemx</url>
   <releases>
     <release version="1.0.0">
      - Generated: 26/11/2020 08:25:30

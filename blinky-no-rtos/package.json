@@ -5,8 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @sifive/board-hifive1 @sifive/devices",
-    "link-opts": "xpm link @micro-os-plus/micro-os-plus @micro-os-plus/architecture-posix @sifive/boards-arty",
+    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @sifive/platform-hifive1 @sifive/devices",
+    "link-opts": "xpm link @micro-os-plus/micro-os-plus @micro-os-plus/architecture-posix @sifive/platform-arty",
     "debug-prepare": "cmake -S . -B build/debug -GNinja -DCMAKE_BUILD_TYPE=Debug",
     "release-prepare": "cmake -S . -B build/release -GNinja -DCMAKE_BUILD_TYPE=Release",
     "debug-build": "cmake --build build/debug --config Debug",

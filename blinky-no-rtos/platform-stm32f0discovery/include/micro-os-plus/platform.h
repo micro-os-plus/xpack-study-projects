@@ -1,7 +1,7 @@
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
- * Copyright (c) 2020 Liviu Ionescu.
+ * Copyright (c) 2017 Liviu Ionescu.
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -25,16 +25,19 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#ifndef MICRO_OS_PLUS_PLATFORM_H_
+#define MICRO_OS_PLUS_PLATFORM_H_
 
-#ifndef MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_
-#define MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_
+#include <micro-os-plus/device.h>
 
-// ----- LED definitions ------------------------------------------------------
+#include <micro-os-plus/platform-stm32f0discovery/defines.h>
 
-// On the STM32F0-Discovery board, the coloured LEDs are
-// connected to PC8-PC9, active high.
-#define BLINK_PORT_NUMBER         (2)
-#define BLINK_PIN_NUMBER_GREEN    (3)
-#define BLINK_PIN_NUMBER_BLUE     (4)
+// Include common declarations.
+// #include <micro-os-plus/arch-cortexm/platform-functions.h>
+// #include <micro-os-plus/arch-cortexm/platform-functions-inlines.h>
 
-#endif /* MICRO_OS_PLUS_BOARD_STM32F4DISCOVERY_DEFINES_H_ */
+// Currently not used.
+// #include <micro-os-plus/platform-stm32f4discovery/functions.h>
+// #include <micro-os-plus/platform-stm32f4discovery/functions-inlines.h>
+
+#endif /* MICRO_OS_PLUS_PLATFORM_H_ */

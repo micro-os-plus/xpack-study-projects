@@ -25,7 +25,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <micro-os-plus/board.h>
+#include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
 #include "sysclock.h"
 

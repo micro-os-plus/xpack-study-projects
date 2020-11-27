@@ -33,7 +33,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include <micro-os-plus/board.h>
+#include <micro-os-plus/platform.h>
 
 // ----------------------------------------------------------------------------
 //
@@ -57,7 +57,7 @@ namespace
       - BLINK_ON_TICKS;
 }
 
-#if defined(BOARD_STM32F4DISCOVERY)
+#if defined(PLATFORM_STM32F4DISCOVERY)
 // Specific to STM32F4DISCOVERY.
 // Instantiate a static array of led objects.
 led blink_leds[] =
@@ -68,7 +68,7 @@ led blink_leds[] =
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
   /**/
   };
-#elif defined(BOARD_STM32F0DISCOVERY)
+#elif defined(PLATFORM_STM32F0DISCOVERY)
 // Specific to STM32F0DISCOVERY.
 // Instantiate a static array of led objects.
 led blink_leds[] =
@@ -78,7 +78,7 @@ led blink_leds[] =
   /**/
   };
 #else
-#error "No board definition."
+#error "No platform definition."
 #endif
 
 // ----------------------------------------------------------------------------

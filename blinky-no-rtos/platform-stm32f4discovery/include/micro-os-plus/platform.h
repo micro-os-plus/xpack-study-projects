@@ -25,19 +25,19 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef MICRO_OS_PLUS_BOARD_H_
-#define MICRO_OS_PLUS_BOARD_H_
+#ifndef MICRO_OS_PLUS_PLATFORM_H_
+#define MICRO_OS_PLUS_PLATFORM_H_
 
 #include <micro-os-plus/device.h>
 
-#include <micro-os-plus/board-stm32f0discovery/defines.h>
+#include <micro-os-plus/platform-stm32f4discovery/defines.h>
 
 // Include common declarations.
-// #include <micro-os-plus/arch-cortexm/board-functions.h>
-// #include <micro-os-plus/arch-cortexm/board-functions-inlines.h>
+// #include <micro-os-plus/arch-cortexm/platform-functions.h>
+// #include <micro-os-plus/arch-cortexm/platform-functions-inlines.h>
 
 // Currently not used.
-// #include <micro-os-plus/board-stm32f4discovery/functions.h>
-// #include <micro-os-plus/board-stm32f4discovery/functions-inlines.h>
+// #include <micro-os-plus/platform-stm32f4discovery/functions.h>
+// #include <micro-os-plus/platform-stm32f4discovery/functions-inlines.h>
 
-#endif /* MICRO_OS_PLUS_BOARD_H_ */
+#endif /* MICRO_OS_PLUS_PLATFORM_H_ */
