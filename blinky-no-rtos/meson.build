@@ -1,0 +1,2 @@
+project('blinky-no-rtos')
+

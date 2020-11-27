@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @sifive/devices",
     "link-opts": "xpm link @micro-os-plus/micro-os-plus @micro-os-plus/architecture-posix @sifive/platform-arty @sifive/platform-hifive1",
-    "debug-prepare": "cmake -S . -B build/debug -GNinja -DCMAKE_BUILD_TYPE=Debug",
-    "release-prepare": "cmake -S . -B build/release -GNinja -DCMAKE_BUILD_TYPE=Release",
-    "debug-build": "cmake --build build/debug --config Debug",
-    "release-build": "cmake --build build/release --config Release"
+    "stm32f4discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-debug-cmake",
+    "stm32f4discovery-release-cmake-prepare": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-release-cmake",
+    "stm32f4discovery-debug-cmake-build": "cmake --build build/stm32f4discovery-debug-cmake",
+    "stm32f4discovery-release-cmake-build": "cmake --build build/stm32f4discovery-release-cmake",
+    "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . -DBUILD_CONFIG=stm32f4discovery-debug-meson",
+    "stm32f4discovery-release-meson-prepare": "meson build/stm32f4discovery-release-meson . -DBUILD_CONFIG=stm32f4discovery-release-meson",
+    "stm32f4discovery-debug-meson-build": "meson compile -C build/stm32f4discovery-debug-meson",
+    "stm32f4discovery-release-meson-build": "meson compile -C build/stm32f4discovery-release-meson"
   },
   "repository": {
     "type": "git",

@@ -20,10 +20,14 @@ The other two need more work.
 ## How to test
 
 ```sh
+# Create a sub-shell, to see the errors.
+bash
+
+# Stop on errors.
 set -e
 
 # Be sure you use the most recent xpm.
-npm install -g xpm
+npm install -g xpm@latest
 
 mkdir -p "${HOME}/Work/xpacks"
 cd "${HOME}/Work/xpacks"
@@ -74,9 +78,10 @@ Download a new Eclipse from:
 
 - https://projects.eclipse.org/projects/iot.embed-cdt/downloads/
 
-Start Eclipse with a fresh workspace in a temporary folder.
+Start Eclipse with a fresh workspace in a temporary folder. **DO NOT** use
+an existing workspace, to have a clean slate.
 
-- Import > General > Existing Projects
+- Import > General > Existing Projects into Workspace
 - Next >
 - Select root directory: Browse... ${HOME}/Work/xpack-study-projects.git/blinky-no-rtos
 - Projects: blinky-no-rtos
@@ -88,4 +93,6 @@ Select the project, right click, Build Configurations > Build all...
 To run a debug session:
 
 - menu Run > Debug configurations > GDB QEMU > select blinky-no-rtos-stm32f4discovery-qemu
+
+The result is a set of folders prefixed with `build-`
 
