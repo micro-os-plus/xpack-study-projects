@@ -13,3 +13,7 @@ The project exercises multi-platform and multi-architecture builds.
 There are separate debug/release Eclipse build configurations for each
 platform.
 
+The STM32F4DISCOVERY is also functional and runs fine on QEMU.
+
+The other two need more work.
+

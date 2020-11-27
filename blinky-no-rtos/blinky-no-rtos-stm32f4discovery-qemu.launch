@@ -18,7 +18,7 @@
     <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.isGdbServerVerbose" value="false"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.otherInitCommands" value=""/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.otherRunCommands" value=""/>
-    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.semihosting.cmdline" value="blinky-no-rtos 7"/>
+    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.semihosting.cmdline" value="blinky-no-rtos"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value=""/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value=""/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
@@ -45,7 +45,7 @@
     <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
     <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="build-stm32f4discovery-debug/blinky-no-rtos.elf"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="blinky-no-rtos"/>
-    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
+    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
         <listEntry value="/blinky-no-rtos"/>
@@ -54,6 +54,5 @@
         <listEntry value="4"/>
     </listAttribute>
     <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;memoryBlockExpressionList context=&quot;Context string&quot;/&gt;&#10;"/>
-    <stringAttribute key="org.eclipse.embedcdt.debug.gdbjtag.PERIPHERALS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;peripherals/&gt;&#10;"/>
     <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>
