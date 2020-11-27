@@ -104,8 +104,14 @@ main (int argc, char *argv[])
 
   // At this stage the system clock should have already been configured
   // at high speed.
+#if defined(__ARM_EABI__)
   trace::printf ("System clock: %u Hz\n", SystemCoreClock);
-
+#elif defined(__riscv)
+  trace::printf ("System clock: %u Hz\n",
+                     riscv::core::running_frequency_hz ());
+#else
+#error "Unsupported architecture."
+#endif
   // Power up all LEDs.
   for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
     {
