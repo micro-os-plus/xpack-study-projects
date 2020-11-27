@@ -25,15 +25,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
 
-#include <sysclock.h>
+#include "sysclock.h"
 #include "led.h"
 
 #include <stdint.h>
 #include <stdio.h>
 
-#include <micro-os-plus/platform.h>
 
 // ----------------------------------------------------------------------------
 //

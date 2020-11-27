@@ -29,10 +29,11 @@
 #define MICRO_OS_PLUS_PLATFORM_H_
 
 #include <micro-os-plus/device.h>
-
 #include <micro-os-plus/platform-stm32f4discovery/defines.h>
 
-#include <stm32f4xx_hal.h>
+#include "stm32f4xx_hal.h"
+
+// ----------------------------------------------------------------------------
 
 // Include common declarations.
 // #include <micro-os-plus/arch-cortexm/platform-functions.h>
@@ -41,5 +42,7 @@
 // Currently not used.
 // #include <micro-os-plus/platform-stm32f4discovery/functions.h>
 // #include <micro-os-plus/platform-stm32f4discovery/functions-inlines.h>
+
+// ----------------------------------------------------------------------------
 
 #endif /* MICRO_OS_PLUS_PLATFORM_H_ */

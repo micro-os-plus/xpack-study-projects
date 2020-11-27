@@ -29,6 +29,8 @@
 #ifndef MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
 #define MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
 
+// ----------------------------------------------------------------------------
+
 // ----- LED definitions ------------------------------------------------------
 
 // On the STM32F0-Discovery board, the coloured LEDs are
@@ -36,5 +38,7 @@
 #define BLINK_PORT_NUMBER         (2)
 #define BLINK_PIN_NUMBER_GREEN    (3)
 #define BLINK_PIN_NUMBER_BLUE     (4)
+
+// ----------------------------------------------------------------------------
 
 #endif /* MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_ */
