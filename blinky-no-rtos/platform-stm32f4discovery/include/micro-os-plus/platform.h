@@ -32,6 +32,8 @@
 
 #include <micro-os-plus/platform-stm32f4discovery/defines.h>
 
+#include <stm32f4xx_hal.h>
+
 // Include common declarations.
 // #include <micro-os-plus/arch-cortexm/platform-functions.h>
 // #include <micro-os-plus/arch-cortexm/platform-functions-inlines.h>
