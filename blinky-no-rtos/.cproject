@@ -60,7 +60,6 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.899142192" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.476578881" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -89,7 +88,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.792821610" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.224307840" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -121,7 +119,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.881917852" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.1138164632" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -415,7 +412,6 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.759161008" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.158598284" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -441,7 +437,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.321028415" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.388769574" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -470,7 +465,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.2003920871" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.1684711714" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -742,7 +736,6 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.1267123824" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.617322793" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
@@ -771,7 +764,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1530032486" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.415212201" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
@@ -803,7 +795,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.422129170" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.257337920" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
@@ -1031,7 +1022,6 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.2135823866" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.1992487669" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
@@ -1057,7 +1047,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.1766214341" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.535433760" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
@@ -1086,7 +1075,6 @@
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.342286001" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.1015896590" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/system/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-no-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
