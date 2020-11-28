@@ -21,8 +21,9 @@ The other two need more work.
 
 ### Update xpm
 
+Be sure you use the most recent xpm.
+
 ```sh
-# Be sure you use the most recent xpm.
 npm install -g xpm@latest
 ```
 
@@ -80,4 +81,4 @@ The result is a set of folders prefixed with `build-`
 
 To run a debug session:
 
-- menu Run > Debug configurations > GDB QEMU > select blinky-no-rtos-stm32f4discovery-qemu
+- menu Run > Debug configurations > GDB QEMU > select `blinky-no-rtos-stm32f4discovery-qemu`
