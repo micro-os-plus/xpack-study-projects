@@ -82,3 +82,12 @@ The result is a set of folders prefixed with `build-`
 To run a debug session:
 
 - menu Run > Debug configurations > GDB QEMU > select `blinky-no-rtos-stm32f4discovery-qemu`
+
+## Feedback
+
+Any feedback is highly appreciated.
+
+Please use the project
+[forum](https://www.tapatalk.com/groups/xpack/xpack-based-os-experimental-projects-t116.html)
+instead of private messages, such that the
+discussions to be public and be seen by more people.
