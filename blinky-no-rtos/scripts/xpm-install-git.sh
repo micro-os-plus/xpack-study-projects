@@ -34,13 +34,7 @@ script_folder_name="$(basename "${script_folder_path}")"
 
 # =============================================================================
 
-# In normal use cases, the dependencies are in package.json and are
-# automatically resolved by `xpm install`, but the installed content
-# is remain read only.
-#
-# For development use cases, when content must be writable, clone
-# the original repos and link them to the central packages repo.
-
+# Clone a repo and checkout a specific commit ID.
 function xpm-install-git()
 {
   git clone --branch develop https://github.com/micro-os-plus/$1.git $1.git
@@ -62,7 +56,7 @@ xpm-install-git "architecture-cortexm-xpack" "a31d322"
 xpm-install-git "architecture-riscv-xpack" "ca59650"
 xpm-install-git "devices-sifive-xpack" "2732c22"
 
-# Link to writable packages.
+# Add links in the project to writable packages.
 xpm link -C "${script_folder_path}/../" \
 "@micro-os-plus/libs-c" \
 "@micro-os-plus/libs-cpp" \
