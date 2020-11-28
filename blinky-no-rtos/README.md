@@ -20,12 +20,6 @@ The other two need more work.
 ## How to test
 
 ```sh
-# Create a sub-shell, to see the errors.
-bash
-
-# Stop on errors.
-set -e
-
 # Be sure you use the most recent xpm.
 npm install -g xpm@latest
 
