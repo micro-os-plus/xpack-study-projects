@@ -75,3 +75,5 @@ xpm link -C "${script_folder_path}/../" \
 "@micro-os-plus/architecture-riscv" \
 "@sifive/devices" \
 
+echo
+echo "Done."
