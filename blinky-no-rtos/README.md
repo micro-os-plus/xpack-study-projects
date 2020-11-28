@@ -19,28 +19,44 @@ The other two need more work.
 
 ## How to test
 
+### Update xpm
+
 ```sh
 # Be sure you use the most recent xpm.
 npm install -g xpm@latest
+```
 
+It must be 0.7.1 or later.
+
+### Clone the GitHub repo
+
+```sh
 mkdir -p "${HOME}/Works"
 
 git clone https://github.com/micro-os-plus/xpack-study-projects.git \
   "${HOME}/Work/xpack-study-projects.git"
-
-# Install the binary packages.
-xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
-
-# In normal use cases, the dependencies are in package.json and are
-# automatically resolved by `xpm install`, but the installed content
-# is read only.
-#
-# For development use cases, when the content must be writable, clone
-# the original repos and link via the central packages repo.
-
-bash "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos/scripts/xpm-install-git.sh" 
-
 ```
+
+### Install the binary packages
+
+```sh
+xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+```
+
+### Install writable source dependencies
+
+In most common use cases, the dependencies are in `package.json` and are
+automatically resolved by `xpm install`, but the installed content
+is read only.
+
+For development use cases, when the content must be writable, clone
+the original repos and link via the central packages repo.
+
+```sh
+bash "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos/scripts/xpm-install-git.sh"
+```
+
+### Build
 
 Download a new Eclipse from:
 
@@ -51,14 +67,16 @@ an existing workspace, to have a clean slate.
 
 - Import > General > Existing Projects into Workspace
 - Next >
-- Select root directory: Browse... ${HOME}/Work/xpack-study-projects.git/blinky-no-rtos
-- Projects: blinky-no-rtos
+- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-no-rtos`
+- Projects: `blinky-no-rtos`
 - disable: Copy projects
 - Finish
 
 Select the project, right click, Build Configurations > Build all...
 
 The result is a set of folders prefixed with `build-`
+
+### Run a debug session
 
 To run a debug session:
 
