@@ -24,10 +24,9 @@ The other two need more work.
 npm install -g xpm@latest
 
 mkdir -p "${HOME}/Works"
-cd "${HOME}/Work"
 
 git clone https://github.com/micro-os-plus/xpack-study-projects.git \
-  xpack-study-projects.git
+  "${HOME}/Work/xpack-study-projects.git"
 
 # Install the binary packages.
 xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
@@ -36,7 +35,7 @@ xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
 # automatically resolved by `xpm install`, but the installed content
 # is read only.
 #
-# For development use cases, when content must be writable, clone
+# For development use cases, when the content must be writable, clone
 # the original repos and link via the central packages repo.
 
 bash "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos/scripts/xpm-install-git.sh" 
@@ -59,9 +58,8 @@ an existing workspace, to have a clean slate.
 
 Select the project, right click, Build Configurations > Build all...
 
+The result is a set of folders prefixed with `build-`
+
 To run a debug session:
 
 - menu Run > Debug configurations > GDB QEMU > select blinky-no-rtos-stm32f4discovery-qemu
-
-The result is a set of folders prefixed with `build-`
-
