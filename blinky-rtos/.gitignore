@@ -1,0 +1,9 @@
+xpacks/
+build-*/
+Debug/
+Release/
+build/
+.settings/
+*.tgz
+
+**/Drivers/CMSIS/Lib
