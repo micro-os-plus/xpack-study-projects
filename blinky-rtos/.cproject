@@ -330,7 +330,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
-						<entry excluding="startup/startup.cpp|startup/initialize-hardware.c|startup/exception-handlers.c|libcpp/cxx.cpp|driver|driver/usbh-wrapper.cpp|driver/usbd-wrapper.cpp|driver/usart-wrapper.cpp|libc|semihosting|diag" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup/startup.cpp|startup/initialize-hardware.c|startup/exception-handlers.c|libcpp/cxx.cpp|driver|driver/usbh-wrapper.cpp|driver/usbd-wrapper.cpp|driver/usart-wrapper.cpp|semihosting" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/arty"/>
@@ -682,6 +682,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/diag"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="cxx.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libcpp"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
@@ -954,6 +956,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/diag"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="cxx.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libcpp"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
@@ -1237,6 +1241,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/diag"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="cxx.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libcpp"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
@@ -1462,6 +1468,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/diag"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="cxx.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libcpp"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
@@ -1660,6 +1668,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/diag"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="cxx.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libcpp"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
