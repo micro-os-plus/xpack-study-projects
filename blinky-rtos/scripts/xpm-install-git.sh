@@ -37,29 +37,38 @@ script_folder_name="$(basename "${script_folder_path}")"
 # Clone a repo and checkout a specific commit ID.
 function xpm-install-git()
 {
-  git clone --branch develop https://github.com/micro-os-plus/$1.git $1.git
-  (cd $1.git; git checkout -b work $2)
+  git clone --branch xpack-develop https://github.com/micro-os-plus/$1.git $1.git
+  if [ $# -gt 2 ]
+  then
+    (cd $1.git; git checkout -b xpack-develop $2)
+  fi
   xpm link -C $1.git
 }
 
 mkdir -p "${script_folder_path}/../../xpacks"
 cd "${script_folder_path}/../../xpacks"
 
-xpm-install-git "libs-c-xpack" "8bc7439"
-xpm-install-git "libs-cpp-xpack" "17f64a2"
-xpm-install-git "diag-trace-xpack" "596d7c9"
-xpm-install-git "semihosting-xpack" "0db6262"
-xpm-install-git "startup-xpack" "19de852"
-xpm-install-git "devices-stm32f0-xpack" "4d725cf"
-xpm-install-git "devices-stm32f4-xpack" "cd74d33"
-xpm-install-git "architecture-cortexm-xpack" "a31d322"
-xpm-install-git "architecture-riscv-xpack" "ca59650"
-xpm-install-git "devices-sifive-xpack" "2732c22"
+xpm-install-git "libs-c-xpack" 
+xpm-install-git "libs-cpp-xpack" 
+xpm-install-git "diag-trace-xpack" 
+xpm-install-git "semihosting-xpack" 
+xpm-install-git "startup-xpack" 
+xpm-install-git "devices-stm32f0-xpack" 
+xpm-install-git "devices-stm32f4-xpack" 
+xpm-install-git "architecture-cortexm-xpack" 
+xpm-install-git "architecture-riscv-xpack" 
+xpm-install-git "architecture-posix-xpack" 
+xpm-install-git "devices-sifive-xpack" 
+xpm-install-git "memory-allocators-xpack" 
+xpm-install-git "posix-io-xpack" 
+xpm-install-git "utils-lists-xpack" 
+xpm-install-git "rtos-xpack" 
 
 # Add links in the project to writable packages.
 xpm link -C "${script_folder_path}/../" \
 "@micro-os-plus/libs-c" \
 "@micro-os-plus/libs-cpp" \
+"@micro-os-plus/libs-cpp-estd" \
 "@micro-os-plus/diag-trace" \
 "@micro-os-plus/semihosting" \
 "@micro-os-plus/startup" \
@@ -68,6 +77,10 @@ xpm link -C "${script_folder_path}/../" \
 "@micro-os-plus/architecture-cortexm" \
 "@micro-os-plus/architecture-riscv" \
 "@sifive/devices" \
+"@micro-os-plus/memory-allocators" \
+"@micro-os-plus/posix-io" \
+"@micro-os-plus/utils-lists" \
+"@micro-os-plus/rtos" \
 
 echo
 echo "Done."
