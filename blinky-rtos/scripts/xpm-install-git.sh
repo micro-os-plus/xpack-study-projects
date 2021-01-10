@@ -46,7 +46,7 @@ function xpm-install-git()
     then
       (cd $1.git; git checkout -b work $2)
     else
-      (cd $1.git; git checkout -b work $HEAD)
+      (cd $1.git; git checkout -b work HEAD)
     fi
   fi
   xpm link -C $1.git
