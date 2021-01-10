@@ -37,8 +37,18 @@ script_folder_name="$(basename "${script_folder_path}")"
 # Clone a repo and checkout a specific commit ID.
 function xpm-install-git()
 {
-  git clone --branch develop https://github.com/micro-os-plus/$1.git $1.git
-  (cd $1.git; git checkout -b work $2)
+  if [ -d "$1.git" ]
+  then
+    echo "$1.git already present, skiped..."
+  else
+    git clone --branch xpack-develop https://github.com/micro-os-plus/$1.git $1.git
+    if [ $# -gt 2 ]
+    then
+      (cd $1.git; git checkout -b work $2)
+    else
+      (cd $1.git; git checkout -b work $HEAD)
+    fi
+  fi
   xpm link -C $1.git
 }
 
