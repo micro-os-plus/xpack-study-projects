@@ -61,7 +61,7 @@ bash "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos/scripts/xpm-install-g
 
 Download a new Eclipse from:
 
-- https://projects.eclipse.org/projects/iot.embed-cdt/downloads/
+- https://www.eclipse.org/downloads/packages/
 
 Start Eclipse with a fresh workspace in a temporary folder. **DO NOT** use
 an existing workspace, to have a clean slate.

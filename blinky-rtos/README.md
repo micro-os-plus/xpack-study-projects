@@ -57,15 +57,15 @@ bash "${HOME}/Work/xpack-study-projects.git/blinky-rtos/scripts/xpm-install-git.
 
 Download a new Eclipse from:
 
-- https://projects.eclipse.org/projects/iot.embed-cdt/downloads/
+- https://www.eclipse.org/downloads/packages/
 
 Start Eclipse with a fresh workspace in a temporary folder. **DO NOT** use
 an existing workspace, to have a clean slate.
 
 - Import > General > Existing Projects into Workspace
 - Next >
-- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-no-rtos`
-- Projects: `blinky-no-rtos`
+- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-rtos`
+- Projects: `blinky-rtos`
 - disable: Copy projects
 - Finish
 
@@ -77,7 +77,7 @@ The result is a set of folders prefixed with `build-`
 
 To run a debug session:
 
-- menu Run > Debug configurations > GDB QEMU > select `blinky-no-rtos-stm32f4discovery-qemu`
+- menu Run > Debug configurations > GDB QEMU > select `blinky-rtos-stm32f4discovery-qemu`
 
 ## Feedback
 
