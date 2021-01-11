@@ -6,4 +6,3 @@ build/
 .settings/
 *.tgz
 
-**/Drivers/CMSIS/Lib
