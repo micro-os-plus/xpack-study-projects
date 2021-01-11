@@ -87,6 +87,7 @@
 									<listOptionValue builtIn="false" value="STM32F4"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.499443048" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
 							</tool>
@@ -120,6 +121,7 @@
 									<listOptionValue builtIn="false" value="STM32F4"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes.717042680" name="Warn if a global function has no prototype (-Wmissing-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes.1809580195" name="Warn if a function has no arg type (-Wstrict-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -128,7 +130,7 @@
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.881917852" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths.1138164632" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f4discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f4discovery/stm32cubemx/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Core/Include}&quot;"/>
@@ -156,6 +158,7 @@
 									<listOptionValue builtIn="false" value="STM32F4"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.2125425171" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.1253402030" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -173,7 +176,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.1500753279" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.1594274282" name="GNU Arm Cross C++ Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1449736815" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1449736815" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.paths.393708924" name="Library search path (-L)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.paths" useByScannerDiscovery="false" valueType="libPaths"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile.829697185" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile" useByScannerDiscovery="false" valueType="stringList">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/platform-stm32f4discovery/linker-scripts/mem.ld}&quot;"/>
@@ -252,7 +255,7 @@
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1868082764" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.1596337877" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.2064319260">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.767083251" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="false" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.767083251" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="true" valueType="boolean"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.981275720" name="GNU Arm Cross C++ Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.1594274282"/>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver.824077558" name="GNU Arm Cross Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver.179384074"/>
@@ -338,7 +341,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors_stm32f423xx.c|vectors_stm32f412zx.c|vectors_stm32f413xx.c|vectors_stm32f412vx.c|vectors_stm32f410rx.c|vectors_stm32f437xx.c|vectors_stm32f427xx.c|vectors_stm32f415xx.c|vectors_stm32f412rx.c|vectors_stm32f410cx.c|vectors_stm32f439xx.c|vectors_stm32f412cx.c|vectors_stm32f405xx.c|vectors_stm32f429xx.c|vectors_stm32f417xx.c|vectors_stm32f411xe.c|vectors_stm32f401xc.c|vectors_stm32f401xe.c|vectors_stm32f446xx.c|vectors_stm32f410tx.c|vectors_stm32f479xx.c|vectors_stm32f469xx.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src/vectors"/>
+						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f410tx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f401xc.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
@@ -393,7 +396,7 @@
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release.704714803" name="Arm Cross GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1800561288" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" useByScannerDiscovery="false" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1009763963" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1009763963" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.1750892820" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1814940880" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.size" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.1746957956" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -418,14 +421,14 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.223291260" name="Float ABI" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.soft" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1169835638" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.949302135" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.66949979" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1502900229" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.66949979" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1502900229" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.2118836440" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.523383030" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.461805634" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.722117683" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.2036815275" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.959501066" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.959501066" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.1748139392" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id.934859021" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id" useByScannerDiscovery="false" value="435435382" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants.1142556058" name="Disable loop invariant move (-fno-move-loop-invariants)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -448,6 +451,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.358588157" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -455,6 +462,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F4DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F4"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.1515948873" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
 							</tool>
@@ -474,6 +482,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.980804912" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -481,6 +493,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F4DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F4"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes.2142280667" name="Warn if a global function has no prototype (-Wmissing-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes.978474406" name="Warn if a function has no arg type (-Wstrict-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -503,6 +516,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs.1942544988" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -510,6 +527,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F4DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F4"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.ctordtorprivacy.539455337" name="Warn on class privacy (-Wctor-dtor-privacy)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.ctordtorprivacy" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.noexcept.2140756432" name="Warn on no-except expressions (-Wnoexcept)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.noexcept" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -520,6 +538,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.1744419110" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nousecxaatexit.2118074329" name="Do not use _cxa_atexit() (-fno-use-cxa-atexit)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nousecxaatexit" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nothreadsafestatics.24080227" name="Do not use thread-safe statics (-fno-threadsafe-statics)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nothreadsafestatics" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.710690235" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp17" valueType="enumerated"/>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1196628432" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.326566100" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker">
@@ -692,20 +711,22 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors_stm32f423xx.c|vectors_stm32f412zx.c|vectors_stm32f413xx.c|vectors_stm32f412vx.c|vectors_stm32f410rx.c|vectors_stm32f437xx.c|vectors_stm32f427xx.c|vectors_stm32f415xx.c|vectors_stm32f412rx.c|vectors_stm32f410cx.c|vectors_stm32f439xx.c|vectors_stm32f412cx.c|vectors_stm32f405xx.c|vectors_stm32f429xx.c|vectors_stm32f417xx.c|vectors_stm32f411xe.c|vectors_stm32f401xc.c|vectors_stm32f401xe.c|vectors_stm32f446xx.c|vectors_stm32f410tx.c|vectors_stm32f479xx.c|vectors_stm32f469xx.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src/vectors"/>
+						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f410tx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f401xc.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
-						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
+						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/arty"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/fe310"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="ilg.gnumcueclipse.managedbuild.packs"/>
 		</cconfiguration>
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606" moduleId="org.eclipse.cdt.core.settings" name="build-stm32f0discovery-debug">
@@ -724,7 +745,7 @@
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug.390987511" name="Arm Cross GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1165261607" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" useByScannerDiscovery="false" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.757872573" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.757872573" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.192451003" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1403308393" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.none" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.766572417" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -750,14 +771,14 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.1655377512" name="Float ABI" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.soft" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1777800417" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.248834531" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.1109741000" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.753907441" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.1109741000" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.753907441" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.2059170632" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.2143596613" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.1821555019" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.2049472846" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.811965784" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1953531569" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1953531569" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.791353330" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants.1103475872" name="Disable loop invariant move (-fno-move-loop-invariants)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.1563653079" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
@@ -768,6 +789,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -777,8 +799,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1078478094" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -789,6 +814,7 @@
 									<listOptionValue builtIn="false" value="STM32F0"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.257642528" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
 							</tool>
@@ -797,6 +823,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -806,8 +833,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.611878276" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -818,6 +848,7 @@
 									<listOptionValue builtIn="false" value="STM32F0"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes.869318996" name="Warn if a global function has no prototype (-Wmissing-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes.949410284" name="Warn if a function has no arg type (-Wstrict-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -829,6 +860,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -838,8 +870,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs.1291079243" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -850,6 +885,7 @@
 									<listOptionValue builtIn="false" value="STM32F0"/>
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="OS_USE_SEMIHOSTING_SYSCALLS"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.675247107" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.1915892821" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -860,6 +896,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.nonvirtualdtor.396741830" name="Warn on virtual destructors (-Wnon-virtual-dtor)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.nonvirtualdtor" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.strictnullsentinel.186475216" name="Warn on uncast NULL (-Wstrict-null-sentinel)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.strictnullsentinel" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.signpromo.1243093194" name="Warn on sign promotion (-Wsign-promo)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.signpromo" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.2090097051" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp17" valueType="enumerated"/>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1494524010" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.982744395" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker">
@@ -964,16 +1001,19 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors_stm32f070x6.c|vectors_stm32f058xx.c|vectors_stm32f048xx.c|vectors_stm32f038xx.c|vectors_stm32f030xc.c|vectors_stm32f091xc.c|vectors_stm32f030x6.c|vectors_stm32f070xb.c|vectors_stm32f042x6.c|vectors_stm32f030x8.c|vectors_stm32f072xb.c|vectors_stm32f098xx.c|vectors_stm32f078xx.c|vectors_stm32f071xb.c|vectors_stm32f031x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src/vectors"/>
+						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f072xb.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f030x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
+						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/arty"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/fe310"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -1017,7 +1057,7 @@
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449.1533284606." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release.508197392" name="Arm Cross GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.24926530" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" useByScannerDiscovery="false" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1035765088" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1035765088" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.524123649" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1958104069" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.size" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.673720662" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -1042,14 +1082,14 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.560836291" name="Float ABI" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.soft" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1156039863" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.295835920" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.257110938" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1439525280" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.257110938" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1439525280" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.213489108" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.316049876" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.1310818145" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.310130200" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.445216506" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" useByScannerDiscovery="true" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.219706709" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.219706709" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" useByScannerDiscovery="true" value="false" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.417404474" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id.1009976462" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.id" useByScannerDiscovery="false" value="435435382" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants.1512098003" name="Disable loop invariant move (-fno-move-loop-invariants)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nomoveloopinvariants" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -1061,6 +1101,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -1070,8 +1111,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1465838841" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -1079,6 +1123,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F0DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F0"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.430107960" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
 							</tool>
@@ -1087,6 +1132,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -1096,8 +1142,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.449435838" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -1105,6 +1154,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F0DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F0"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes.733029894" name="Warn if a global function has no prototype (-Wmissing-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.missingprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes.1181336276" name="Warn if a function has no arg type (-Wstrict-prototypes)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.warning.strictprototypes" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -1116,6 +1166,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Core/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-c/include}&quot;"/>
@@ -1125,8 +1176,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-startup/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-cortexm/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-devices-stm32f0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs.294603511" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -1134,6 +1188,7 @@
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
 									<listOptionValue builtIn="false" value="PLATFORM_STM32F0DISCOVERY"/>
 									<listOptionValue builtIn="false" value="STM32F0"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.ctordtorprivacy.1137573390" name="Warn on class privacy (-Wctor-dtor-privacy)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.ctordtorprivacy" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.noexcept.1614076092" name="Warn on no-except expressions (-Wnoexcept)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.warning.noexcept" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -1144,6 +1199,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.1423391947" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nousecxaatexit.1843428802" name="Do not use _cxa_atexit() (-fno-use-cxa-atexit)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nousecxaatexit" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nothreadsafestatics.14485425" name="Do not use thread-safe statics (-fno-threadsafe-statics)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nothreadsafestatics" useByScannerDiscovery="true" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.931240480" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.gnucpp17" valueType="enumerated"/>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1355192480" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input"/>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.1862589516" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker">
@@ -1247,16 +1303,19 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors_stm32f070x6.c|vectors_stm32f058xx.c|vectors_stm32f048xx.c|vectors_stm32f038xx.c|vectors_stm32f030xc.c|vectors_stm32f091xc.c|vectors_stm32f030x6.c|vectors_stm32f070xb.c|vectors_stm32f042x6.c|vectors_stm32f030x8.c|vectors_stm32f072xb.c|vectors_stm32f098xx.c|vectors_stm32f078xx.c|vectors_stm32f071xb.c|vectors_stm32f031x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src/vectors"/>
+						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f072xb.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f030x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
+						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
 						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/arty"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/sifive-devices/src/fe310"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -1363,6 +1422,7 @@
 									<listOptionValue builtIn="false" value="OS_USE_CPP_INTERRUPTS"/>
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input.1438950224" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input"/>
 							</tool>
@@ -1390,6 +1450,7 @@
 									<listOptionValue builtIn="false" value="OS_USE_CPP_INTERRUPTS"/>
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input.1526563137" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input"/>
 							</tool>
@@ -1424,6 +1485,7 @@
 									<listOptionValue builtIn="false" value="OS_USE_CPP_INTERRUPTS"/>
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.input.1839618541" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.input"/>
 							</tool>
@@ -1473,6 +1535,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src/rtos"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-riscv/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src/vectors"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src/vectors"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
@@ -1565,6 +1629,7 @@
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input.652783241" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.assembler.input"/>
 							</tool>
@@ -1590,6 +1655,7 @@
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input.1076910446" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input"/>
 							</tool>
@@ -1622,6 +1688,7 @@
 									<listOptionValue builtIn="false" value="SIFIVE_FE310"/>
 									<listOptionValue builtIn="false" value="PLATFORM_SIFIVE_HIFIVE1"/>
 									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
 								</option>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.input.48634014" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.cpp.compiler.input"/>
 							</tool>
@@ -1671,6 +1738,8 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src/rtos"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-riscv/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src/vectors"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src/vectors"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
@@ -1691,7 +1760,26 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="build-hifive1-debug">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+		<configuration configurationName="build-stm32f0discovery-release">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+		<configuration configurationName="build-stm32f4discovery-debug">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+		<configuration configurationName="build-stm32f4discovery-release">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+		<configuration configurationName="build-hifive1-release">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+		<configuration configurationName="build-stm32f0discovery-debug">
+			<resource resourceType="PROJECT" workspacePath="/blinky-rtos"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606;ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.422129170;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1494524010">
