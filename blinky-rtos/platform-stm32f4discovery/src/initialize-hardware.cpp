@@ -30,6 +30,7 @@
 
 // ----------------------------------------------------------------------------
 
+#if 0
 // Called early, before copying .data and clearing .bss.
 // Should initialize the clocks and possible other RAM areas.
 void
@@ -37,6 +38,7 @@ os_startup_initialize_hardware_early (void)
 {
   ; // None so far.
 }
+#endif
 
 #pragma GCC diagnostic push
 // #pragma GCC diagnostic ignored "-Wsign-conversion"
