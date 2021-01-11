@@ -25,8 +25,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef MICRO_OS_PLUS_PLATFORM_HIFIVE1_FUNCTIONS_H_
-#define MICRO_OS_PLUS_PLATFORM_HIFIVE1_FUNCTIONS_H_
+#ifndef MICRO_OS_PLUS_PLATFORM_SIFIVE_HIFIVE1_FUNCTIONS_H_
+#define MICRO_OS_PLUS_PLATFORM_SIFIVE_HIFIVE1_FUNCTIONS_H_
 
 // ----------------------------------------------------------------------------
 
@@ -83,4 +83,4 @@ namespace riscv
 
 // ----------------------------------------------------------------------------
 
-#endif /* MICRO_OS_PLUS_PLATFORM_HIFIVE1_FUNCTIONS_H_ */
+#endif /* MICRO_OS_PLUS_PLATFORM_SIFIVE_HIFIVE1_FUNCTIONS_H_ */
