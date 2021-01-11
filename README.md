@@ -20,6 +20,16 @@ npm install -g xpm@latest
 
 It must be 0.7.1 or later.
 
+### Start with a clean slate
+
+Please note that this will also remove all local repositories clones;
+if you contributed code to them, be sure you submit Pull Request, and
+do not deleate them yet.
+
+```sh
+rm -rf "${HOME}/Work/xpack-study-projects.git"
+```
+
 ### Clone the GitHub repo
 
 ```sh
