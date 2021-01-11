@@ -10,8 +10,8 @@
     <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.enableSemihosting" value="true"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbClientOtherCommands" value="set mem inaccessible-by-default off"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbClientOtherOptions" value=""/>
-    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerBoardName" value="STM32F0-Discovery"/>
-    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerDeviceName" value=""/>
+    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerBoardName" value="STM32F4-Discovery"/>
+    <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerDeviceName" value="STM32F407VG"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerExecutable" value="${qemu_path}/${qemu_executable}"/>
     <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerGdbPortNumber" value="1234"/>
     <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.qemu.gdbServerOther" value="-d unimp,guest_errors"/>
@@ -43,10 +43,10 @@
     <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
     <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
     <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="build-stm32f0discovery-debug/blinky-no-rtos.elf"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="build-stm32f4discovery-debug/blinky-no-rtos.elf"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="blinky-no-rtos"/>
-    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.285526606"/>
+    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
         <listEntry value="/blinky-no-rtos"/>
     </listAttribute>
