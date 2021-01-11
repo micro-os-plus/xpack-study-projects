@@ -33,9 +33,6 @@
 
 // #include "sysclock.h"
 
-using namespace os;
-using namespace os::rtos;
-
 // ----------------------------------------------------------------------------
 
 void __attribute__ ((section(".after_vectors")))
