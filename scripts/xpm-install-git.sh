@@ -68,6 +68,7 @@ function xpm-install-git()
   xpm-install-git "architecture-cortexm-xpack" 
   xpm-install-git "architecture-posix-xpack" 
   xpm-install-git "architecture-riscv-xpack" 
+  xpm-install-git "cmsis-os-xpack" 
   xpm-install-git "devices-sifive-xpack" 
   xpm-install-git "devices-stm32f0-xpack" 
   xpm-install-git "devices-stm32f4-xpack" 

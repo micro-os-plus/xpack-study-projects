@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @sifive/devices @micro-os-plus/libs-cpp-estd @micro-os-plus/memory-allocators @micro-os-plus/posix-io @micro-os-plus/utils-lists xpm link @micro-os-plus/rtos @micro-os-plus/version @micro-os-plus/architecture-posix",
+    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @sifive/devices @micro-os-plus/libs-cpp-estd @micro-os-plus/memory-allocators @micro-os-plus/posix-io @micro-os-plus/utils-lists xpm link @micro-os-plus/rtos @micro-os-plus/version @micro-os-plus/architecture-posix @micro-os-plus/cmsis-os",
     "stm32f4discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-debug-cmake",
     "stm32f4discovery-release-cmake-prepare": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-release-cmake",
     "stm32f4discovery-debug-cmake-build": "cmake --build build/stm32f4discovery-debug-cmake",
