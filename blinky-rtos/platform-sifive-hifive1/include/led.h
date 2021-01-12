@@ -41,18 +41,8 @@
 
 // ----------------------------------------------------------------------------
 
-#if defined(STM32F4)
-typedef GPIO_TypeDef led_gpio_t;
-typedef uint16_t led_maks_t;
-#elif defined (STM32F051x8)
-typedef GPIO_TypeDef led_gpio_t;
-typedef uint16_t led_maks_t;
-#elif defined (SIFIVE_FE310)
 typedef sifive_fe310_gpio_t led_gpio_t;
 typedef uint32_t led_maks_t;
-#else
-#error "Unsupported device"
-#endif
 
 // ----------------------------------------------------------------------------
 
