@@ -81,6 +81,7 @@ function xpm-install-git()
   xpm-install-git "semihosting-xpack" 
   xpm-install-git "startup-xpack" 
   xpm-install-git "utils-lists-xpack" 
+  xpm-install-git "version-xpack" 
 )
 
 (
