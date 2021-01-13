@@ -52,11 +52,11 @@ extern "C"
 {
 #endif /* defined(__cplusplus) */
 
-// --------------------------------------------------------------------------
-// Board support functions in C.
+  // --------------------------------------------------------------------------
+  // Board support functions in C.
 
-// TODO: add functions.
-// Prefix them with `riscv_board_`.
+  // TODO: add functions.
+  // Prefix them with `riscv_board_`.
 
 #if defined(__cplusplus)
 }
@@ -68,14 +68,14 @@ extern "C"
 
 namespace riscv
 {
-  namespace board
-  {
-  // ------------------------------------------------------------------------
-  // Board support functions in C++.
+namespace board
+{
+// ------------------------------------------------------------------------
+// Board support functions in C++.
 
-  // TODO: add functions.
+// TODO: add functions.
 
-  } /* namespace board */
+} /* namespace board */
 // ----------------------------------------------------------------------------
 } /* namespace riscv */
 

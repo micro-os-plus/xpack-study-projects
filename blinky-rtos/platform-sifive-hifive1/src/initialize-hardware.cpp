@@ -45,7 +45,7 @@ os_startup_initialize_hardware_early (void)
   riscv::csr::mie (0);
 
   // Set the trap assembly handler.
-  riscv::csr::mtvec ((riscv::arch::register_t) riscv_trap_entry);
+  riscv::csr::mtvec ((riscv::arch::register_t)riscv_trap_entry);
 
   // TODO: add support for the PRCI peripheral and use it.
 
@@ -53,8 +53,8 @@ os_startup_initialize_hardware_early (void)
   // Make sure the HFROSC is on before the next line:
   PRCI->hfrosccfg |= SIFIVE_FE310_PRCI_HFROSCCFG_EN;
   // Run off 16 MHz Crystal for accuracy.
-  PRCI->pllcfg |= (SIFIVE_FE310_PRCI_PLLCFG_REFSEL
-          | SIFIVE_FE310_PRCI_PLLCFG_BYPASS 
+  PRCI->pllcfg
+      |= (SIFIVE_FE310_PRCI_PLLCFG_REFSEL | SIFIVE_FE310_PRCI_PLLCFG_BYPASS
           | SIFIVE_FE310_PRCI_PLLCFG_SEL);
   // Turn off HFROSC to save power
   PRCI->hfrosccfg &= ~(SIFIVE_FE310_PRCI_HFROSCCFG_EN);

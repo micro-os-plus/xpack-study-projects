@@ -27,15 +27,14 @@
 
 #include <micro-os-plus/rtos/os.h>
 
-#include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
+#include <micro-os-plus/platform.h>
 
 // #include "sysclock.h"
 #include "led.h"
 
 #include <stdint.h>
 #include <stdio.h>
-
 
 // ----------------------------------------------------------------------------
 //
@@ -52,35 +51,34 @@ using namespace os::rtos;
 // Definitions visible only within this translation unit.
 namespace
 {
-  // ----- Timing definitions -------------------------------------------------
+// ----- Timing definitions -------------------------------------------------
 
-  // Keep the LED on for 3/4 of a second.
-  constexpr clock::duration_t BLINK_ON_TICKS = sysclock.frequency_hz * 3 / 4;
-  constexpr clock::duration_t BLINK_OFF_TICKS = sysclock.frequency_hz
-      - BLINK_ON_TICKS;
+// Keep the LED on for 3/4 of a second.
+constexpr clock::duration_t BLINK_ON_TICKS = sysclock.frequency_hz * 3 / 4;
+constexpr clock::duration_t BLINK_OFF_TICKS
+    = sysclock.frequency_hz - BLINK_ON_TICKS;
 }
 
 // Instantiate a static array of led objects.
-led blink_leds[] =
-  {
+led blink_leds[] = {
 #if defined(PLATFORM_STM32F4DISCOVERY)
-// Specific to STM32F4DISCOVERY.
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_ORANGE, BLINK_ACTIVE_HIGH },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_HIGH },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
+  // Specific to STM32F4DISCOVERY.
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_ORANGE, BLINK_ACTIVE_HIGH },
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_HIGH },
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
 #elif defined(PLATFORM_STM32F0DISCOVERY)
-// Specific to STM32F0DISCOVERY.
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
-    { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
+  // Specific to STM32F0DISCOVERY.
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
+  { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_BLUE, BLINK_ACTIVE_HIGH },
 #elif defined(PLATFORM_SIFIVE_HIFIVE1)
-    { BLINK_PORT_NUMBER, RED_LED_OFFSET, BLINK_ACTIVE_LOW },
-    { BLINK_PORT_NUMBER, GREEN_LED_OFFSET, BLINK_ACTIVE_LOW },
-    { BLINK_PORT_NUMBER, BLUE_LED_OFFSET, BLINK_ACTIVE_LOW },
+  { BLINK_PORT_NUMBER, RED_LED_OFFSET, BLINK_ACTIVE_LOW },
+  { BLINK_PORT_NUMBER, GREEN_LED_OFFSET, BLINK_ACTIVE_LOW },
+  { BLINK_PORT_NUMBER, BLUE_LED_OFFSET, BLINK_ACTIVE_LOW },
 #else
 #error "No platform definition."
 #endif
-  };
+};
 
 // ----------------------------------------------------------------------------
 
@@ -94,7 +92,7 @@ bool button_released = false;
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 
 int
-os_main (int argc, char *argv[])
+os_main (int argc, char* argv[])
 {
   // Send a greeting to the trace device (skipped on Release).
   trace::puts ("Hello World!");
@@ -111,19 +109,19 @@ os_main (int argc, char *argv[])
   trace::printf ("System clock: %u Hz\n", SystemCoreClock);
 #elif defined(__riscv)
   trace::printf ("System clock: %u Hz\n",
-                     riscv::core::running_frequency_hz ());
+                 riscv::core::running_frequency_hz ());
 #else
 #error "Unsupported architecture."
 #endif
   // Power up all LEDs.
-  for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+  for (size_t i = 0; i < (sizeof (blink_leds) / sizeof (blink_leds[0])); ++i)
     {
       blink_leds[i].power_up ();
     }
 
   uint32_t seconds = 0;
 
-#define LOOP_COUNT (1 << (sizeof(blink_leds) / sizeof(blink_leds[0])))
+#define LOOP_COUNT (1 << (sizeof (blink_leds) / sizeof (blink_leds[0])))
 
   int loops = LOOP_COUNT > 2 ? LOOP_COUNT : (5);
   if (argc > 1)
@@ -134,7 +132,7 @@ os_main (int argc, char *argv[])
     }
 
   // Turn on all LEDs.
-  for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+  for (size_t i = 0; i < (sizeof (blink_leds) / sizeof (blink_leds[0])); ++i)
     {
       blink_leds[i].turn_on ();
     }
@@ -143,7 +141,7 @@ os_main (int argc, char *argv[])
   sysclock.sleep_for (sysclock.frequency_hz);
 
   // Turn off all LEDs.
-  for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+  for (size_t i = 0; i < (sizeof (blink_leds) / sizeof (blink_leds[0])); ++i)
     {
       blink_leds[i].turn_off ();
     }
@@ -153,9 +151,10 @@ os_main (int argc, char *argv[])
   ++seconds;
   trace::printf ("Second %u\n", seconds);
 
-  if (sizeof(blink_leds) / sizeof(blink_leds[0]) > 1)
+  if (sizeof (blink_leds) / sizeof (blink_leds[0]) > 1)
     {
-      for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+      for (size_t i = 0; i < (sizeof (blink_leds) / sizeof (blink_leds[0]));
+           ++i)
         {
           // Blink individual LEDs.
           blink_leds[i].turn_on ();
@@ -171,11 +170,12 @@ os_main (int argc, char *argv[])
       // Blink lEDs in binary code.
       for (int loop = 0; loop < loops; ++loop)
         {
-          for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+          for (size_t i = 0;
+               i < (sizeof (blink_leds) / sizeof (blink_leds[0])); ++i)
             {
-              blink_leds[i].toggle();
+              blink_leds[i].toggle ();
 
-              if (blink_leds[i].is_on())
+              if (blink_leds[i].is_on ())
                 {
                   break;
                 }
@@ -206,7 +206,6 @@ os_main (int argc, char *argv[])
           ++seconds;
           trace::printf ("Second %u\n", seconds);
         }
-
     }
 
 #if 0
@@ -250,7 +249,7 @@ os_main (int argc, char *argv[])
         {
           // Advance to next LED.
           ++count;
-          if (count >= (sizeof(blink_leds) / sizeof(blink_leds[0])))
+          if (count >= (sizeof (blink_leds) / sizeof (blink_leds[0])))
             {
               count = 0;
             }
@@ -276,7 +275,7 @@ os_main (int argc, char *argv[])
         }
     }
 
-  for (size_t i = 0; i < (sizeof(blink_leds) / sizeof(blink_leds[0])); ++i)
+  for (size_t i = 0; i < (sizeof (blink_leds) / sizeof (blink_leds[0])); ++i)
     {
       blink_leds[i].turn_on ();
     }

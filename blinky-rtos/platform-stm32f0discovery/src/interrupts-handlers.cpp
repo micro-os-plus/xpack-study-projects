@@ -31,19 +31,18 @@
 
 #include <micro-os-plus/rtos/os.h>
 
-#include <micro-os-plus/platform.h>
 #include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 #include <micro-os-plus/diag/trace.h>
+#include <micro-os-plus/platform.h>
 
 // #include "sysclock.h"
 
 // ----------------------------------------------------------------------------
 
-void __attribute__ ((section(".after_vectors")))
-SysTick_Handler (void)
+void __attribute__ ((section (".after_vectors"))) SysTick_Handler (void)
 {
-  HAL_IncTick();
-  HAL_SYSTICK_IRQHandler();
+  HAL_IncTick ();
+  HAL_SYSTICK_IRQHandler ();
 
   os_systick_handler ();
   // sysclock.internal_increment_count();

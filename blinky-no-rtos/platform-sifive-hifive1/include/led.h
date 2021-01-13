@@ -36,8 +36,8 @@
 
 // ----------------------------------------------------------------------------
 
-#define BLINK_ACTIVE_LOW          (true)
-#define BLINK_ACTIVE_HIGH         (false)
+#define BLINK_ACTIVE_LOW (true)
+#define BLINK_ACTIVE_HIGH (false)
 
 // ----------------------------------------------------------------------------
 
@@ -57,20 +57,15 @@ class led
 public:
   led (unsigned int port, unsigned int bit, bool active_low);
 
-  void
-  power_up ();
+  void power_up ();
 
-  void
-  turn_on ();
+  void turn_on ();
 
-  void
-  turn_off ();
+  void turn_off ();
 
-  void
-  toggle ();
+  void toggle ();
 
-  bool
-  is_on ();
+  bool is_on ();
 
 private:
   led_gpio_t* gpio_ptr_;

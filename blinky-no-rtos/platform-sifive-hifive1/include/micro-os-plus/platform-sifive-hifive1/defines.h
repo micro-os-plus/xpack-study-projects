@@ -46,15 +46,15 @@
  * GPIO Connections
  *****************************************************************************/
 
-#define BLINK_PORT_NUMBER         (0)
+#define BLINK_PORT_NUMBER (0)
 
 // These are the GPIO bit offsets for the RGB LED on HiFive1 Board.
 // These are also mapped to RGB LEDs on the Freedom E300 Arty
 // FPGA Dev Kit.
 // The LEDs are active low.
-#define RED_LED_OFFSET   22
+#define RED_LED_OFFSET 22
 #define GREEN_LED_OFFSET 19
-#define BLUE_LED_OFFSET  21
+#define BLUE_LED_OFFSET 21
 
 // These are the GPIO bit offsets for the different digital pins
 // on the headers for both the HiFive1 Board and the Freedom E300
@@ -82,20 +82,20 @@
 
 // These are *PIN* numbers, not
 // GPIO Offset Numbers.
-#define PIN_SPI1_SCK    (13u)
-#define PIN_SPI1_MISO   (12u)
-#define PIN_SPI1_MOSI   (11u)
-#define PIN_SPI1_SS0    (10u)
-#define PIN_SPI1_SS1    (14u)
-#define PIN_SPI1_SS2    (15u)
-#define PIN_SPI1_SS3    (16u)
+#define PIN_SPI1_SCK (13u)
+#define PIN_SPI1_MISO (12u)
+#define PIN_SPI1_MOSI (11u)
+#define PIN_SPI1_SS0 (10u)
+#define PIN_SPI1_SS1 (14u)
+#define PIN_SPI1_SS2 (15u)
+#define PIN_SPI1_SS3 (16u)
 
-#define SS_PIN_TO_CS_ID(x) \
-  ((x==PIN_SPI1_SS0 ? 0 :		 \
-    (x==PIN_SPI1_SS1 ? 1 :		 \
-     (x==PIN_SPI1_SS2 ? 2 :		 \
-      (x==PIN_SPI1_SS3 ? 3 :		 \
-       -1)))))
+#define SS_PIN_TO_CS_ID(x)                                                    \
+  ((x == PIN_SPI1_SS0                                                         \
+        ? 0                                                                   \
+        : (x == PIN_SPI1_SS1                                                  \
+               ? 1                                                            \
+               : (x == PIN_SPI1_SS2 ? 2 : (x == PIN_SPI1_SS3 ? 3 : -1)))))
 
 #define HAS_HFXOSC 1
 #define HAS_LFROSC_BYPASS 1
@@ -104,9 +104,10 @@
 // The HiFive1 board does not have a dedicated user button,
 // but the WAKE button can be connected with an external wire
 // to GPIO18. The button is active low.
-#define BUTTON_0_OFFSET  18
+#define BUTTON_0_OFFSET 18
 
-#define INT_DEVICE_BUTTON_0 (sifive_fe310_interrupt_global_gpio0 + BUTTON_0_OFFSET)
+#define INT_DEVICE_BUTTON_0                                                   \
+  (sifive_fe310_interrupt_global_gpio0 + BUTTON_0_OFFSET)
 
 // ----------------------------------------------------------------------------
 

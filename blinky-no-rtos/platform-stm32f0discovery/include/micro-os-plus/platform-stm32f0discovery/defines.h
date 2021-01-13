@@ -25,7 +25,6 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #ifndef MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
 #define MICRO_OS_PLUS_PLATFORM_STM32F4DISCOVERY_DEFINES_H_
 
@@ -35,9 +34,9 @@
 
 // On the STM32F0-Discovery board, the coloured LEDs are
 // connected to PC8-PC9, active high.
-#define BLINK_PORT_NUMBER         (2)
-#define BLINK_PIN_NUMBER_GREEN    (9)
-#define BLINK_PIN_NUMBER_BLUE     (8)
+#define BLINK_PORT_NUMBER (2)
+#define BLINK_PIN_NUMBER_GREEN (9)
+#define BLINK_PIN_NUMBER_BLUE (8)
 
 // ----------------------------------------------------------------------------
 

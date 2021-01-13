@@ -29,9 +29,9 @@
 
 // ----------------------------------------------------------------------------
 
-#include <micro-os-plus/platform.h>
 #include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 #include <micro-os-plus/diag/trace.h>
+#include <micro-os-plus/platform.h>
 
 #include "sysclock.h"
 
@@ -39,11 +39,10 @@ using namespace os;
 
 // ----------------------------------------------------------------------------
 
-void __attribute__ ((section(".after_vectors")))
-SysTick_Handler (void)
+void __attribute__ ((section (".after_vectors"))) SysTick_Handler (void)
 {
-  os::sysclock.internal_increment_count();
-  HAL_IncTick();
+  os::sysclock.internal_increment_count ();
+  HAL_IncTick ();
 }
 
 // ----------------------------------------------------------------------------
