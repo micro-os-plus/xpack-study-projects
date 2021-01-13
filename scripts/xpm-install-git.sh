@@ -77,6 +77,8 @@ function xpm-install-git()
   xpm-install-git "libs-cpp-estd-xpack" 
   xpm-install-git "libs-cpp-xpack" 
   xpm-install-git "memory-allocators-xpack" 
+  xpm-install-git "platform-sifive-hifive1-xpack"
+  xpm-install-git "platform-sifive-arty-xpack"
   xpm-install-git "posix-io-xpack" 
   xpm-install-git "rtos-xpack" 
   xpm-install-git "semihosting-xpack" 
