@@ -28,7 +28,7 @@
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
 
-#include "sysclock.h"
+// #include "sysclock.h"
 
 using namespace os;
 
@@ -88,6 +88,7 @@ namespace riscv
       // not produce accurate results at very high values.
       // The variable duration will add an occasional jitter of the
       // system clock, but this should not be a problem.
+#if 0
       do
         {
           sysclock.internal_increment_count ();
@@ -95,6 +96,7 @@ namespace riscv
               / sysclock.frequency_hz;
         }
       while (cmp <= tim);
+#endif
 
       // The interrupt remains posted until it is cleared by writing
       // the mtimecmp register.
