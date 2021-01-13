@@ -25,6 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#if defined(__ARM_EABI__)
+
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/startup/hooks.h>
 
@@ -73,5 +77,9 @@ os_startup_initialize_hardware (void)
 }
 
 #pragma GCC diagnostic pop
+
+// ----------------------------------------------------------------------------
+
+#endif /* defined(__ARM_EABI__) */
 
 // ----------------------------------------------------------------------------

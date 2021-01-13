@@ -25,6 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#if defined(__riscv)
+
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
 
@@ -147,5 +151,9 @@ namespace sifive
     } /* namespace interrupt */
   } /* namespace fe310 */
 } /* namespace sifive */
+
+// ----------------------------------------------------------------------------
+
+#endif /* __riscv */
 
 // ----------------------------------------------------------------------------

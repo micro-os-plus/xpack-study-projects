@@ -25,6 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#if defined(__riscv)
+
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/startup/hooks.h>
 
@@ -117,5 +121,9 @@ os_startup_initialize_hardware (void)
 }
 
 #pragma GCC diagnostic pop
+
+// ----------------------------------------------------------------------------
+
+#endif /* __riscv */
 
 // ----------------------------------------------------------------------------

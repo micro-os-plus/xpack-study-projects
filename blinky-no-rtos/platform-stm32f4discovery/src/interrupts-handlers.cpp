@@ -25,6 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#if defined(__ARM_EABI__)
+
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 #include <micro-os-plus/diag/trace.h>
@@ -41,5 +45,9 @@ SysTick_Handler (void)
   os::sysclock.internal_increment_count();
   HAL_IncTick();
 }
+
+// ----------------------------------------------------------------------------
+
+#endif /* defined(__ARM_EABI__) */
 
 // ----------------------------------------------------------------------------

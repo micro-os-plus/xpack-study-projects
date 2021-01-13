@@ -25,6 +25,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#if defined(__ARM_EABI__)
+
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/rtos/os.h>
 
 #include <micro-os-plus/platform.h>
@@ -44,5 +48,9 @@ SysTick_Handler (void)
   os_systick_handler ();
   // sysclock.internal_increment_count();
 }
+
+// ----------------------------------------------------------------------------
+
+#endif /* defined(__ARM_EABI__) */
 
 // ----------------------------------------------------------------------------
