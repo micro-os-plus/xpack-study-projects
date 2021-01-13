@@ -30,8 +30,8 @@
  * replacement for C++ applications.
  */
 
-#ifndef MICRO_OS_PLUS_RTOS_OS_APP_CONFIG_H_
-#define MICRO_OS_PLUS_RTOS_OS_APP_CONFIG_H_
+#ifndef MICRO_OS_PLUS_CONFIG_H_
+#define MICRO_OS_PLUS_CONFIG_H_
 
 // ----------------------------------------------------------------------------
 
@@ -116,4 +116,4 @@
 
 // ----------------------------------------------------------------------------
 
-#endif /* MICRO_OS_PLUS_RTOS_OS_APP_CONFIG_H_ */
+#endif /* MICRO_OS_PLUS_CONFIG_H_ */
