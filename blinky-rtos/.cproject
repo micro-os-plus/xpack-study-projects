@@ -348,14 +348,14 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-cmsis-os/src"/>
-						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f410tx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f401xc.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
+						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f401xc.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f410tx.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="startup/startup.cpp|startup/initialize-hardware.c|startup/exception-handlers.c|libcpp/cxx.cpp|driver|driver/usbh-wrapper.cpp|driver/usbd-wrapper.cpp|driver/usart-wrapper.cpp|semihosting" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup/startup.cpp|startup/exception-handlers.c|libcpp/cxx.cpp|semihosting|driver|driver/usbd-wrapper.cpp|startup/initialize-hardware.c|driver/usbh-wrapper.cpp|driver/usart-wrapper.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -724,14 +724,14 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f410tx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f401xc.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
+						<entry excluding="vectors/vectors_stm32f479xx.c|vectors/vectors_stm32f469xx.c|vectors/vectors_stm32f423xx.c|vectors/vectors_stm32f412zx.c|vectors/vectors_stm32f413xx.c|vectors/vectors_stm32f412vx.c|vectors/vectors_stm32f410rx.c|vectors/vectors_stm32f437xx.c|vectors/vectors_stm32f427xx.c|vectors/vectors_stm32f415xx.c|vectors/vectors_stm32f412rx.c|vectors/vectors_stm32f410cx.c|vectors/vectors_stm32f439xx.c|vectors/vectors_stm32f412cx.c|vectors/vectors_stm32f405xx.c|vectors/vectors_stm32f429xx.c|vectors/vectors_stm32f417xx.c|vectors/vectors_stm32f411xe.c|vectors/vectors_stm32f401xc.c|vectors/vectors_stm32f401xe.c|vectors/vectors_stm32f446xx.c|vectors/vectors_stm32f410tx.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f4/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup|libc" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -1020,16 +1020,16 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f072xb.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f030x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
+						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f030x6.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f072xb.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup|libc" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
-						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
+						<entry excluding="startup.cpp|exception-handlers.c|initialize-hardware.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -1328,16 +1328,16 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-cortexm/src"/>
-						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f072xb.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f030x6.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
+						<entry excluding="vectors/vectors_stm32f098xx.c|vectors/vectors_stm32f078xx.c|vectors/vectors_stm32f071xb.c|vectors/vectors_stm32f031x6.c|vectors/vectors_stm32f070x6.c|vectors/vectors_stm32f058xx.c|vectors/vectors_stm32f048xx.c|vectors/vectors_stm32f038xx.c|vectors/vectors_stm32f030xc.c|vectors/vectors_stm32f091xc.c|vectors/vectors_stm32f030x6.c|vectors/vectors_stm32f070xb.c|vectors/vectors_stm32f042x6.c|vectors/vectors_stm32f030x8.c|vectors/vectors_stm32f072xb.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-devices-stm32f0/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-c/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup|libc" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/libc"/>
-						<entry excluding="startup.cpp|initialize-hardware.c|exception-handlers.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
+						<entry excluding="startup.cpp|exception-handlers.c|initialize-hardware.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src/startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -1580,7 +1580,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup|libc" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -1799,7 +1799,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
-						<entry excluding="libc|startup" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry excluding="startup|libc" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-semihosting/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-startup/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
@@ -1810,6 +1810,244 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 			<storageModule moduleId="ilg.gnumcueclipse.managedbuild.packs"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809" moduleId="org.eclipse.cdt.core.settings" name="build-posix-release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.MachO64" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809" name="build-posix-release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.macosx.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.macosx.exe.debug.980328713" name="MacOSX GCC" superClass="cdt.managedbuild.toolchain.gnu.macosx.exe.debug">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.macosx.exe.debug.139331891" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.macosx.exe.debug"/>
+							<builder buildPath="${workspace_loc:/blinky-rtos}/build-posix-debug" id="cdt.managedbuild.target.gnu.builder.macosx.exe.debug.1134157973" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.macosx.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug.959811392" name="MacOS X C Linker" superClass="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug.141822954" name="MacOS X C++ Linker" superClass="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug">
+								<inputType id="cdt.managedbuild.tool.macosx.cpp.linker.input.2094448718" superClass="cdt.managedbuild.tool.macosx.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.macosx.exe.debug.1326787423" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.macosx.exe.debug">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.635771" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.291765174" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.macosx.base.960181837" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.macosx.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.1619064370" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug">
+								<option id="gnu.cpp.compilermacosx.exe.debug.option.optimization.level.1341310058" name="Optimization Level" superClass="gnu.cpp.compilermacosx.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.size" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level.1967472776" name="Debug Level" superClass="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1920646981" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
+									<listOptionValue builtIn="false" value="PLATFORM_SYNTHETIC_POSIX"/>
+									<listOptionValue builtIn="false" value="_XOPEN_SOURCE=700L"/>
+									<listOptionValue builtIn="false" value="NDEBUG"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1128429761" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.88938885" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++17" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.warnings.allwarn.1192449460" name="All warnings (-Wall)" superClass="gnu.cpp.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.other.1161044011" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -Wno-defaulted-function-deleted" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1081135903" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.1510559886" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.macosx.exe.debug.option.optimization.level.1505057112" name="Optimization Level" superClass="gnu.c.compiler.macosx.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.macosx.exe.debug.option.debugging.level.1470932714" name="Debug Level" superClass="gnu.c.compiler.macosx.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.2048453811" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
+									<listOptionValue builtIn="false" value="PLATFORM_SYNTHETIC_POSIX"/>
+									<listOptionValue builtIn="false" value="_XOPEN_SOURCE=700L"/>
+									<listOptionValue builtIn="false" value="NDEBUG"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2123875071" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.499042970" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.warnings.allwarn.1176557376" name="All warnings (-Wall)" superClass="gnu.c.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1990071908" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-synthetic-posix/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-synthetic-posix/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-cmsis-os/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.413230921">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.413230921" moduleId="org.eclipse.cdt.core.settings" name="build-posix-debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.MachO64" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.413230921" name="build-posix-debug" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.macosx.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.413230921." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.macosx.exe.debug.2038059932" name="MacOSX GCC" superClass="cdt.managedbuild.toolchain.gnu.macosx.exe.debug">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.macosx.exe.debug.1501280047" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.macosx.exe.debug"/>
+							<builder buildPath="${workspace_loc:/blinky-rtos}/build-posix-debug" id="cdt.managedbuild.target.gnu.builder.macosx.exe.debug.351774712" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.macosx.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug.1180885597" name="MacOS X C Linker" superClass="cdt.managedbuild.tool.macosx.c.linker.macosx.exe.debug"/>
+							<tool id="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug.783465855" name="MacOS X C++ Linker" superClass="cdt.managedbuild.tool.macosx.cpp.linker.macosx.exe.debug">
+								<inputType id="cdt.managedbuild.tool.macosx.cpp.linker.input.809845229" superClass="cdt.managedbuild.tool.macosx.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.macosx.exe.debug.740027583" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.macosx.exe.debug">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.415330418" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.683764578" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.macosx.base.605957537" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.macosx.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.1664806856" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug">
+								<option id="gnu.cpp.compilermacosx.exe.debug.option.optimization.level.1728644412" name="Optimization Level" superClass="gnu.cpp.compilermacosx.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level.1819738702" name="Debug Level" superClass="gnu.cpp.compiler.macosx.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.825892342" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="TRACE"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
+									<listOptionValue builtIn="false" value="OS_USE_TRACE_POSIX_STDOUT"/>
+									<listOptionValue builtIn="false" value="PLATFORM_SYNTHETIC_POSIX"/>
+									<listOptionValue builtIn="false" value="_XOPEN_SOURCE=700L"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1891423440" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.516530075" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++17" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.warnings.allwarn.1723156584" name="All warnings (-Wall)" superClass="gnu.cpp.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.other.678850528" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -Wno-defaulted-function-deleted" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1526320840" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.657853923" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.macosx.exe.debug.option.optimization.level.1922585759" name="Optimization Level" superClass="gnu.c.compiler.macosx.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.macosx.exe.debug.option.debugging.level.36409007" name="Debug Level" superClass="gnu.c.compiler.macosx.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.902774136" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="TRACE"/>
+									<listOptionValue builtIn="false" value="HAVE_MICRO_OS_PLUS_CONFIG_H"/>
+									<listOptionValue builtIn="false" value="OS_USE_TRACE_POSIX_STDOUT"/>
+									<listOptionValue builtIn="false" value="PLATFORM_SYNTHETIC_POSIX"/>
+									<listOptionValue builtIn="false" value="_XOPEN_SOURCE=700L"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2077610617" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-architecture-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-cmsis-os/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-diag-trace/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-memory-allocators/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-posix-io/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-rtos/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-utils-lists/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-version/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/platform-synthetic-posix/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp-estd/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/blinky-rtos/xpacks/micro-os-plus-libs-cpp/include}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.dialect.std.1443885588" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.warnings.allwarn.2004616748" name="All warnings (-Wall)" superClass="gnu.c.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2111153506" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="platform-synthetic-posix/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-architecture-synthetic-posix/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-cmsis-os/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-diag-trace/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp-estd/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-libs-cpp/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-memory-allocators/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-posix-io/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-rtos/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="xpacks/micro-os-plus-utils-lists/src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -1854,6 +2092,9 @@
 		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.1782029730;ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1090652180.1782029730.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.1997323856;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.52979242">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809;cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.;cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.1510559886;cdt.managedbuild.tool.gnu.c.compiler.input.1990071908">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449;ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.2003920871;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1196628432">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
@@ -1873,6 +2114,9 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449.1533284606;ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1862682449.1533284606.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.342286001;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1355192480">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809;cdt.managedbuild.config.gnu.macosx.exe.debug.2092385809.;cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.1619064370;cdt.managedbuild.tool.gnu.cpp.compiler.input.1081135903">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.debug.1773731658.1587726032.389011377;ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.debug.1773731658.1587726032.389011377.;ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.2040105713;ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.compiler.input.1076910446">

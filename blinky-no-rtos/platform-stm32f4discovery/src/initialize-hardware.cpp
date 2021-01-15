@@ -49,8 +49,10 @@ os_startup_initialize_hardware_early (void)
 
 extern "C"
 {
-  void SystemClock_Config(void);
-  void MX_GPIO_Init(void);
+  void
+  SystemClock_Config (void);
+  void
+  MX_GPIO_Init (void);
 }
 
 // Called before running the static constructors.
@@ -59,21 +61,21 @@ os_startup_initialize_hardware (void)
 {
   // Initialise the HAL Library; it must be the first function
   // to be executed before the call of any HAL function.
-  HAL_Init();
+  HAL_Init ();
 
   // Enable HSE Oscillator and activate PLL with HSE as source
-  SystemClock_Config();
+  SystemClock_Config ();
 
   // Call the CSMSIS system clock routine to store the clock frequency
   // in the SystemCoreClock global RAM location.
-  SystemCoreClockUpdate();
+  SystemCoreClockUpdate ();
 
   // Initialize all configured peripherals.
-  MX_GPIO_Init();
+  MX_GPIO_Init ();
 
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_Config (HAL_RCC_GetHCLKFreq () / 1000);
 
-  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+  HAL_SYSTICK_CLKSourceConfig (SYSTICK_CLKSOURCE_HCLK);
 }
 
 #pragma GCC diagnostic pop

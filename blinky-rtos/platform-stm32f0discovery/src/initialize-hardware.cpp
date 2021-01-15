@@ -49,8 +49,10 @@ os_startup_initialize_hardware_early (void)
 
 extern "C"
 {
-  void SystemClock_Config (void);
-  void MX_GPIO_Init (void);
+  void
+  SystemClock_Config (void);
+  void
+  MX_GPIO_Init (void);
 }
 
 // Called before running the static constructors.

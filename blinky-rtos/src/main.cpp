@@ -51,13 +51,13 @@ using namespace os::rtos;
 // Definitions visible only within this translation unit.
 namespace
 {
-// ----- Timing definitions -------------------------------------------------
+  // ----- Timing definitions -------------------------------------------------
 
-// Keep the LED on for 3/4 of a second.
-constexpr clock::duration_t BLINK_ON_TICKS = sysclock.frequency_hz * 3 / 4;
-constexpr clock::duration_t BLINK_OFF_TICKS
-    = sysclock.frequency_hz - BLINK_ON_TICKS;
-}
+  // Keep the LED on for 3/4 of a second.
+  constexpr clock::duration_t BLINK_ON_TICKS = sysclock.frequency_hz * 3 / 4;
+  constexpr clock::duration_t BLINK_OFF_TICKS
+      = sysclock.frequency_hz - BLINK_ON_TICKS;
+} // namespace
 
 // Instantiate a static array of led objects.
 led blink_leds[] = {

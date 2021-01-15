@@ -51,7 +51,8 @@
 // For freestanding applications this file is not used and can be safely
 // ignored.
 
-ssize_t _write (int fd, const char* buf, size_t nbyte);
+ssize_t
+_write (int fd, const char* buf, size_t nbyte);
 
 ssize_t
 _write (int fd __attribute__ ((unused)),

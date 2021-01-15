@@ -33,7 +33,10 @@
 // ----------------------------------------------------------------------------
 
 // Constructor. Not much to do.
-os::sysclock::sysclock (void) { ; }
+os::sysclock::sysclock (void)
+{
+  ;
+}
 
 void
 os::sysclock::sleep_for (duration_t duration)
@@ -52,8 +55,8 @@ os::sysclock::sleep_for (duration_t duration)
 
 namespace os
 {
-// Instantiate a static system clock object.
-class os::sysclock sysclock;
+  // Instantiate a static system clock object.
+  class os::sysclock sysclock;
 } // namespace os
 
 // ----------------------------------------------------------------------------

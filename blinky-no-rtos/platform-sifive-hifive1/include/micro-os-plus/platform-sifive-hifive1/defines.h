@@ -90,11 +90,11 @@
 #define PIN_SPI1_SS2 (15u)
 #define PIN_SPI1_SS3 (16u)
 
-#define SS_PIN_TO_CS_ID(x)                                                    \
-  ((x == PIN_SPI1_SS0                                                         \
-        ? 0                                                                   \
-        : (x == PIN_SPI1_SS1                                                  \
-               ? 1                                                            \
+#define SS_PIN_TO_CS_ID(x) \
+  ((x == PIN_SPI1_SS0 \
+        ? 0 \
+        : (x == PIN_SPI1_SS1 \
+               ? 1 \
                : (x == PIN_SPI1_SS2 ? 2 : (x == PIN_SPI1_SS3 ? 3 : -1)))))
 
 #define HAS_HFXOSC 1
@@ -106,7 +106,7 @@
 // to GPIO18. The button is active low.
 #define BUTTON_0_OFFSET 18
 
-#define INT_DEVICE_BUTTON_0                                                   \
+#define INT_DEVICE_BUTTON_0 \
   (sifive_fe310_interrupt_global_gpio0 + BUTTON_0_OFFSET)
 
 // ----------------------------------------------------------------------------

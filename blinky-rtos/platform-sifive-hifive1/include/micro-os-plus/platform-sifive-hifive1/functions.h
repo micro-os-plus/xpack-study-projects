@@ -68,15 +68,15 @@ extern "C"
 
 namespace riscv
 {
-namespace board
-{
-// ------------------------------------------------------------------------
-// Board support functions in C++.
+  namespace board
+  {
+    // ------------------------------------------------------------------------
+    // Board support functions in C++.
 
-// TODO: add functions.
+    // TODO: add functions.
 
-} /* namespace board */
-// ----------------------------------------------------------------------------
+  } /* namespace board */
+  // --------------------------------------------------------------------------
 } /* namespace riscv */
 
 #endif /* defined(__cplusplus) */

@@ -5,14 +5,22 @@ A multi-platform blinky project that runs with an RTOS.
 It has separate build configurations for:
 
 - **STM32F4DISCOVERY** (Cortex-M4)
+- **STM32F0DISCOVERY** (Cortex-M0)
+- **SiFive HiFive1** (RISC-V)
+- **Synthetic POSIX** (macOS/Linux)
 
 The project exercises multi-platform and multi-architecture builds.
 
 There are separate debug/release Eclipse build configurations for each
-platform.
+platform; all build are successful.
 
-The STM32F4DISCOVERY is also functional and runs fine on QEMU.
+The STM32F4DISCOVERY is functional and runs fine on QEMU.
 
+The STM32F0DISCOVERY is also functional and runs fine on the physical board
+(QEMU has a bug and hangs).
+
+The Synthetic POSIX runs on macOS, and possibly on Linux.
+ 
 ## How to test
 
 Follow the steps in the ../README.md file.

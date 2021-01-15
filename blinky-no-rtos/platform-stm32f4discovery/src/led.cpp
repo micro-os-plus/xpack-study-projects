@@ -34,34 +34,35 @@
 
 // ----------------------------------------------------------------------------
 
-#define BLINK_GPIOx(_N)       ((GPIO_TypeDef *)(GPIOA_BASE + (GPIOB_BASE-GPIOA_BASE)*(_N)))
-#define BLINK_PIN_MASK(_N)    (1 << (_N))
-#define BLINK_RCC_MASKx(_N)   (RCC_AHB1ENR_GPIOAEN << (_N))
+#define BLINK_GPIOx(_N) \
+  ((GPIO_TypeDef*)(GPIOA_BASE + (GPIOB_BASE - GPIOA_BASE) * (_N)))
+#define BLINK_PIN_MASK(_N) (1 << (_N))
+#define BLINK_RCC_MASKx(_N) (RCC_AHB1ENR_GPIOAEN << (_N))
 
 // ----------------------------------------------------------------------------
 
 led::led (unsigned int port, unsigned int bit, bool active_low)
 {
-  port_number_ = (uint16_t) port;
-  bit_number_ = (uint16_t) bit;
-  bit_mask_ = (uint16_t) BLINK_PIN_MASK(bit);
+  port_number_ = (uint16_t)port;
+  bit_number_ = (uint16_t)bit;
+  bit_mask_ = (uint16_t)BLINK_PIN_MASK (bit);
   is_active_low_ = active_low;
 
-  gpio_ptr_ = BLINK_GPIOx(port_number_);
+  gpio_ptr_ = BLINK_GPIOx (port_number_);
 }
 
 void
 led::power_up ()
 {
-  RCC->AHB1ENR |= BLINK_RCC_MASKx(port_number_);
+  RCC->AHB1ENR |= BLINK_RCC_MASKx (port_number_);
 
-  GPIO_InitTypeDef  GPIO_InitStruct;
+  GPIO_InitTypeDef GPIO_InitStruct;
   GPIO_InitStruct.Pin = bit_mask_;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
 
-  HAL_GPIO_Init(BLINK_GPIOx(port_number_), &GPIO_InitStruct);
+  HAL_GPIO_Init (BLINK_GPIOx (port_number_), &GPIO_InitStruct);
 
   // Start with led turned off
   turn_off ();
@@ -72,25 +73,27 @@ led::power_up ()
 void
 led::turn_on ()
 {
-  HAL_GPIO_WritePin(gpio_ptr_, bit_mask_, is_active_low_ ? GPIO_PIN_RESET : GPIO_PIN_SET);
+  HAL_GPIO_WritePin (gpio_ptr_, bit_mask_,
+                     is_active_low_ ? GPIO_PIN_RESET : GPIO_PIN_SET);
 }
 
 void
 led::turn_off ()
 {
-  HAL_GPIO_WritePin(gpio_ptr_, bit_mask_, is_active_low_ ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  HAL_GPIO_WritePin (gpio_ptr_, bit_mask_,
+                     is_active_low_ ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
 void
 led::toggle ()
 {
-  HAL_GPIO_TogglePin(gpio_ptr_, bit_mask_);
+  HAL_GPIO_TogglePin (gpio_ptr_, bit_mask_);
 }
 
 bool
 led::is_on ()
 {
-  GPIO_PinState state = HAL_GPIO_ReadPin(gpio_ptr_, bit_mask_);
+  GPIO_PinState state = HAL_GPIO_ReadPin (gpio_ptr_, bit_mask_);
   if (is_active_low_)
     {
       return state == GPIO_PIN_RESET;
@@ -106,4 +109,3 @@ led::is_on ()
 #endif /* defined(__ARM_EABI__) */
 
 // ----------------------------------------------------------------------------
-
