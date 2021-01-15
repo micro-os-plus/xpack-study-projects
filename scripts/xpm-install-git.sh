@@ -66,7 +66,7 @@ function xpm-install-git()
   cd "${dest}"
 
   xpm-install-git "architecture-cortexm-xpack" 
-  xpm-install-git "architecture-posix-xpack" 
+  xpm-install-git "architecture-synthetic-posix-xpack" 
   xpm-install-git "architecture-riscv-xpack" 
   xpm-install-git "cmsis-os-xpack" 
   xpm-install-git "devices-sifive-xpack" 

@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @xpack-sifive/devices @xpack-sifive/platform-hifive1 @micro-os-plus/version",
+    "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @micro-os-plus/architecture-synthetic-posix @xpack-sifive/devices @xpack-sifive/platform-hifive1 @micro-os-plus/version",
     "stm32f4discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-debug-cmake",
     "stm32f4discovery-release-cmake-prepare": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-release-cmake",
     "stm32f4discovery-debug-cmake-build": "cmake --build build/stm32f4discovery-debug-cmake",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/<user-id>/test-xpack-projects.git"
   },
   "bugs": {
-    "url": "https://github.com/<user-id>/test-xpack-projects/issues"
+    "url": "https://github.com/<user-id>/test-xpack-projects/issues/"
   },
   "homepage": "https://github.com/<user-id>/test-xpack-projects",
   "keywords": [
@@ -29,7 +29,7 @@
   "author": {
     "name": "Liviu Ionescu",
     "email": "ilg@livius.net",
-    "url": "https://github.com/ilg-ul"
+    "url": "https://github.com/ilg-ul/"
   },
   "license": "MIT",
   "config": {},

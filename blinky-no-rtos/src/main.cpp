@@ -72,6 +72,9 @@ led blink_leds[] = {
   { BLINK_PORT_NUMBER, RED_LED_OFFSET, BLINK_ACTIVE_LOW },
   { BLINK_PORT_NUMBER, GREEN_LED_OFFSET, BLINK_ACTIVE_LOW },
   { BLINK_PORT_NUMBER, BLUE_LED_OFFSET, BLINK_ACTIVE_LOW },
+#elif defined(PLATFORM_SYNTHETIC_POSIX)
+  { "red" },
+  { "green" },
 #else
 #error "No platform definition."
 #endif
@@ -107,6 +110,8 @@ main (int argc, char* argv[])
 #elif defined(__riscv)
   trace::printf ("System clock: %u Hz\n",
                  riscv::core::running_frequency_hz ());
+#elif defined(__APPLE__) || defined(__linux__) || defined(__unix__)
+  //
 #else
 #error "Unsupported architecture."
 #endif

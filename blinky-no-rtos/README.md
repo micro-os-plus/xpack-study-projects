@@ -7,6 +7,7 @@ It has separate build configurations for:
 - **STM32F4DISCOVERY** (Cortex-M4)
 - **STM32F0DISCOVERY** (Cortex-M0)
 - **SiFive HiFive1** (RISC-V)
+- **Synthetic POSIX** (macOS/Linux)
 
 The project exercises multi-platform and multi-architecture builds.
 
@@ -15,9 +16,13 @@ platform.
 
 The STM32F4DISCOVERY is also functional and runs fine on QEMU.
 
+The STM32F0DISCOVERY is also functional and runs fine on the physical board
+(QEMU has a bug and hangs).
+
 The other two need more work.
 
 ## How to test
+
 Follow the steps in the ../README.md file.
 
 ### Import projects & build
