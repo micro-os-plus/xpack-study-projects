@@ -10,9 +10,16 @@ and one using the RTOS.
 
 ## How to test
 
+### Prerequisites
+
+For the moment these test are available only on macOS and GNU/Linux.
+
+If you don't have the xPack tools on your machine, follow the steps in the
+[prerequisites](https://xpack.github.io/install/) page.
+
 ### Update xpm
 
-Be sure you use the most recent xpm.
+If you already have xpm installed, be sure you use the most recent version.
 
 ```sh
 npm install -g xpm@latest
@@ -22,9 +29,11 @@ It must be 0.7.1 or later.
 
 ### Start with a clean slate
 
-Please note that this will also remove all local repositories clones;
-if you contributed code to them, be sure you submit Pull Request, and
-do not deleate them yet.
+Please note that this will also remove the local repositories clones
+installed in a previous run;
+if you contributed code to these local repos,
+be sure you first submit Pull Requests, and
+do not delete them yet.
 
 ```sh
 rm -rf "${HOME}/Work/xpack-study-projects.git"
