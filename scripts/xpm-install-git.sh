@@ -61,7 +61,7 @@ function xpm-install-git()
 
 
 (
-  dest="${script_folder_path}/../xpacks"
+  dest="${script_folder_path}/../xpack-repos"
   mkdir -p "${dest}"
   cd "${dest}"
 
