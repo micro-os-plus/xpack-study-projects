@@ -37,10 +37,18 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 if(BUILD_CONFIG STREQUAL "stm32f4discovery-debug-cmake")
   set(CMAKE_BUILD_TYPE Debug)
+  include("platform-stm32f4discovery/meta/xpack-target.cmake")
 elseif(BUILD_CONFIG STREQUAL "stm32f4discovery-release-cmake")
   set(CMAKE_BUILD_TYPE Release)
+  include("platform-stm32f4discovery/meta/xpack-target.cmake")
+elseif(BUILD_CONFIG STREQUAL "stm32f0discovery-debug-cmake")
+  set(CMAKE_BUILD_TYPE Debug)
+  include("platform-stm32f0discovery/meta/xpack-target.cmake")
+elseif(BUILD_CONFIG STREQUAL "stm32f0discovery-release-cmake")
+  set(CMAKE_BUILD_TYPE Release)
+  include("platform-stm32f0discovery/meta/xpack-target.cmake")
 else()
-	message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
+  message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
 endif()
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
@@ -54,33 +62,6 @@ target_sources(
     src/main.cpp
     src/_write.c
 
-    platform-stm32f4discovery/src/initialize-hardware.cpp
-    platform-stm32f4discovery/src/interrupts-handlers.cpp
-    platform-stm32f4discovery/src/led.cpp
-
-    platform-stm32f4discovery/stm32cubemx/Core/Src/main.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/gpio.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/stm32f4xx_it.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/main.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/system_stm32f4xx.c
-
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
-
     xpacks/micro-os-plus-architecture-cortexm/src/diag/trace-itm.cpp
     xpacks/micro-os-plus-architecture-cortexm/src/diag/trace-segger-rtt.cpp
     xpacks/micro-os-plus-architecture-cortexm/src/rtos/port/os-core.cpp
@@ -91,7 +72,6 @@ target_sources(
 
     xpacks/micro-os-plus-cmsis-os/src/cmsis-os-c-wrapper.cpp
     
-    xpacks/micro-os-plus-devices-stm32f4/src/vectors/vectors_stm32f407xx.c
 
     xpacks/micro-os-plus-diag-trace/src/trace.cpp
 
@@ -169,17 +149,10 @@ target_include_directories(
   
     include
 
-    platform-stm32f4discovery/include
-    platform-stm32f4discovery/stm32cubemx/Core/Inc
-    platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include
-    platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
-
     xpacks/micro-os-plus-architecture-cortexm/include
 
     xpacks/micro-os-plus-cmsis-os/include
 
-    xpacks/micro-os-plus-devices-stm32f4/include
 
     xpacks/micro-os-plus-diag-trace/include
 
@@ -207,110 +180,54 @@ target_include_directories(
 
 # -----------------------------------------------------------------------------
 
-set(cpu_cortex_m4 
-  -mcpu=cortex-m4
-  -mthumb
-  -mfloat-abi=soft
-)
-
-set(common_options
-    -fmessage-length=0
-    -fsigned-char
-    -ffunction-sections
-    -fdata-sections
-    -fno-move-loop-invariants
-
-    $<$<COMPILE_LANGUAGE:C>:-std=c11>
-    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
-    
-    $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-)
-
-
-target_compile_options(
-  xpack-target
-  PRIVATE
-  
-    ${cpu_cortex_m4}
-)
-
-target_compile_options(
-  xpack-target
-  PRIVATE
-  
-    # -Wunused
-    # -Wuninitialized
-    # -Wall
-    # -Wextra
-    # -Wconversion
-    # -Wpointer-arith
-    # -Wshadow
-    # -Wlogical-op
-    # -Wfloat-equal
-
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+set(project_compile_definitions 
+  HAVE_MICRO_OS_PLUS_CONFIG_H
 )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-	target_compile_options(
-	  xpack-target
-	  PRIVATE
-	  
-	    -g3
-	    -O0
-	)
+  list(APPEND project_compile_definitions
+    DEBUG
+    TRACE
+  )
 elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-	target_compile_options(
-	  xpack-target
-	  PRIVATE
-	  
-	    -g
-	    -Os
-	)
-endif()
-
-target_compile_options(
-  xpack-target
-  PRIVATE
-  
-    ${common_options}
-)
-
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-	target_compile_definitions(
-	  xpack-target
-	  PRIVATE
-	  
-	    DEBUG
-	    TRACE
-	    OS_USE_TRACE_SEMIHOSTING_DEBUG
-	)
-elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-	target_compile_definitions(
-	  xpack-target
-	  PRIVATE
-	  
-	    NDEBUG
-	)
+  list(APPEND project_compile_definitions
+    NDEBUG
+  )
 endif()
 
 target_compile_definitions(
   xpack-target
   PRIVATE
   
-    STM32F407xx
-    USE_HAL_DRIVER
-    PLATFORM_STM32F4DISCOVERY
-    STM32F4
-    OS_USE_SEMIHOSTING_SYSCALLS
+    ${project_compile_definitions}
+)
+
+# -----------------------------------------------------------------------------
+
+set(project_common_options
+    $<$<COMPILE_LANGUAGE:C>:-std=c11>
+    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
+)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  list(APPEND project_common_options
+       -O0
+       -g3
+  )
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+  list(APPEND project_common_options
+       -Os
+       -g
+  )
+endif()
+
+# -----------------------------------------------------------------------------
+
+target_compile_options(
+  xpack-target
+  PRIVATE
+  
+    ${project_common_options}
 )
 
 # -----------------------------------------------------------------------------
@@ -319,35 +236,7 @@ target_link_options(
   xpack-target
   PRIVATE
   
-    ${cpu_cortex_m4}
-)
-
-target_link_options(
-  xpack-target
-  PRIVATE
-  
-    -nostartfiles
-    -specs=nano.specs
-    -Xlinker --gc-sections
-    -Wl,-Map,${CMAKE_PROJECT_NAME}.map
-)
-
-# For just in case.
-target_link_directories(
-  xpack-target
-  PRIVATE
-  
-    .
-)
-
-# Use absolute paths, otherwise set -L.
-target_link_options(
-  xpack-target
-  PRIVATE
-  
-    -T${PROJECT_SOURCE_DIR}/platform-stm32f4discovery/linker-scripts/mem.ld
-    -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
+    ${project_common_options}
 )
 
 # -----------------------------------------------------------------------------
-

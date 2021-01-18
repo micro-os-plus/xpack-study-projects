@@ -6,12 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "link-deps": "xpm link @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @xpack-sifive/devices @xpack-sifive/platform-hifive1 @xpack-sifive/platform-arty @micro-os-plus/libs-cpp-estd @micro-os-plus/memory-allocators @micro-os-plus/posix-io @micro-os-plus/utils-lists @micro-os-plus/rtos @micro-os-plus/version @micro-os-plus/architecture-synthetic-posix @micro-os-plus/cmsis-os",
+
     "stm32f4discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f4discovery-debug-cmake",
     "stm32f4discovery-release-cmake-prepare": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f4discovery-release-cmake",
     "stm32f4discovery-debug-cmake-build": "cmake --build build/stm32f4discovery-debug-cmake --verbose",
     "stm32f4discovery-release-cmake-build": "cmake --build build/stm32f4discovery-release-cmake --verbose",
     "stm32f4discovery-debug-cmake-clean": "cmake --build build/stm32f4discovery-debug-cmake --target clean --verbose",
     "stm32f4discovery-release-cmake-clean": "cmake --build build/stm32f4discovery-release-cmake --target clean --verbose",
+
+    "stm32f0discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f0discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-debug-cmake",
+    "stm32f0discovery-release-cmake-prepare": "cmake -S . -B build/stm32f0discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-release-cmake",
+    "stm32f0discovery-debug-cmake-build": "cmake --build build/stm32f0discovery-debug-cmake --verbose",
+    "stm32f0discovery-release-cmake-build": "cmake --build build/stm32f0discovery-release-cmake --verbose",
+    "stm32f0discovery-debug-cmake-clean": "cmake --build build/stm32f0discovery-debug-cmake --target clean --verbose",
+    "stm32f0discovery-release-cmake-clean": "cmake --build build/stm32f0discovery-release-cmake --target clean --verbose",
+
     "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . -DBUILD_CONFIG=stm32f4discovery-debug-meson",
     "stm32f4discovery-release-meson-prepare": "meson build/stm32f4discovery-release-meson . -DBUILD_CONFIG=stm32f4discovery-release-meson",
     "stm32f4discovery-debug-meson-build": "meson compile -C build/stm32f4discovery-debug-meson",
