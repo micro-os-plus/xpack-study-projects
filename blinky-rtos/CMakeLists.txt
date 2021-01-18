@@ -1,11 +1,22 @@
+#
+# This file is part of the µOS++ project (https://github.com/micro-os-plus)
+# and is distributed under the terms of the MIT license.
+# Copyright (c) 2021 Liviu Ionescu
+#
+# -----------------------------------------------------------------------------
+
 cmake_minimum_required(VERSION 3.18)
 
 project(
 	blinky-rtos
-	VERSION 1.2.3
 	DESCRIPTION "A blinky using the µOS++ RTOS"
-	LANGUAGES C CXX
 )
+
+enable_language(C)
+enable_language(CXX)
+
+message(STATUS "Build configuration: ${BUILD_CONFIG}")
+message(STATUS "Project path: ${PROJECT_SOURCE_DIR}")
 
 add_executable(xpack-target)
 
@@ -13,8 +24,26 @@ set_target_properties(
   xpack-target
   PROPERTIES
     SUFFIX ".elf"
-    OUTPUT_NAME "blinky-rtos"
+    OUTPUT_NAME "${CMAKE_PROJECT_NAME}"
 )
+
+# Informative. Currently set explicitly.
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+if(BUILD_CONFIG STREQUAL "stm32f4discovery-debug-cmake")
+  set(CMAKE_BUILD_TYPE Debug)
+elseif(BUILD_CONFIG STREQUAL "stm32f4discovery-release-cmake")
+  set(CMAKE_BUILD_TYPE Release)
+else()
+	message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
+endif()
+
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
 # -----------------------------------------------------------------------------
 
@@ -178,13 +207,35 @@ target_include_directories(
 
 # -----------------------------------------------------------------------------
 
+set(cpu_cortex_m4 
+  -mcpu=cortex-m4
+  -mthumb
+  -mfloat-abi=soft
+)
+
+set(common_options
+    -fmessage-length=0
+    -fsigned-char
+    -ffunction-sections
+    -fdata-sections
+    -fno-move-loop-invariants
+
+    $<$<COMPILE_LANGUAGE:C>:-std=c11>
+    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
+    
+    $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+)
+
+
 target_compile_options(
   xpack-target
   PRIVATE
   
-    -mcpu=cortex-m4
-    -mthumb
-    -mfloat-abi=soft
+    ${cpu_cortex_m4}
 )
 
 target_compile_options(
@@ -208,40 +259,57 @@ target_compile_options(
     # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
 )
 
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	target_compile_options(
+	  xpack-target
+	  PRIVATE
+	  
+	    -g3
+	    -O0
+	)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+	target_compile_options(
+	  xpack-target
+	  PRIVATE
+	  
+	    -g
+	    -Os
+	)
+endif()
+
 target_compile_options(
   xpack-target
   PRIVATE
   
-    -g3
-    -O0
-    
-    -fmessage-length=0
-    -fsigned-char
-    -ffunction-sections
-    -fdata-sections
-    -fno-move-loop-invariants
-
-    $<$<COMPILE_LANGUAGE:C>:-std=c11>
-    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
-    
-    $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+    ${common_options}
 )
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	target_compile_definitions(
+	  xpack-target
+	  PRIVATE
+	  
+	    DEBUG
+	    TRACE
+	    OS_USE_TRACE_SEMIHOSTING_DEBUG
+	)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+	target_compile_definitions(
+	  xpack-target
+	  PRIVATE
+	  
+	    NDEBUG
+	)
+endif()
 
 target_compile_definitions(
   xpack-target
   PRIVATE
   
-    DEBUG
-    TRACE
     STM32F407xx
     USE_HAL_DRIVER
     PLATFORM_STM32F4DISCOVERY
     STM32F4
-    OS_USE_TRACE_SEMIHOSTING_DEBUG
     OS_USE_SEMIHOSTING_SYSCALLS
 )
 
@@ -251,9 +319,7 @@ target_link_options(
   xpack-target
   PRIVATE
   
-    -mcpu=cortex-m4
-    -mthumb
-    -mfloat-abi=soft
+    ${cpu_cortex_m4}
 )
 
 target_link_options(
@@ -263,9 +329,10 @@ target_link_options(
     -nostartfiles
     -specs=nano.specs
     -Xlinker --gc-sections
-    -Wl,-Map,blinky-no-rtos.map
+    -Wl,-Map,${CMAKE_PROJECT_NAME}.map
 )
 
+# For just in case.
 target_link_directories(
   xpack-target
   PRIVATE
@@ -273,12 +340,13 @@ target_link_directories(
     .
 )
 
+# Use absolute paths, otherwise set -L.
 target_link_options(
   xpack-target
   PRIVATE
   
-    -Tplatform-stm32f4discovery/linker-scripts/mem.ld
-    -Txpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
+    -T${PROJECT_SOURCE_DIR}/platform-stm32f4discovery/linker-scripts/mem.ld
+    -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
 )
 
 # -----------------------------------------------------------------------------
