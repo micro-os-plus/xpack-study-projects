@@ -1,80 +1,92 @@
 #
-# This file is part of the µOS++ project (https://github.com/micro-os-plus)
-# and is distributed under the terms of the MIT license.
+# This file is part of the µOS++ distribution.
+#   (https://github.com/micro-os-plus)
 # Copyright (c) 2021 Liviu Ionescu
+#
+# This Source Code Form is subject to the terms of the MIT License.
+# If a copy of the license was not distributed with this file, it can
+# be obtained from https://opensource.org/licenses/MIT/.
 #
 # -----------------------------------------------------------------------------
 
 message(STATUS "Including platform-stm32f4discovery...")
 
-set(XPACK_PLATFORM_NAME "PLATFORM_STM32F4DISCOVERY")
-set(XPACK_DEVICE_NAME "STM32F407xx")
-set(XPACK_DEVICE_FAMILY_NAME "STM32F4")
+message(STATUS "${CMAKE_CURRENT_LIST_DIR}")
 
-target_sources(
-  xpack-target
-  PRIVATE
+set(XPACK_PLATFORM_COMPILE_DEFINITION "PLATFORM_STM32F4DISCOVERY")
+set(XPACK_DEVICE_COMPILE_DEFINITION "STM32F407xx")
+set(XPACK_DEVICE_FAMILY_COMPILE_DEFINITION "STM32F4")
 
-    platform-stm32f4discovery/src/initialize-hardware.cpp
-    platform-stm32f4discovery/src/interrupts-handlers.cpp
-    platform-stm32f4discovery/src/led.cpp
+function(target_sources_platform_stm32f4discovery target)
+
+  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+
+  target_sources(
+    ${target}
+
+    PRIVATE
+      ${PARENT_DIR}/src/initialize-hardware.cpp
+      ${PARENT_DIR}/src/interrupts-handlers.cpp
+      ${PARENT_DIR}/src/led.cpp
+      
+      ${PARENT_DIR}/stm32cubemx/Core/Src/gpio.c
+      ${PARENT_DIR}/stm32cubemx/Core/Src/main.c
+      ${PARENT_DIR}/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
+      ${PARENT_DIR}/stm32cubemx/Core/Src/stm32f4xx_it.c
+      ${PARENT_DIR}/stm32cubemx/Core/Src/system_stm32f4xx.c
+
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+
+      # TODO
+      xpacks/micro-os-plus-devices-stm32f4/src/vectors/vectors_${XPACK_DEVICE_COMPILE_DEFINITION}.c
+  )
+endfunction()
+
+function(target_include_directories_platform_stm32f4discovery target)
+  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+
+  target_include_directories(
+    xpack-target
+    PRIVATE
     
-    platform-stm32f4discovery/stm32cubemx/Core/Src/gpio.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/main.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/stm32f4xx_it.c
-    platform-stm32f4discovery/stm32cubemx/Core/Src/system_stm32f4xx.c
-
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
-)
-
-target_include_directories(
-  xpack-target
-  PRIVATE
-  
-    platform-stm32f4discovery/include
-    platform-stm32f4discovery/stm32cubemx/Core/Inc
-    platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-    platform-stm32f4discovery/stm32cubemx/Drivers/CMSIS/Include
-    platform-stm32f4discovery/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
-    
-    xpacks/micro-os-plus-devices-stm32f4/include
-)
+      ${PARENT_DIR}/include
+      ${PARENT_DIR}/stm32cubemx/Core/Inc
+      ${PARENT_DIR}/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+      ${PARENT_DIR}/stm32cubemx/Drivers/CMSIS/Include
+      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
+      
+      # TODO
+      xpacks/micro-os-plus-devices-stm32f4/include
+  )
+endfunction()
 
 target_compile_definitions(
   xpack-target
   PRIVATE
   
-    ${XPACK_PLATFORM_NAME}
-    STM32F407xx
-    STM32F4
+    ${XPACK_PLATFORM_COMPILE_DEFINITION}
+    ${XPACK_DEVICE_COMPILE_DEFINITION}
+    ${XPACK_DEVICE_FAMILY_COMPILE_DEFINITION}
     
     USE_HAL_DRIVER
     OS_USE_SEMIHOSTING_SYSCALLS
-)
 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-target_compile_definitions(
-  xpack-target
-  PRIVATE
-  
-    OS_USE_TRACE_SEMIHOSTING_DEBUG
+    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
 )
-endif()
 
 set(platform_cpu 
 
@@ -135,7 +147,7 @@ target_link_options(
     -Wl,-Map,${CMAKE_PROJECT_NAME}.map
 
     # Use absolute paths, otherwise set -L.
-    -T${PROJECT_SOURCE_DIR}/platform-stm32f4discovery/linker-scripts/mem.ld
+    -T${CMAKE_CURRENT_LIST_DIR}/../linker-scripts/mem.ld
     -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
 )
 

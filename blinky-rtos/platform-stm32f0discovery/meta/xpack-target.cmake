@@ -1,56 +1,60 @@
 #
-# This file is part of the µOS++ project (https://github.com/micro-os-plus)
-# and is distributed under the terms of the MIT license.
+# This file is part of the µOS++ distribution.
+#   (https://github.com/micro-os-plus)
 # Copyright (c) 2021 Liviu Ionescu
+#
+# This Source Code Form is subject to the terms of the MIT License.
+# If a copy of the license was not distributed with this file, it can
+# be obtained from https://opensource.org/licenses/MIT/.
 #
 # -----------------------------------------------------------------------------
 
 message(STATUS "Including platform-stm32f0discovery...")
 
-set(XPACK_PLATFORM_NAME "PLATFORM_STM32F0DISCOVERY")
-set(XPACK_DEVICE_NAME "STM32F051R8")
-set(XPACK_DEVICE_FAMILY_NAME "STM32F0")
+set(XPACK_PLATFORM_COMPILE_DEFINITION "PLATFORM_STM32F0DISCOVERY")
+set(XPACK_DEVICE_COMPILE_DEFINITION "STM32F051x8") # STM32F051R8"
+set(XPACK_DEVICE_FAMILY_COMPILE_DEFINITION "STM32F0")
 
 target_sources(
   xpack-target
   PRIVATE
 
-    platform-stm32f0discovery/src/initialize-hardware.cpp
-    platform-stm32f0discovery/src/interrupts-handlers.cpp
-    platform-stm32f0discovery/src/led.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../src/initialize-hardware.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../src/interrupts-handlers.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../src/led.cpp
     
-    platform-stm32f0discovery/stm32cubemx/Core/Src/gpio.c
-    platform-stm32f0discovery/stm32cubemx/Core/Src/main.c
-    platform-stm32f0discovery/stm32cubemx/Core/Src/stm32f0xx_hal_msp.c
-    platform-stm32f0discovery/stm32cubemx/Core/Src/stm32f0xx_it.c
-    platform-stm32f0discovery/stm32cubemx/Core/Src/system_stm32f0xx.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Src/gpio.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Src/main.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Src/stm32f0xx_hal_msp.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Src/stm32f0xx_it.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Src/system_stm32f0xx.c
 
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
 
-    xpacks/micro-os-plus-devices-stm32f0/src/vectors/vectors_stm32f051x8.c
+    xpacks/micro-os-plus-devices-stm32f0/src/vectors/vectors_${XPACK_DEVICE_COMPILE_DEFINITION}.c
 )
 
 target_include_directories(
   xpack-target
   PRIVATE
   
-    platform-stm32f0discovery/include
-    platform-stm32f0discovery/stm32cubemx/Core/Inc
-    platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include
-    platform-stm32f0discovery/stm32cubemx/Drivers/CMSIS/Include
-    platform-stm32f0discovery/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc
+    ${CMAKE_CURRENT_LIST_DIR}/../include
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Core/Inc
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/CMSIS/Include
+    ${CMAKE_CURRENT_LIST_DIR}/../stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc
     
     xpacks/micro-os-plus-devices-stm32f0/include
 )
@@ -59,22 +63,16 @@ target_compile_definitions(
   xpack-target
   PRIVATE
   
-    ${XPACK_PLATFORM_NAME}
-    STM32F051x8
-    STM32F0
+    ${XPACK_PLATFORM_COMPILE_DEFINITION}
+    ${XPACK_DEVICE_COMPILE_DEFINITION}
+    ${XPACK_DEVICE_FAMILY_COMPILE_DEFINITION}
     
     USE_HAL_DRIVER
     OS_USE_SEMIHOSTING_SYSCALLS
-)
 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-target_compile_definitions(
-  xpack-target
-  PRIVATE
-  
-    OS_USE_TRACE_SEMIHOSTING_DEBUG
+    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
+
 )
-endif()
 
 set(platform_cpu 
 
@@ -135,7 +133,7 @@ target_link_options(
     -Wl,-Map,${CMAKE_PROJECT_NAME}.map
 
     # Use absolute paths, otherwise set -L.
-    -T${PROJECT_SOURCE_DIR}/platform-stm32f0discovery/linker-scripts/mem.ld
+    -T${CMAKE_CURRENT_LIST_DIR}/../linker-scripts/mem.ld
     -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
 )
 
