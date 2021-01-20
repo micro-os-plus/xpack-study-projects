@@ -22,10 +22,11 @@ enable_language(CXX)
 message(STATUS "Build configuration: ${BUILD_CONFIG}")
 message(STATUS "Project path: ${PROJECT_SOURCE_DIR}")
 
-add_executable(xpack-target)
+add_executable(monolithic)
 
 set_target_properties(
-  xpack-target
+  monolithic
+
   PROPERTIES
     SUFFIX ".elf"
     OUTPUT_NAME "${CMAKE_PROJECT_NAME}"
@@ -66,54 +67,61 @@ include("xpacks/micro-os-plus-version/meta/xpack-helper.cmake")
 # -----------------------------------------------------------------------------
 
 target_sources(
-  xpack-target
-  PRIVATE
+  monolithic
 
+  PRIVATE
     src/main.cpp
     src/_write.c
 )
 
-target_sources_platform_stm32f4discovery(xpack-target)
-target_sources_micro_os_plus_architecture_cortexm(xpack-target)
-target_sources_micro_os_plus_cmsis_os(xpack-target)
-target_sources_micro_os_plus_diag_trace(xpack-target)
-target_sources_micro_os_plus_libs_c(xpack-target)
-target_sources_micro_os_plus_libs_cpp(xpack-target)
-target_sources_micro_os_plus_libs_cpp_estd(xpack-target)
-target_sources_micro_os_plus_memory_allocators(xpack-target)
-target_sources_micro_os_plus_posix_io(xpack-target)
-target_sources_micro_os_plus_rtos(xpack-target)
-target_sources_micro_os_plus_semihosting(xpack-target)
-target_sources_micro_os_plus_startup(xpack-target)
-target_sources_micro_os_plus_utils_lists(xpack-target)
+target_sources_platform(monolithic)
+
+target_sources_micro_os_plus_architecture_cortexm(monolithic)
+target_sources_micro_os_plus_cmsis_os(monolithic)
+target_sources_micro_os_plus_diag_trace(monolithic)
+target_sources_micro_os_plus_libs_c(monolithic)
+target_sources_micro_os_plus_libs_cpp(monolithic)
+target_sources_micro_os_plus_libs_cpp_estd(monolithic)
+target_sources_micro_os_plus_memory_allocators(monolithic)
+target_sources_micro_os_plus_posix_io(monolithic)
+target_sources_micro_os_plus_rtos(monolithic)
+target_sources_micro_os_plus_semihosting(monolithic)
+target_sources_micro_os_plus_startup(monolithic)
+target_sources_micro_os_plus_utils_lists(monolithic)
 
 # -----------------------------------------------------------------------------
 
 target_include_directories(
-  xpack-target
+  monolithic
+
   PRIVATE
-  
     include
 )
 
-target_include_directories_platform_stm32f4discovery(xpack-target)
-target_include_directories_micro_os_plus_architecture_cortexm(xpack-target)
-target_include_directories_micro_os_plus_cmsis_os(xpack-target)
-target_include_directories_micro_os_plus_diag_trace(xpack-target)
-target_include_directories_micro_os_plus_libs_c(xpack-target)
-target_include_directories_micro_os_plus_libs_cpp(xpack-target)
-target_include_directories_micro_os_plus_libs_cpp_estd(xpack-target)
-target_include_directories_micro_os_plus_memory_allocators(xpack-target)
-target_include_directories_micro_os_plus_posix_io(xpack-target)
-target_include_directories_micro_os_plus_rtos(xpack-target)
-target_include_directories_micro_os_plus_semihosting(xpack-target)
-target_include_directories_micro_os_plus_startup(xpack-target)
-target_include_directories_micro_os_plus_utils_lists(xpack-target)
-target_include_directories_micro_os_plus_version(xpack-target)
+target_include_directories_platform(monolithic)
+
+target_include_directories_micro_os_plus_architecture_cortexm(monolithic)
+target_include_directories_micro_os_plus_cmsis_os(monolithic)
+target_include_directories_micro_os_plus_diag_trace(monolithic)
+target_include_directories_micro_os_plus_libs_c(monolithic)
+target_include_directories_micro_os_plus_libs_cpp(monolithic)
+target_include_directories_micro_os_plus_libs_cpp_estd(monolithic)
+target_include_directories_micro_os_plus_memory_allocators(monolithic)
+target_include_directories_micro_os_plus_posix_io(monolithic)
+target_include_directories_micro_os_plus_rtos(monolithic)
+target_include_directories_micro_os_plus_semihosting(monolithic)
+target_include_directories_micro_os_plus_startup(monolithic)
+target_include_directories_micro_os_plus_utils_lists(monolithic)
+target_include_directories_micro_os_plus_version(monolithic)
+
+# -----------------------------------------------------------------------------
+
+target_compile_definitions_platform(monolithic)
 
 # -----------------------------------------------------------------------------
 
 set(project_compile_definitions 
+
   HAVE_MICRO_OS_PLUS_CONFIG_H
 
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:DEBUG>
@@ -123,15 +131,16 @@ set(project_compile_definitions
 )
 
 target_compile_definitions(
-  xpack-target
+  monolithic
+
   PRIVATE
-  
     ${project_compile_definitions}
 )
 
 # -----------------------------------------------------------------------------
 
 set(project_common_options
+
     $<$<COMPILE_LANGUAGE:C>:-std=c11>
     # cxx_std_17 will generate -std=gnu++17
     $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
@@ -145,19 +154,23 @@ set(project_common_options
 # -----------------------------------------------------------------------------
 
 target_compile_options(
-  xpack-target
+  monolithic
+
   PRIVATE
-  
     ${project_common_options}
 )
 
 # -----------------------------------------------------------------------------
 
 target_link_options(
-  xpack-target
+  monolithic
+
   PRIVATE
-  
     ${project_common_options}
 )
+
+# -----------------------------------------------------------------------------
+
+target_options_platform(monolithic)
 
 # -----------------------------------------------------------------------------
