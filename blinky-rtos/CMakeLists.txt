@@ -18,6 +18,7 @@ project(
 
 enable_language(C)
 enable_language(CXX)
+enable_language(ASM)
 
 message(STATUS "Build configuration: ${BUILD_CONFIG}")
 message(STATUS "Project path: ${PROJECT_SOURCE_DIR}")
@@ -58,6 +59,18 @@ elseif(BUILD_CONFIG STREQUAL "stm32f0discovery-release-cmake")
   include("platform-stm32f0discovery/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-devices-stm32f0/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-cortexm/meta/xpack-helper.cmake")
+elseif(BUILD_CONFIG STREQUAL "sifive-hifive1-debug-cmake")
+  set(CMAKE_BUILD_TYPE Debug)
+  include("platform-sifive-hifive1/meta/xpack-helper.cmake")
+  include("xpacks/xpack-sifive-platform-hifive1/meta/xpack-helper.cmake")
+  include("xpacks/xpack-sifive-devices/meta/xpack-helper.cmake")
+  include("xpacks/micro-os-plus-architecture-riscv/meta/xpack-helper.cmake")
+elseif(BUILD_CONFIG STREQUAL "sifive-hifive1-release-cmake")
+  set(CMAKE_BUILD_TYPE MinSizeRel)
+  include("platform-sifive-hifive1/meta/xpack-helper.cmake")
+  include("xpacks/xpack-sifive-platform-hifive1/meta/xpack-helper.cmake")
+  include("xpacks/xpack-sifive-devices/meta/xpack-helper.cmake")
+  include("xpacks/micro-os-plus-architecture-riscv/meta/xpack-helper.cmake")
 else()
   message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
 endif()
@@ -152,10 +165,6 @@ set(project_compile_definitions
 
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:DEBUG>
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:TRACE>
-
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Release">:NDEBUG>
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","MinSizeRel">:NDEBUG>
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","RelWithDebInfo">:NDEBUG>
 )
 
 target_compile_definitions(
@@ -172,13 +181,6 @@ set(project_common_options
     $<$<COMPILE_LANGUAGE:C>:-std=c11>
     # cxx_std_17 will generate -std=gnu++17
     $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
-
-    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:-O0>
-    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:-g3>
-
-    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Release">:-O2>
-    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","MinSizeRel">:-Os>
-    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","RelWithDebInfo">:-O2>
 )
 
 # -----------------------------------------------------------------------------

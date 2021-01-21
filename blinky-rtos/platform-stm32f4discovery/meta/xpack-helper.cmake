@@ -12,86 +12,89 @@
 message(STATUS "Including platform-stm32f4discovery...")
 
 # Preprocessor symbols.
-set(XPACK_PLATFORM_COMPILE_DEFINITION "PLATFORM_STM32F4DISCOVERY")
-set(XPACK_DEVICE_COMPILE_DEFINITION "STM32F407xx")
-set(XPACK_DEVICE_FAMILY_COMPILE_DEFINITION "STM32F4")
+set(xpack_platform_compile_definition "PLATFORM_STM32F4DISCOVERY")
+set(xpack_device_compile_definition "STM32F407xx")
+set(xpack_device_family_compile_definition "STM32F4")
 
 function(target_sources_micro_os_plus_platform target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_sources(
     ${target}
 
     PRIVATE
-      ${PARENT_DIR}/src/initialize-hardware.cpp
-      ${PARENT_DIR}/src/interrupts-handlers.cpp
-      ${PARENT_DIR}/src/led.cpp
+      ${xpack_root_folder}/src/initialize-hardware.cpp
+      ${xpack_root_folder}/src/interrupts-handlers.cpp
+      ${xpack_root_folder}/src/led.cpp
       
-      ${PARENT_DIR}/stm32cubemx/Core/Src/gpio.c
-      ${PARENT_DIR}/stm32cubemx/Core/Src/main.c
-      ${PARENT_DIR}/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
-      ${PARENT_DIR}/stm32cubemx/Core/Src/stm32f4xx_it.c
-      ${PARENT_DIR}/stm32cubemx/Core/Src/system_stm32f4xx.c
+      ${xpack_root_folder}/stm32cubemx/Core/Src/gpio.c
+      ${xpack_root_folder}/stm32cubemx/Core/Src/main.c
+      ${xpack_root_folder}/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
+      ${xpack_root_folder}/stm32cubemx/Core/Src/stm32f4xx_it.c
+      ${xpack_root_folder}/stm32cubemx/Core/Src/system_stm32f4xx.c
 
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
   )
+
 endfunction()
 
 function(target_include_directories_micro_os_plus_platform target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_include_directories(
     ${target}
 
     PRIVATE
-      ${PARENT_DIR}/include
-      ${PARENT_DIR}/stm32cubemx/Core/Inc
-      ${PARENT_DIR}/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-      ${PARENT_DIR}/stm32cubemx/Drivers/CMSIS/Include
-      ${PARENT_DIR}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
+      ${xpack_root_folder}/include
+      ${xpack_root_folder}/stm32cubemx/Core/Inc
+      ${xpack_root_folder}/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+      ${xpack_root_folder}/stm32cubemx/Drivers/CMSIS/Include
+      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
   )
+
 endfunction()
 
 function(target_compile_definitions_micro_os_plus_platform target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_compile_definitions(
     ${target}
 
     PRIVATE
-      ${XPACK_PLATFORM_COMPILE_DEFINITION}
-      ${XPACK_DEVICE_COMPILE_DEFINITION}
-      ${XPACK_DEVICE_FAMILY_COMPILE_DEFINITION}
+      ${xpack_platform_compile_definition}
+      ${xpack_device_compile_definition}
+      ${xpack_device_family_compile_definition}
       
       USE_HAL_DRIVER
       OS_USE_SEMIHOSTING_SYSCALLS
 
       $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
   )
+
 endfunction()
 
 function(target_options_micro_os_plus_platform target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
-  set(platform_cpu 
+  set(platform_cpu_option 
 
     -mcpu=cortex-m4
     -mthumb
@@ -133,7 +136,7 @@ function(target_options_micro_os_plus_platform target)
     ${target}
 
     PRIVATE
-      ${platform_cpu}
+      ${platform_cpu_option}
       ${platform_common_options}
   )
 
@@ -141,7 +144,7 @@ function(target_options_micro_os_plus_platform target)
     ${target}
 
     PRIVATE
-      ${platform_cpu}
+      ${platform_cpu_option}
       ${platform_common_options}
 
       -nostartfiles
@@ -150,11 +153,12 @@ function(target_options_micro_os_plus_platform target)
       -Wl,-Map,${CMAKE_PROJECT_NAME}.map
 
       # Use absolute paths, otherwise set -L.
-      -T${PARENT_DIR}/linker-scripts/mem.ld
+      -T${xpack_root_folder}/linker-scripts/mem.ld
 
       # Including files from other packages is not very nice, but functional.
       -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
   )
+
 endfunction()
 
 # -----------------------------------------------------------------------------

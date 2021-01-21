@@ -9,12 +9,15 @@
 #
 # -----------------------------------------------------------------------------
 
-message(STATUS "Including platform-stm32f0discovery...")
+message(STATUS "Including platform-sifive-hifive1...")
+
+# -----------------------------------------------------------------------------
 
 # Preprocessor symbols.
-set(xpack_platform_compile_definition "PLATFORM_STM32F0DISCOVERY")
-set(xpack_device_compile_definition "STM32F051x8") # STM32F051R8"
-set(xpack_device_family_compile_definition "STM32F0")
+set(xpack_platform_compile_definition "PLATFORM_SIFIVE_HIFIVE1")
+set(xpack_device_compile_definition "SIFIVE_FE310")
+
+# -----------------------------------------------------------------------------
 
 function(target_sources_micro_os_plus_platform target)
 
@@ -26,30 +29,14 @@ function(target_sources_micro_os_plus_platform target)
     PRIVATE
       ${xpack_root_folder}/src/initialize-hardware.cpp
       ${xpack_root_folder}/src/interrupts-handlers.cpp
-      ${xpack_root_folder}/src/led.cpp
-      
-      ${xpack_root_folder}/stm32cubemx/Core/Src/gpio.c
-      ${xpack_root_folder}/stm32cubemx/Core/Src/main.c
-      ${xpack_root_folder}/stm32cubemx/Core/Src/stm32f0xx_hal_msp.c
-      ${xpack_root_folder}/stm32cubemx/Core/Src/stm32f0xx_it.c
-      ${xpack_root_folder}/stm32cubemx/Core/Src/system_stm32f0xx.c
-
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+      ${xpack_root_folder}/src/led.cpp      
   )
 
+  target_sources_xpack_sifive_platform_hifive1(${target})
+
 endfunction()
+
+# -----------------------------------------------------------------------------
 
 function(target_include_directories_micro_os_plus_platform target)
 
@@ -60,13 +47,13 @@ function(target_include_directories_micro_os_plus_platform target)
 
     PRIVATE
       ${xpack_root_folder}/include
-      ${xpack_root_folder}/stm32cubemx/Core/Inc
-      ${xpack_root_folder}/stm32cubemx/Drivers/CMSIS/Device/ST/STM32F0xx/Include
-      ${xpack_root_folder}/stm32cubemx/Drivers/CMSIS/Include
-      ${xpack_root_folder}/stm32cubemx/Drivers/STM32F0xx_HAL_Driver/Inc
   )
 
+  target_include_directories_xpack_sifive_platform_hifive1(${target})
+
 endfunction()
+
+# -----------------------------------------------------------------------------
 
 function(target_compile_definitions_micro_os_plus_platform target)
 
@@ -74,19 +61,20 @@ function(target_compile_definitions_micro_os_plus_platform target)
 
   target_compile_definitions(
     ${target}
-    
+
     PRIVATE
       ${xpack_platform_compile_definition}
       ${xpack_device_compile_definition}
-      ${xpack_device_family_compile_definition}
       
-      USE_HAL_DRIVER
       OS_USE_SEMIHOSTING_SYSCALLS
+      OS_USE_CPP_INTERRUPTS
 
       $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
   )
 
 endfunction()
+
+# -----------------------------------------------------------------------------
 
 function(target_options_micro_os_plus_platform target)
 
@@ -94,9 +82,11 @@ function(target_options_micro_os_plus_platform target)
 
   set(platform_cpu_option 
 
-    -mcpu=cortex-m0
-    -mthumb
-    -mfloat-abi=soft
+    -march=rv32imac
+    -mabi=ilp32 
+    -mcmodel=medany 
+    -msmall-data-limit=8 
+    -mno-save-restore
   )
 
   set(platform_common_options
@@ -154,10 +144,25 @@ function(target_options_micro_os_plus_platform target)
       -T${xpack_root_folder}/linker-scripts/mem.ld
 
       # Including files from other packages is not very nice, but functional.
-      -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
+      -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-riscv/linker-scripts/sections.ld
   )
 
 endfunction()
 
 # -----------------------------------------------------------------------------
 
+function(target_sources_micro_os_plus_device target)
+
+  target_sources_xpack_sifive_devices(${target})
+
+endfunction()
+
+# -----------------------------------------------------------------------------
+
+function(target_include_directories_micro_os_plus_device target)
+
+  target_include_directories_xpack_sifive_devices(${target})
+
+endfunction()
+
+# -----------------------------------------------------------------------------
