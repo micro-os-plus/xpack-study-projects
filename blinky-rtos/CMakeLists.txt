@@ -159,19 +159,15 @@ target_compile_definitions_micro_os_plus_platform(monolithic-app)
 
 # -----------------------------------------------------------------------------
 
-set(project_compile_definitions 
-
-  HAVE_MICRO_OS_PLUS_CONFIG_H
-
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:DEBUG>
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:TRACE>
-)
-
 target_compile_definitions(
   monolithic-app
 
   PRIVATE
-    ${project_compile_definitions}
+    HAVE_MICRO_OS_PLUS_CONFIG_H
+
+    # NDEBUG provided by the toolchain definitions on release.
+    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:DEBUG>
+    $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:TRACE>
 )
 
 # -----------------------------------------------------------------------------
