@@ -22,6 +22,8 @@
     "stm32f0discovery-release-cmake-build": "cmake --build build/stm32f0discovery-release-cmake --verbose",
     "stm32f0discovery-debug-cmake-clean": "cmake --build build/stm32f0discovery-debug-cmake --target clean --verbose",
     "stm32f0discovery-release-cmake-clean": "cmake --build build/stm32f0discovery-release-cmake --target clean --verbose",
+    "stm32f0discovery-debug-cmake": "xpm run stm32f0discovery-debug-cmake-prepare && xpm run stm32f0discovery-debug-cmake-build",
+    "stm32f0discovery-release-cmake": "xpm run stm32f0discovery-release-cmake-prepare && xpm run stm32f0discovery-release-cmake-build",
 
     "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . -DBUILD_CONFIG=stm32f4discovery-debug-meson",
     "stm32f4discovery-release-meson-prepare": "meson build/stm32f4discovery-release-meson . -DBUILD_CONFIG=stm32f4discovery-release-meson",
