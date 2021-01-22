@@ -160,4 +160,41 @@ function(target_options_micro_os_plus_platform target)
 endfunction()
 
 # -----------------------------------------------------------------------------
+# Forward device to devices-stm32f0.
 
+function(target_sources_micro_os_plus_device target)
+
+  target_sources_micro_os_plus_devices_stm32f0(${target})
+
+endfunction()
+
+function(target_include_directories_micro_os_plus_device target)
+
+  target_include_directories_micro_os_plus_devices_stm32f0(${target})
+
+endfunction()
+
+# -----------------------------------------------------------------------------
+# Forward architecture to architecture-cortexm.
+
+function(target_sources_micro_os_plus_architecture target)
+
+  target_sources_micro_os_plus_architecture_cortexm(${target})
+
+endfunction()
+
+
+function(target_include_directories_micro_os_plus_architecture target)
+
+  target_include_directories_micro_os_plus_architecture_cortexm(${target})
+
+endfunction()
+
+
+function(target_compile_definitions_micro_os_plus_architecture target)
+
+  target_compile_definitions_micro_os_plus_architecture_cortexm(${target})
+
+endfunction()
+
+# -----------------------------------------------------------------------------

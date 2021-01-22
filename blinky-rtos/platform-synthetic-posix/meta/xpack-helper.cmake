@@ -9,13 +9,12 @@
 #
 # -----------------------------------------------------------------------------
 
-message(STATUS "Including platform-sifive-hifive1...")
+message(STATUS "Including platform-synthetic-posix...")
 
 # -----------------------------------------------------------------------------
 
 # Preprocessor symbols.
-set(xpack_platform_compile_definition "PLATFORM_SIFIVE_HIFIVE1")
-set(xpack_device_compile_definition "SIFIVE_FE310")
+set(xpack_platform_compile_definition "PLATFORM_SYNTHETIC_POSIX")
 
 # -----------------------------------------------------------------------------
 
@@ -27,12 +26,8 @@ function(target_sources_micro_os_plus_platform target)
     ${target}
 
     PRIVATE
-      ${xpack_root_folder}/src/initialize-hardware.cpp
-      ${xpack_root_folder}/src/interrupts-handlers.cpp
       ${xpack_root_folder}/src/led.cpp      
   )
-
-  target_sources_xpack_sifive_platform_hifive1(${target})
 
 endfunction()
 
@@ -49,8 +44,6 @@ function(target_include_directories_micro_os_plus_platform target)
       ${xpack_root_folder}/include
   )
 
-  target_include_directories_xpack_sifive_platform_hifive1(${target})
-
 endfunction()
 
 # -----------------------------------------------------------------------------
@@ -64,12 +57,9 @@ function(target_compile_definitions_micro_os_plus_platform target)
 
     PRIVATE
       ${xpack_platform_compile_definition}
-      ${xpack_device_compile_definition}
-      
-      OS_USE_SEMIHOSTING_SYSCALLS
-      OS_USE_CPP_INTERRUPTS
 
-      $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
+      _XOPEN_SOURCE=700
+      $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_POSIX_STDOUT>
   )
 
 endfunction()
@@ -80,13 +70,9 @@ function(target_options_micro_os_plus_platform target)
 
   get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
-  set(platform_cpu_option 
-
-    -march=rv32imac
-    -mabi=ilp32 
-    -mcmodel=medany 
-    -msmall-data-limit=8 
-    -mno-save-restore
+  set(platform_cpu_option
+  
+    # None
   )
 
   set(platform_common_options
@@ -95,13 +81,6 @@ function(target_options_micro_os_plus_platform target)
     -fsigned-char
     -ffunction-sections
     -fdata-sections
-    -fno-move-loop-invariants
-
-    $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
 
     # -Wunused
     # -Wuninitialized
@@ -135,56 +114,51 @@ function(target_options_micro_os_plus_platform target)
       ${platform_cpu_option}
       ${platform_common_options}
 
-      -nostartfiles
-      -specs=nano.specs
-      -Xlinker --gc-sections
-      -Wl,-Map,${CMAKE_PROJECT_NAME}.map
+      # GCC specific
+      # -Xlinker --gc-sections
 
-      # Use absolute paths, otherwise set -L.
-      -T${xpack_root_folder}/linker-scripts/mem.ld
-
-      # Including files from other packages is not very nice, but functional.
-      -T${PROJECT_SOURCE_DIR}/xpacks/micro-os-plus-architecture-riscv/linker-scripts/sections.ld
+      # -Map not supported by clang
+      # -Wl,-Map,${CMAKE_PROJECT_NAME}.map
   )
 
 endfunction()
 
 # -----------------------------------------------------------------------------
-# Forward device to sifive-devices.
 
 function(target_sources_micro_os_plus_device target)
 
-  target_sources_xpack_sifive_devices(${target})
-
-endfunction()
-
-
-function(target_include_directories_micro_os_plus_device target)
-
-  target_include_directories_xpack_sifive_devices(${target})
+  # None
 
 endfunction()
 
 # -----------------------------------------------------------------------------
-# Forward architecture to architecture_riscv.
+
+function(target_include_directories_micro_os_plus_device target)
+
+  # None
+
+endfunction()
+
+# -----------------------------------------------------------------------------
+# Forward architecture to architecture-cortexm.
 
 function(target_sources_micro_os_plus_architecture target)
 
-  target_sources_micro_os_plus_architecture_riscv(${target})
+  target_sources_micro_os_plus_architecture_synthetic_posix(${target})
 
 endfunction()
 
 
 function(target_include_directories_micro_os_plus_architecture target)
 
-  target_include_directories_micro_os_plus_architecture_riscv(${target})
+  target_include_directories_micro_os_plus_architecture_synthetic_posix(${target})
 
 endfunction()
 
 
 function(target_compile_definitions_micro_os_plus_architecture target)
 
-  target_compile_definitions_micro_os_plus_architecture_riscv(${target})
+  target_compile_definitions_micro_os_plus_architecture_synthetic_posix(${target})
 
 endfunction()
 

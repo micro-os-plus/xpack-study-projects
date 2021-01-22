@@ -38,10 +38,21 @@ set_target_properties(
   monolithic-app
 
   PROPERTIES
-    SUFFIX ".elf"
     OUTPUT_NAME "${CMAKE_PROJECT_NAME}"
+    CXX_EXTENSIONS OFF
 )
 
+# Bare-metal executables have the .elf extension.
+if(CMAKE_SYSTEM_NAME STREQUAL "Generic")
+  set_target_properties(
+    monolithic-app
+
+    PROPERTIES
+      SUFFIX ".elf"
+  )
+endif()
+
+# Generate the compile_commands.json file to feed the indexer.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # -----------------------------------------------------------------------------
@@ -80,6 +91,14 @@ elseif(BUILD_CONFIG STREQUAL "sifive-hifive1-release-cmake")
   include("xpacks/xpack-sifive-platform-hifive1/meta/xpack-helper.cmake")
   include("xpacks/xpack-sifive-devices/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-riscv/meta/xpack-helper.cmake")
+elseif(BUILD_CONFIG STREQUAL "synthetic-posix-debug-cmake")
+  set(CMAKE_BUILD_TYPE Debug)
+  include("platform-synthetic-posix/meta/xpack-helper.cmake")
+  include("xpacks/micro-os-plus-architecture-synthetic-posix/meta/xpack-helper.cmake")
+elseif(BUILD_CONFIG STREQUAL "synthetic-posix-release-cmake")
+  set(CMAKE_BUILD_TYPE Release)
+  include("platform-synthetic-posix/meta/xpack-helper.cmake")
+  include("xpacks/micro-os-plus-architecture-synthetic-posix/meta/xpack-helper.cmake")
 else()
   message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
 endif()
@@ -134,14 +153,6 @@ target_compile_definitions(
 
 # -----------------------------------------------------------------------------
 
-set(project_common_options
-
-    # TODO: move them to features.
-    $<$<COMPILE_LANGUAGE:C>:-std=c11>
-    # cxx_std_17 will generate -std=gnu++17
-    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
-)
-
 target_compile_options(
   monolithic-app
 
@@ -167,9 +178,11 @@ include("xpacks/micro-os-plus-diag-trace/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_diag_trace(monolithic-app)
 target_include_directories_micro_os_plus_diag_trace(monolithic-app)
 
+if(NOT UNIX) # For now only newlib benefits from this package.
 include("xpacks/micro-os-plus-libs-c/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_libs_c(monolithic-app)
 target_include_directories_micro_os_plus_libs_c(monolithic-app)
+endif()
 
 include("xpacks/micro-os-plus-libs-cpp/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_libs_cpp(monolithic-app)
@@ -191,13 +204,17 @@ include("xpacks/micro-os-plus-rtos/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_rtos(monolithic-app)
 target_include_directories_micro_os_plus_rtos(monolithic-app)
 
+if(NOT UNIX)
 include("xpacks/micro-os-plus-semihosting/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_semihosting(monolithic-app)
 target_include_directories_micro_os_plus_semihosting(monolithic-app)
+endif()
 
+if(NOT UNIX)
 include("xpacks/micro-os-plus-startup/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_startup(monolithic-app)
 target_include_directories_micro_os_plus_startup(monolithic-app)
+endif()
 
 include("xpacks/micro-os-plus-utils-lists/meta/xpack-helper.cmake")
 target_sources_micro_os_plus_utils_lists(monolithic-app)
