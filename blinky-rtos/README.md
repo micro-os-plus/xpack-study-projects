@@ -34,9 +34,8 @@ For the prerequisites, follow the steps in the ../README.md file.
 To build binaries for all platforms with CMake, run:
 
 ```sh
-cd ${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-
-xpm run all-cmake
+xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 ```
 
 The result is a set of folders below `build/`.
