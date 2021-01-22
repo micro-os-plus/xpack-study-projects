@@ -20,12 +20,32 @@ The STM32F0DISCOVERY is also functional and runs fine on the physical board
 (QEMU has a bug and hangs).
 
 The Synthetic POSIX runs on macOS, and possibly on Linux.
- 
+
+The RISC-V port of the scheduler is not yet functional, it is only an
+empty framework, to be implemented later. It is provided only as a build
+test for RISC-V platforms.
+
 ## How to test
 
-Follow the steps in the ../README.md file.
+For the prerequisites, follow the steps in the ../README.md file.
 
-### Import projects & build
+### Build in a terminal
+
+To build binaries for all platforms with CMake, run:
+
+```sh
+cd blinky-rtos
+
+xpm run all-cmake
+```
+
+The result is a set of folders below `build/`.
+
+### Build with Eclipse
+
+There are also Eclipse build configurations for allplatforms.
+
+#### Import projects & build
 
 - Import > General > Existing Projects into Workspace
 - Next >
@@ -38,7 +58,7 @@ Select the project, right click, Build Configurations > Build all...
 
 The result is a set of folders prefixed with `build-`
 
-### Run a debug session
+#### Run a debug session
 
 To run a debug session:
 
