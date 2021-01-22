@@ -9,6 +9,7 @@
 #
 # -----------------------------------------------------------------------------
 
+# https://cmake.org/cmake/help/v3.18/
 cmake_minimum_required(VERSION 3.18)
 
 project(
@@ -19,6 +20,14 @@ project(
 enable_language(C)
 enable_language(CXX)
 enable_language(ASM)
+
+# Specify the C/C++ standards.
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 message(STATUS "Build configuration: ${BUILD_CONFIG}")
 message(STATUS "Project path: ${PROJECT_SOURCE_DIR}")
@@ -76,23 +85,23 @@ else()
 endif()
 
 # -----------------------------------------------------------------------------
-# Include the portable scripts.
 
-include("xpacks/micro-os-plus-cmsis-os/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-diag-trace/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-libs-c/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-libs-cpp/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-libs-cpp-estd/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-memory-allocators/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-posix-io/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-rtos/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-semihosting/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-startup/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-utils-lists/meta/xpack-helper.cmake")
-include("xpacks/micro-os-plus-version/meta/xpack-helper.cmake")
+# Platform specific settings.
+target_sources_micro_os_plus_platform(monolithic-app)
+target_include_directories_micro_os_plus_platform(monolithic-app)
+target_compile_definitions_micro_os_plus_platform(monolithic-app)
+# Many interesting things come from the platfrom specific definitions.
+target_options_micro_os_plus_platform(monolithic-app)
+
+# Device specific settings.
+target_sources_micro_os_plus_device(monolithic-app)
+target_include_directories_micro_os_plus_device(monolithic-app)
+
+# Architecture specific settings.
+target_sources_micro_os_plus_architecture(monolithic-app)
+target_include_directories_micro_os_plus_architecture(monolithic-app)
 
 # -----------------------------------------------------------------------------
-# Collect all sources.
 
 # Application sources.
 target_sources(
@@ -103,27 +112,6 @@ target_sources(
     src/_write.c
 )
 
-# Platform specific sources.
-target_sources_micro_os_plus_platform(monolithic-app)
-target_sources_micro_os_plus_device(monolithic-app)
-target_sources_micro_os_plus_architecture(monolithic-app)
-
-# Portable sources.
-target_sources_micro_os_plus_cmsis_os(monolithic-app)
-target_sources_micro_os_plus_diag_trace(monolithic-app)
-target_sources_micro_os_plus_libs_c(monolithic-app)
-target_sources_micro_os_plus_libs_cpp(monolithic-app)
-target_sources_micro_os_plus_libs_cpp_estd(monolithic-app)
-target_sources_micro_os_plus_memory_allocators(monolithic-app)
-target_sources_micro_os_plus_posix_io(monolithic-app)
-target_sources_micro_os_plus_rtos(monolithic-app)
-target_sources_micro_os_plus_semihosting(monolithic-app)
-target_sources_micro_os_plus_startup(monolithic-app)
-target_sources_micro_os_plus_utils_lists(monolithic-app)
-
-# -----------------------------------------------------------------------------
-# Collect all include folders.
-
 # Application includes.
 target_include_directories(
   monolithic-app
@@ -132,33 +120,7 @@ target_include_directories(
     include
 )
 
-# Platform specific includes.
-target_include_directories_micro_os_plus_platform(monolithic-app)
-target_include_directories_micro_os_plus_device(monolithic-app)
-target_include_directories_micro_os_plus_architecture(monolithic-app)
-
-# Portable includes.
-target_include_directories_micro_os_plus_cmsis_os(monolithic-app)
-target_include_directories_micro_os_plus_diag_trace(monolithic-app)
-target_include_directories_micro_os_plus_libs_c(monolithic-app)
-target_include_directories_micro_os_plus_libs_cpp(monolithic-app)
-target_include_directories_micro_os_plus_libs_cpp_estd(monolithic-app)
-target_include_directories_micro_os_plus_memory_allocators(monolithic-app)
-target_include_directories_micro_os_plus_posix_io(monolithic-app)
-target_include_directories_micro_os_plus_rtos(monolithic-app)
-target_include_directories_micro_os_plus_semihosting(monolithic-app)
-target_include_directories_micro_os_plus_startup(monolithic-app)
-target_include_directories_micro_os_plus_utils_lists(monolithic-app)
-target_include_directories_micro_os_plus_version(monolithic-app)
-
-# -----------------------------------------------------------------------------
-
-target_compile_definitions_micro_os_plus_platform(monolithic-app)
-
-# TODO: consider packages that may also contribute preprocessor definitions.
-
-# -----------------------------------------------------------------------------
-
+# Application definitions.
 target_compile_definitions(
   monolithic-app
 
@@ -174,12 +136,11 @@ target_compile_definitions(
 
 set(project_common_options
 
+    # TODO: move them to features.
     $<$<COMPILE_LANGUAGE:C>:-std=c11>
     # cxx_std_17 will generate -std=gnu++17
     $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
 )
-
-# -----------------------------------------------------------------------------
 
 target_compile_options(
   monolithic-app
@@ -187,8 +148,6 @@ target_compile_options(
   PRIVATE
     ${project_common_options}
 )
-
-# -----------------------------------------------------------------------------
 
 target_link_options(
   monolithic-app
@@ -198,8 +157,55 @@ target_link_options(
 )
 
 # -----------------------------------------------------------------------------
+# Collect sources and headers from the portable packages.
 
-target_options_micro_os_plus_platform(monolithic-app)
+include("xpacks/micro-os-plus-cmsis-os/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_cmsis_os(monolithic-app)
+target_include_directories_micro_os_plus_cmsis_os(monolithic-app)
+
+include("xpacks/micro-os-plus-diag-trace/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_diag_trace(monolithic-app)
+target_include_directories_micro_os_plus_diag_trace(monolithic-app)
+
+include("xpacks/micro-os-plus-libs-c/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_libs_c(monolithic-app)
+target_include_directories_micro_os_plus_libs_c(monolithic-app)
+
+include("xpacks/micro-os-plus-libs-cpp/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_libs_cpp(monolithic-app)
+target_include_directories_micro_os_plus_libs_cpp(monolithic-app)
+
+include("xpacks/micro-os-plus-libs-cpp-estd/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_libs_cpp_estd(monolithic-app)
+target_include_directories_micro_os_plus_libs_cpp_estd(monolithic-app)
+
+include("xpacks/micro-os-plus-memory-allocators/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_memory_allocators(monolithic-app)
+target_include_directories_micro_os_plus_memory_allocators(monolithic-app)
+
+include("xpacks/micro-os-plus-posix-io/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_posix_io(monolithic-app)
+target_include_directories_micro_os_plus_posix_io(monolithic-app)
+
+include("xpacks/micro-os-plus-rtos/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_rtos(monolithic-app)
+target_include_directories_micro_os_plus_rtos(monolithic-app)
+
+include("xpacks/micro-os-plus-semihosting/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_semihosting(monolithic-app)
+target_include_directories_micro_os_plus_semihosting(monolithic-app)
+
+include("xpacks/micro-os-plus-startup/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_startup(monolithic-app)
+target_include_directories_micro_os_plus_startup(monolithic-app)
+
+include("xpacks/micro-os-plus-utils-lists/meta/xpack-helper.cmake")
+target_sources_micro_os_plus_utils_lists(monolithic-app)
+target_include_directories_micro_os_plus_utils_lists(monolithic-app)
+
+include("xpacks/micro-os-plus-version/meta/xpack-helper.cmake")
+# Header only, no sources.
+target_include_directories_micro_os_plus_version(monolithic-app)
 
 # -----------------------------------------------------------------------------
 
