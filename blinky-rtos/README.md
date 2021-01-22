@@ -40,6 +40,12 @@ xpm run all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 
 The result is a set of folders below `build/`.
 
+To run the native binary on macOS/Linux:
+
+```sh
+${HOME}/Work/xpack-study-projects.git/blinky-rtos/build/synthetic-posix-release-cmake/blinky-rtos
+```
+
 ### Build with Eclipse
 
 There are also Eclipse build configurations for allplatforms.
