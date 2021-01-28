@@ -62,7 +62,7 @@ Go to the `blinky-rtos` folder and follow the instructions there.
 
 Same for `blinky-no-rtos`.
 
-### Install writable source dependencies
+## Install writable source dependencies for development
 
 The dependencies installed by `xpm install` are read only.
 
