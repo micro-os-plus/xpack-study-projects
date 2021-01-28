@@ -12,32 +12,40 @@ and one using the RTOS.
 
 ### Prerequisites
 
-For the moment these test are available only on macOS and GNU/Linux.
-
 If you don't have the xPack tools on your machine, follow the steps in the
 [prerequisites](https://xpack.github.io/install/) page.
+
+For the moment building and running the native build configurations
+is possible only on macOS and GNU/Linux.
+
+Building the embedded Arm and RISC-V build configurations is possible
+on all platforms, since the xPack toolchains are cross-platform.
+
+Running the STM32F4DISCOVERY under QEMU is also possible on all platforms.
 
 ### Update xpm
 
 If you already have xpm installed, be sure you use the most recent version.
 
 ```sh
-npm install -g xpm@latest
+npm install -g xpm@next
 ```
 
-It must be 0.7.1 or later.
+It must be 0.8.1 or later.
 
 ### Start with a clean slate
 
-Please note that this will also remove the local repositories clones
-installed in a previous run;
-if you contributed code to these local repos,
-be sure you first submit Pull Requests, and
-do not delete them yet.
+Remove any previous local copy of the project:
 
 ```sh
 rm -rf "${HOME}/Work/xpack-study-projects.git"
 ```
+
+Please note that this will also remove the local repositories clones
+possibly installed in a previous run;
+if you contributed code to these local repos,
+be sure you first submit Pull Requests, and
+do not delete them yet.
 
 ### Clone the GitHub repo
 
@@ -48,11 +56,15 @@ git clone https://github.com/micro-os-plus/xpack-study-projects.git \
   "${HOME}/Work/xpack-study-projects.git"
 ```
 
+### Proceed with the tests
+
+Go to the `blinky-rtos` folder and follow the instructions there.
+
+Same for `blinky-no-rtos`.
+
 ### Install writable source dependencies
 
-In most common use cases, the dependencies are in `package.json` and are
-automatically resolved by `xpm install`, but the installed content
-is read only.
+The dependencies installed by `xpm install` are read only.
 
 For development use cases, when the content must be writable, clone
 the original repos and link via the central packages repo.
@@ -61,18 +73,38 @@ the original repos and link via the central packages repo.
 bash "${HOME}/Work/xpack-study-projects.git/scripts/xpm-install-git.sh"
 ```
 
-### Download Eclipse
+## Eclipse
 
-Download a new Eclipse from:
+The default way to build these project is via command line commands.
+
+For those who prefer graphical tools, it is also possible to use
+Eclipse.
+
+Download a new **Eclipse IDE for Embedded C/C++ Developers** from:
 
 - https://www.eclipse.org/downloads/packages/
 
 Start Eclipse with a fresh workspace in a temporary folder. **DO NOT** use
 an existing workspace, to have a clean slate.
 
-### Import projects & build
+Import the projects & build
 
-Follow the steps in the README available in each folder.
+- Import > General > Existing Projects into Workspace
+- Next >
+- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-rtos`
+- Projects: `blinky-rtos` & `blinky-no-rtos`
+- disable: Copy projects
+- Finish
+
+Select the desired project, right click, Build Configurations > Build all...
+
+The result is a set of folders prefixed with `build-`
+
+To run a debug session:
+
+- menu Run > Debug configurations > GDB QEMU > select `blinky-rtos-stm32f4discovery-qemu`
+
+Note: the Eclipse configurations might be occasionally not up-to-date.
 
 ## Feedback
 

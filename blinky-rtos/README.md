@@ -35,7 +35,7 @@ To build binaries for all platforms with CMake, run:
 
 ```sh
 xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run build-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 ```
 
 The result is a set of folders below `build/`.
@@ -45,26 +45,3 @@ To run the native binary on macOS/Linux:
 ```sh
 ${HOME}/Work/xpack-study-projects.git/blinky-rtos/build/synthetic-posix-release-cmake/blinky-rtos
 ```
-
-### Build with Eclipse
-
-There are also Eclipse build configurations for allplatforms.
-
-#### Import projects & build
-
-- Import > General > Existing Projects into Workspace
-- Next >
-- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-rtos`
-- Projects: `blinky-rtos`
-- disable: Copy projects
-- Finish
-
-Select the project, right click, Build Configurations > Build all...
-
-The result is a set of folders prefixed with `build-`
-
-#### Run a debug session
-
-To run a debug session:
-
-- menu Run > Debug configurations > GDB QEMU > select `blinky-rtos-stm32f4discovery-qemu`
