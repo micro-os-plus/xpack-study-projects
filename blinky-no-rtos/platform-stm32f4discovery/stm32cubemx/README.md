@@ -28,7 +28,7 @@ with CubeMX.
   /* USER CODE END Error_Handler_Debug */
 ```
 
-# Implement assert_failed()
+## Implement assert_failed()
 
 ```
   /* USER CODE BEGIN 6 */
