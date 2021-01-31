@@ -18,10 +18,14 @@ If you don't have the xPack tools on your machine, follow the steps in the
 For the moment building and running the native build configurations
 is possible only on macOS and GNU/Linux.
 
-Building the embedded Arm and RISC-V build configurations is possible
-on all platforms, since the xPack toolchains are cross-platform.
+Building the embedded Arm and RISC-V build configurations should be possible
+on all platforms, since the xPack toolchains are cross-platform, but
+CMake has a problem starting ninja on Windows, so for the moment only
+macOS and GNU/Linux are available.
 
-Running the STM32F4DISCOVERY under QEMU is also possible on all platforms.
+Running the STM32F4DISCOVERY under QEMU should also be possible on all
+platforms, but QEMU has some issues starting under xpm, and will be fixed
+in the next release.
 
 ### Update xpm
 
