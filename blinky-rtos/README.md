@@ -14,12 +14,9 @@ The project exercises multi-platform and multi-architecture builds.
 There are separate debug/release Eclipse build configurations for each
 platform; all build are successful.
 
-The STM32F4DISCOVERY is functional and runs fine on QEMU.
+The STM32F4DISCOVERY and STM32F0DISCOVERY run fine on QEMU.
 
-The STM32F0DISCOVERY is also functional and runs fine on the physical board
-(QEMU has a bug and hangs).
-
-The Synthetic POSIX runs on macOS, and possibly on Linux.
+The Synthetic POSIX runs on macOS and Linux.
 
 The RISC-V port of the scheduler is not yet functional, it is only an
 empty framework, to be implemented later. It is provided only as a build
@@ -40,8 +37,22 @@ xpm run build-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 
 The result is a set of folders below `build/`.
 
-To run the native binary on macOS/Linux:
+### Run the tests
+
+The native binaries run on macOS/Linux, and the Arm binaries run via QEMU:
 
 ```sh
-${HOME}/Work/xpack-study-projects.git/blinky-rtos/build/synthetic-posix-release-cmake/blinky-rtos
+xpm run run-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 ```
+
+### Build with Eclipse
+
+Select the project, right click, Build Configurations > Build all...
+
+The result is a set of folders prefixed with `build-`
+
+### Test with Eclipse
+
+To run a debug session:
+
+- menu Run > Debug configurations > GDB QEMU > select `blinky-rtos-stm32f4discovery-qemu`

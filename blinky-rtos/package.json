@@ -11,15 +11,17 @@
     "build-stm32f4discovery-release-cmake": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f4discovery-release-cmake && cmake --build build/stm32f4discovery-release-cmake --verbose",
     "clean-stm32f4discovery-debug-cmake": "cmake --build build/stm32f4discovery-debug-cmake --target clean --verbose",
     "clean-stm32f4discovery-release-cmake": "cmake --build build/stm32f4discovery-release-cmake --target clean --verbose",
-    "run-stm32f4discovery-debug-cmake": "/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/2.8.0-11.1/.content/bin/qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test",
-    "run-stm32f4discovery-release-cmake": "/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/2.8.0-11.1/.content/bin/qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-release-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test",
+    "run-qemu-stm32f4discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
+    "run-qemu-gui-stm32f4discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --image build/stm32f4discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
+    "run-qemu-stm32f4discovery-release-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-release-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
 
     "build-stm32f0discovery-debug-cmake": "cmake -S . -B build/stm32f0discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-debug-cmake && cmake --build build/stm32f0discovery-debug-cmake --verbose",
     "build-stm32f0discovery-release-cmake": "cmake -S . -B build/stm32f0discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-release-cmake && cmake --build build/stm32f0discovery-release-cmake --verbose",
     "clean-stm32f0discovery-debug-cmake": "cmake --build build/stm32f0discovery-debug-cmake --target clean --verbose",
     "clean-stm32f0discovery-release-cmake": "cmake --build build/stm32f0discovery-release-cmake --target clean --verbose",
-    "run-stm32f0discovery-debug-cmake": "/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/2.8.0-11.1/.content/bin/qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test",
-    "run-stm32f0discovery-release-cmake": "/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/2.8.0-11.1/.content/bin/qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-release-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test",
+    "run-qemu-stm32f0discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
+    "run-qemu-gui-stm32f0discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --image build/stm32f0discovery-debug-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
+    "run-qemu-stm32f0discovery-release-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-release-cmake/blinky-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline test 6",
 
     "build-sifive-hifive1-debug-cmake": "cmake -S . -B build/sifive-hifive1-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DBUILD_CONFIG=sifive-hifive1-debug-cmake && cmake --build build/sifive-hifive1-debug-cmake --verbose",
     "build-sifive-hifive1-release-cmake": "cmake -S . -B build/sifive-hifive1-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DBUILD_CONFIG=sifive-hifive1-release-cmake && cmake --build build/sifive-hifive1-release-cmake --verbose",
@@ -30,12 +32,12 @@
     "build-synthetic-posix-release-cmake": "cmake -S . -B build/synthetic-posix-release-cmake -GNinja -DBUILD_CONFIG=synthetic-posix-release-cmake && cmake --build build/synthetic-posix-release-cmake --verbose",
     "clean-synthetic-posix-debug-cmake": "cmake --build build/synthetic-posix-debug-cmake --target clean --verbose",
     "clean-synthetic-posix-release-cmake": "cmake --build build/synthetic-posix-release-cmake --target clean --verbose",
-    "run-synthetic-posix-debug-cmake": "build/synthetic-posix-debug-cmake/blinky-rtos",
-    "run-synthetic-posix-release-cmake": "build/synthetic-posix-release-cmake/blinky-rtos",
+    "run-synthetic-posix-debug-cmake": "build/synthetic-posix-debug-cmake/blinky-rtos 6",
+    "run-synthetic-posix-release-cmake": "build/synthetic-posix-release-cmake/blinky-rtos 6",
 
     "build-all-cmake": "xpm run build-stm32f4discovery-debug-cmake && xpm run build-stm32f4discovery-release-cmake && xpm run build-stm32f0discovery-debug-cmake && xpm run build-stm32f0discovery-release-cmake && xpm run build-sifive-hifive1-debug-cmake && xpm run build-sifive-hifive1-release-cmake && xpm run build-synthetic-posix-debug-cmake && xpm run build-synthetic-posix-release-cmake",
     "clean-all-cmake": "xpm run clean-stm32f4discovery-debug-cmake && xpm run clean-stm32f4discovery-release-cmake && xpm run clean-stm32f0discovery-debug-cmake && xpm run clean-stm32f0discovery-release-cmake && xpm run clean-sifive-hifive1-debug-cmake && xpm run clean-sifive-hifive1-release-cmake && xpm run clean-synthetic-posix-debug-cmake && xpm run clean-synthetic-posix-release-cmake",
-    "run-all-cmake": "xpm run run-synthetic-posix-debug-cmake && xpm run run-synthetic-posix-release-cmake"
+    "run-all-cmake": "xpm run run-qemu-stm32f4discovery-debug-cmake && xpm run run-qemu-stm32f4discovery-release-cmake && xpm run run-qemu-stm32f0discovery-debug-cmake && xpm run run-qemu-stm32f0discovery-release-cmake && xpm run run-synthetic-posix-debug-cmake && xpm run run-synthetic-posix-release-cmake"
   },
   "scripts-todo": {
     "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . -DBUILD_CONFIG=stm32f4discovery-debug-meson",
@@ -89,7 +91,7 @@
     "@xpack-dev-tools/cmake": "3.19.2-1.1",
     "@xpack-dev-tools/ninja-build": "1.10.1-1.1",
     "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1",
-    "@xpack-dev-tools/qemu-arm": "2.8.0-11.1"
+    "@xpack-dev-tools/qemu-arm": "2.8.0-12.1"
   },
   "xpack": {
     "configurations": {
