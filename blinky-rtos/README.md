@@ -24,7 +24,8 @@ test for RISC-V platforms.
 
 ## How to test
 
-For the prerequisites, follow the steps in the ../README.md file.
+For the prerequisites, follow the steps in the parent
+[README](../README.md) file.
 
 ### Build in a terminal
 
@@ -39,10 +40,19 @@ The result is a set of folders below `build/`.
 
 ### Run the tests
 
-The native binaries run on macOS/Linux, and the Arm binaries run via QEMU:
+The native binaries run on macOS/Linux, and the Arm binaries run via QEMU
+in non-graphical mode:
 
 ```sh
 xpm run run-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+```
+
+To run the QEMU tests in graphical mode, use:
+
+```sh
+xpm run run-qemu-gui-stm32f4discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run run-qemu-gui-stm32f0discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+
 ```
 
 ### Build with Eclipse

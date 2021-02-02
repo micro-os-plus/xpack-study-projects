@@ -32,7 +32,7 @@ in the next release.
 If you already have xpm installed, be sure you use the most recent version.
 
 ```sh
-npm install -g xpm@next
+npm install -g xpm@latest
 ```
 
 It must be 0.8.1 or later.
@@ -62,9 +62,10 @@ git clone https://github.com/micro-os-plus/xpack-study-projects.git \
 
 ### Proceed with the tests
 
-Go to the `blinky-rtos` folder and follow the instructions there.
+Go to the [blinky-rtos/README](blinky-rtos/README.md) and follow the
+instructions there.
 
-Same for `blinky-no-rtos`.
+Same for [blinky-no-rtos/README](blinky-no-rtos/README.md).
 
 ## Install writable source dependencies for development
 
