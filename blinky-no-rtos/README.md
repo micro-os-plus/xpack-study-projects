@@ -23,22 +23,23 @@ The other two need more work.
 
 ## How to test
 
-Follow the steps in the ../README.md file.
+For the prerequisites, follow the steps in the ../README.md file.
 
-### Import projects & build
+### Build in a terminal
 
-- Import > General > Existing Projects into Workspace
-- Next >
-- Select root directory: Browse... `${HOME}/Work/xpack-study-projects.git/blinky-no-rtos`
-- Projects: `blinky-no-rtos`
-- disable: Copy projects
-- Finish
+TBD
+
+### Run the tests
+
+TBD
+
+### Build with Eclipse
 
 Select the project, right click, Build Configurations > Build all...
 
 The result is a set of folders prefixed with `build-`
 
-### Run a debug session
+### Test with Eclipse
 
 To run a debug session:
 
