@@ -79,7 +79,8 @@ bash "${HOME}/Work/xpack-study-projects.git/scripts/xpm-install-git.sh"
 
 ## Eclipse
 
-The default way to build these project is via command line commands.
+The default way to build these project is via command line commands,
+as presented before.
 
 For those who prefer graphical tools, it is also possible to use
 Eclipse.
@@ -100,15 +101,7 @@ Import the projects & build
 - disable: Copy projects
 - Finish
 
-Select the desired project, right click, Build Configurations > Build all...
-
-The result is a set of folders prefixed with `build-`
-
-To run a debug session:
-
-- menu Run > Debug configurations > GDB QEMU > select `blinky-rtos-stm32f4discovery-qemu`
-
-Note: the Eclipse configurations might be occasionally not up-to-date.
+Note: the Eclipse configurations might occasionally not be up-to-date.
 
 ## Feedback
 
