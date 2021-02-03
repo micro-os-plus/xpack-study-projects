@@ -13,7 +13,7 @@
 cmake_minimum_required(VERSION 3.18)
 
 project(
-	blinky-rtos
+	blinky
 	DESCRIPTION "A blinky using the µOS++ RTOS"
 )
 
@@ -29,7 +29,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-message(STATUS "Build configuration: ${BUILD_CONFIG}")
+message(STATUS "Platform name: ${PLATFORM_NAME}")
+# CMAKE_BUILD_TYPE: Debug, Release, RelWithDebInfo, MinSizeRel
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Project path: ${PROJECT_SOURCE_DIR}")
 
 add_executable(monolithic-app)
@@ -57,50 +59,25 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # -----------------------------------------------------------------------------
 # Include the platform dependent scripts.
-# CMAKE_BUILD_TYPE: Debug, Release, RelWithDebInfo, MinSizeRel
 
-if(BUILD_CONFIG STREQUAL "stm32f4discovery-debug-cmake")
-  set(CMAKE_BUILD_TYPE Debug)
+if(PLATFORM_NAME STREQUAL "stm32f4discovery")
   include("platform-stm32f4discovery/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-devices-stm32f4/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-cortexm/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "stm32f4discovery-release-cmake")
-  set(CMAKE_BUILD_TYPE MinSizeRel)
-  include("platform-stm32f4discovery/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-devices-stm32f4/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-architecture-cortexm/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "stm32f0discovery-debug-cmake")
-  set(CMAKE_BUILD_TYPE Debug)
+elseif(PLATFORM_NAME STREQUAL "stm32f0discovery")
   include("platform-stm32f0discovery/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-devices-stm32f0/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-cortexm/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "stm32f0discovery-release-cmake")
-  set(CMAKE_BUILD_TYPE MinSizeRel)
-  include("platform-stm32f0discovery/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-devices-stm32f0/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-architecture-cortexm/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "sifive-hifive1-debug-cmake")
-  set(CMAKE_BUILD_TYPE Debug)
+elseif(PLATFORM_NAME STREQUAL "sifive-hifive1")
   include("platform-sifive-hifive1/meta/xpack-helper.cmake")
   include("xpacks/xpack-sifive-platform-hifive1/meta/xpack-helper.cmake")
   include("xpacks/xpack-sifive-devices/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-riscv/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "sifive-hifive1-release-cmake")
-  set(CMAKE_BUILD_TYPE MinSizeRel)
-  include("platform-sifive-hifive1/meta/xpack-helper.cmake")
-  include("xpacks/xpack-sifive-platform-hifive1/meta/xpack-helper.cmake")
-  include("xpacks/xpack-sifive-devices/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-architecture-riscv/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "synthetic-posix-debug-cmake")
-  set(CMAKE_BUILD_TYPE Debug)
-  include("platform-synthetic-posix/meta/xpack-helper.cmake")
-  include("xpacks/micro-os-plus-architecture-synthetic-posix/meta/xpack-helper.cmake")
-elseif(BUILD_CONFIG STREQUAL "synthetic-posix-release-cmake")
-  set(CMAKE_BUILD_TYPE Release)
+elseif(PLATFORM_NAME STREQUAL "synthetic-posix")
   include("platform-synthetic-posix/meta/xpack-helper.cmake")
   include("xpacks/micro-os-plus-architecture-synthetic-posix/meta/xpack-helper.cmake")
 else()
-  message(FATAL_ERROR, "Unsupported BUILD_CONFIG")
+  message(FATAL_ERROR, "Unsupported PLATFORM_NAME")
 endif()
 
 # -----------------------------------------------------------------------------
@@ -226,7 +203,6 @@ target_include_directories_micro_os_plus_version(monolithic-app)
 
 # -----------------------------------------------------------------------------
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "")
 
 # -----------------------------------------------------------------------------
