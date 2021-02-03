@@ -25,15 +25,12 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/*
- * This file is part of the CMSIS++ proposal, intended as a CMSIS
- * replacement for C++ applications.
- */
-
 #ifndef MICRO_OS_PLUS_CONFIG_H_
 #define MICRO_OS_PLUS_CONFIG_H_
 
 // ----------------------------------------------------------------------------
+
+#define OS_INCLUDE_RTOS
 
 #define OS_INTEGER_SYSTICK_FREQUENCY_HZ (1000)
 

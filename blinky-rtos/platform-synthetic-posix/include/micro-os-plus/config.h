@@ -30,6 +30,8 @@
 
 // ----------------------------------------------------------------------------
 
+#define OS_INCLUDE_RTOS
+
 #define OS_INTEGER_SYSTICK_FREQUENCY_HZ (1000)
 
 #define OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES (1)
