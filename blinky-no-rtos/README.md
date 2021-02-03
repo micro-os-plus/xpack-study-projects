@@ -11,27 +11,48 @@ It has separate build configurations for:
 
 The project exercises multi-platform and multi-architecture builds.
 
-There are separate debug/release Eclipse build configurations for each
+There are separate debug/release build configurations for each
 platform.
 
-The STM32F4DISCOVERY is also functional and runs fine on QEMU.
+The STM32F4DISCOVERY and STM32F0DISCOVERY are also functional and
+run fine on QEMU.
 
-The STM32F0DISCOVERY is also functional and runs fine on the physical board
-(QEMU has a bug and hangs).
-
-The other two need more work.
+The other two need more work, the synthetic POSIX requires a proper
+implementation for the clock, and the empty RISC-V port needs the
+implemetation.
 
 ## How to test
 
-For the prerequisites, follow the steps in the ../README.md file.
+For the prerequisites, follow the steps in the parent
+[README](../README.md) file.
 
 ### Build in a terminal
 
-TBD
+To build binaries for all platforms with CMake, run:
+
+```sh
+xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+xpm run build-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+```
+
+The result is a set of folders below `build/`.
 
 ### Run the tests
 
-TBD
+The Arm binaries run via QEMU
+in non-graphical mode:
+
+```sh
+xpm run run-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+```
+
+To run the QEMU tests in graphical mode, use:
+
+```sh
+xpm run run-qemu-gui-stm32f4discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+xpm run run-qemu-gui-stm32f0discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+
+```
 
 ### Build with Eclipse
 

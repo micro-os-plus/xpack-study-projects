@@ -5,24 +5,48 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link-deps": "xpm link @micro-os-plus/build-helper @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @micro-os-plus/architecture-synthetic-posix @xpack-sifive/devices @micro-os-plus/version",
-    "stm32f4discovery-debug-cmake-prepare": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DPLATFORM=stm32f4discovery",
-    "stm32f4discovery-release-cmake-prepare": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_BUILD_TYPE=Debug -DBUILD_CONFIG=stm32f4discovery-release-cmake",
-    "stm32f4discovery-debug-cmake-build": "cmake --build build/stm32f4discovery-debug-cmake",
-    "stm32f4discovery-release-cmake-build": "cmake --build build/stm32f4discovery-release-cmake",
-    "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . -DBUILD_CONFIG=stm32f4discovery-debug-meson",
-    "stm32f4discovery-release-meson-prepare": "meson build/stm32f4discovery-release-meson . -DBUILD_CONFIG=stm32f4discovery-release-meson",
-    "stm32f4discovery-debug-meson-build": "meson compile -C build/stm32f4discovery-debug-meson",
-    "stm32f4discovery-release-meson-build": "meson compile -C build/stm32f4discovery-release-meson"
+    "link-deps": "xpm link @micro-os-plus/build-helper @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0 @micro-os-plus/devices-stm32f4 @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @micro-os-plus/architecture-synthetic-posix @xpack-sifive/devices @xpack-sifive/platform-hifive1 @micro-os-plus/version",
+
+    "build-stm32f4discovery-debug-cmake": "cmake -S . -B build/stm32f4discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f4discovery-debug-cmake && cmake --build build/stm32f4discovery-debug-cmake --verbose",
+    "build-stm32f4discovery-release-cmake": "cmake -S . -B build/stm32f4discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f4discovery-release-cmake && cmake --build build/stm32f4discovery-release-cmake --verbose",
+    "clean-stm32f4discovery-debug-cmake": "cmake --build build/stm32f4discovery-debug-cmake --target clean --verbose",
+    "clean-stm32f4discovery-release-cmake": "cmake --build build/stm32f4discovery-release-cmake --target clean --verbose",
+    "run-qemu-stm32f4discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-debug-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+    "run-qemu-gui-stm32f4discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --image build/stm32f4discovery-debug-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+    "run-qemu-stm32f4discovery-release-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-release-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+
+    "build-stm32f0discovery-debug-cmake": "cmake -S . -B build/stm32f0discovery-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-debug-cmake && cmake --build build/stm32f0discovery-debug-cmake --verbose",
+    "build-stm32f0discovery-release-cmake": "cmake -S . -B build/stm32f0discovery-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DBUILD_CONFIG=stm32f0discovery-release-cmake && cmake --build build/stm32f0discovery-release-cmake --verbose",
+    "clean-stm32f0discovery-debug-cmake": "cmake --build build/stm32f0discovery-debug-cmake --target clean --verbose",
+    "clean-stm32f0discovery-release-cmake": "cmake --build build/stm32f0discovery-release-cmake --target clean --verbose",
+    "run-qemu-stm32f0discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-debug-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+    "run-qemu-gui-stm32f0discovery-debug-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --image build/stm32f0discovery-debug-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+    "run-qemu-stm32f0discovery-release-cmake": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-release-cmake/blinky-no-rtos.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky-no-rtos 6",
+
+    "build-sifive-hifive1-debug-cmake": "cmake -S . -B build/sifive-hifive1-debug-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DBUILD_CONFIG=sifive-hifive1-debug-cmake && cmake --build build/sifive-hifive1-debug-cmake --verbose",
+    "build-sifive-hifive1-release-cmake": "cmake -S . -B build/sifive-hifive1-release-cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DBUILD_CONFIG=sifive-hifive1-release-cmake && cmake --build build/sifive-hifive1-release-cmake --verbose",
+    "clean-sifive-hifive1-debug-cmake": "cmake --build build/sifive-hifive1-debug-cmake --target clean --verbose",
+    "clean-sifive-hifive1-release-cmake": "cmake --build build/sifive-hifive1-release-cmake --target clean --verbose",
+
+    "build-synthetic-posix-debug-cmake": "cmake -S . -B build/synthetic-posix-debug-cmake -GNinja -DBUILD_CONFIG=synthetic-posix-debug-cmake && cmake --build build/synthetic-posix-debug-cmake --verbose",
+    "build-synthetic-posix-release-cmake": "cmake -S . -B build/synthetic-posix-release-cmake -GNinja -DBUILD_CONFIG=synthetic-posix-release-cmake && cmake --build build/synthetic-posix-release-cmake --verbose",
+    "clean-synthetic-posix-debug-cmake": "cmake --build build/synthetic-posix-debug-cmake --target clean --verbose",
+    "clean-synthetic-posix-release-cmake": "cmake --build build/synthetic-posix-release-cmake --target clean --verbose",
+    "run-synthetic-posix-debug-cmake": "build/synthetic-posix-debug-cmake/blinky-no-rtos 6",
+    "run-synthetic-posix-release-cmake": "build/synthetic-posix-release-cmake/blinky-no-rtos 6",
+
+    "build-all-cmake": "xpm run build-stm32f4discovery-debug-cmake && xpm run build-stm32f4discovery-release-cmake && xpm run build-stm32f0discovery-debug-cmake && xpm run build-stm32f0discovery-release-cmake && xpm run build-sifive-hifive1-debug-cmake && xpm run build-sifive-hifive1-release-cmake && xpm run build-synthetic-posix-debug-cmake && xpm run build-synthetic-posix-release-cmake",
+    "clean-all-cmake": "xpm run clean-stm32f4discovery-debug-cmake && xpm run clean-stm32f4discovery-release-cmake && xpm run clean-stm32f0discovery-debug-cmake && xpm run clean-stm32f0discovery-release-cmake && xpm run clean-sifive-hifive1-debug-cmake && xpm run clean-sifive-hifive1-release-cmake && xpm run clean-synthetic-posix-debug-cmake && xpm run clean-synthetic-posix-release-cmake",
+    "run-all-cmake": "xpm run run-qemu-stm32f4discovery-debug-cmake && xpm run run-qemu-stm32f4discovery-release-cmake && xpm run run-qemu-stm32f0discovery-debug-cmake && xpm run run-qemu-stm32f0discovery-release-cmake"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<user-id>/test-xpack-projects.git"
+    "url": "git+https://github.com/micro-os-plus/test-xpack-projects.git"
   },
   "bugs": {
-    "url": "https://github.com/<user-id>/test-xpack-projects/issues/"
+    "url": "https://github.com/micro-os-plus/test-xpack-projects/issues/"
   },
-  "homepage": "https://github.com/<user-id>/test-xpack-projects",
+  "homepage": "https://github.com/micro-os-plus/test-xpack-projects/",
   "keywords": [
     "xpack"
   ],
@@ -33,7 +57,23 @@
   },
   "license": "MIT",
   "config": {},
-  "dependencies": {},
+  "dependencies": {
+    "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#xpack-develop",
+    "@micro-os-plus/libs-c": "github:micro-os-plus/libs-c-xpack#xpack-develop",
+    "@micro-os-plus/libs-cpp": "github:micro-os-plus/libs-cpp-xpack#xpack-develop",
+    "@micro-os-plus/diag-trace": "github:micro-os-plus/diag-trace-xpack#xpack-develop",
+    "@micro-os-plus/semihosting": "github:micro-os-plus/semihosting-xpack#xpack-develop",
+    "@micro-os-plus/startup": "github:micro-os-plus/startup-xpack#xpack-develop",
+    "@micro-os-plus/devices-stm32f0": "github:micro-os-plus/devices-stm32f0-xpack#xpack-develop",
+    "@micro-os-plus/devices-stm32f4": "github:micro-os-plus/devices-stm32f4-xpack#xpack-develop",
+    "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#xpack-develop",
+    "@micro-os-plus/architecture-riscv": "github:micro-os-plus/architecture-riscv-xpack#xpack-develop",
+    "@xpack-sifive/devices": "github:micro-os-plus/devices-sifive-xpack#xpack-develop",
+    "@xpack-sifive/platform-hifive1": "github:micro-os-plus/platform-sifive-hifive1-xpack#xpack-develop",
+    "@xpack-sifive/platform-arty": "github:micro-os-plus/platform-sifive-arty-xpack#xpack-develop",
+    "@micro-os-plus/version": "github:micro-os-plus/version-xpack#xpack-develop",
+    "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#xpack-develop"
+  },
   "devDependencies": {
     "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2",
     "@xpack-dev-tools/cmake": "3.19.2-1.1",
