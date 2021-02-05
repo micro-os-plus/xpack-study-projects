@@ -81,7 +81,7 @@
     "@micro-os-plus/memory-allocators": "github:micro-os-plus/memory-allocators-xpack#v1.1.0",
     "@micro-os-plus/posix-io": "github:micro-os-plus/posix-io-xpack#v1.1.0",
     "@micro-os-plus/utils-lists": "github:micro-os-plus/utils-lists-xpack#v1.1.0",
-    "@micro-os-plus/rtos": "github:micro-os-plus/rtos-xpack#v7.0.0",
+    "@micro-os-plus/rtos": "github:micro-os-plus/rtos-xpack#v1.1.0",
     "@micro-os-plus/version": "github:micro-os-plus/version-xpack#v7.0.0",
     "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#v1.1.0",
     "@micro-os-plus/cmsis-os": "github:micro-os-plus/cmsis-os-xpack#v1.1.0"
