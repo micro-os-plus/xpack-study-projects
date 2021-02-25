@@ -31,7 +31,7 @@
 
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/architecture-cortexm/exception-handlers.h>
-#include <micro-os-plus/diag/trace.h>
+// #include <micro-os-plus/diag/trace.h>
 
 #include "sysclock.h"
 

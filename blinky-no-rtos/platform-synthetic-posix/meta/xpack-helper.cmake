@@ -9,157 +9,148 @@
 #
 # -----------------------------------------------------------------------------
 
+# This file defines (order is important):
+# - the global settings
+# - dependencies
+# - the micro-os-plus::platform library
+
+# Note: the micro-os-plus::device library is defined in the
+# architecture-synthetic-posix package.
+
 message(STATUS "Including platform-synthetic-posix...")
 
 # -----------------------------------------------------------------------------
+# The current folder.
 
+get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
+
+# -----------------------------------------------------------------------------
 # Preprocessor symbols.
+
 set(xpack_platform_compile_definition "PLATFORM_SYNTHETIC_POSIX")
 
 # -----------------------------------------------------------------------------
+# Global definitions. Before any libraries.
 
-function(target_sources_micro_os_plus_platform target)
+include_directories(
 
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  # The platform defines the <micro-os-plus/config.h> header, to be
+  # passed to all sources.
+  ${xpack_current_folder}/include
+)
+
+add_compile_definitions(
+
+  OS_USE_SEMIHOSTING_SYSCALLS
+  HAVE_MICRO_OS_PLUS_CONFIG_H
+
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
+)
+
+set(common_cpu_options 
+
+  # None
+)
+
+set(common_optimization_options
+
+  -fmessage-length=0
+  -fsigned-char
+  -ffunction-sections
+  -fdata-sections
+
+  # -Wunused
+  # -Wuninitialized
+  # -Wall
+  # -Wextra
+  # -Wconversion
+  # -Wpointer-arith
+  # -Wshadow
+  # -Wlogical-op
+  # -Wfloat-equal
+
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+)
+
+add_compile_options(
+
+  ${common_cpu_options}
+  ${common_optimization_options}
+)
+
+add_link_options(
+
+  ${common_cpu_options}
+  ${common_optimization_options}
+)
+
+add_link_options(
+  
+  # GCC specific
+  # -Xlinker --gc-sections
+
+  # -Map not supported by clang
+  # -Wl,-Map,${CMAKE_PROJECT_NAME}.map
+)
+
+# -----------------------------------------------------------------------------
+# Dependencies.
+
+find_package(micro-os-plus-architecture-synthetic-posix REQUIRED)
+find_package(micro-os-plus-diag-trace REQUIRED)
+
+# -----------------------------------------------------------------------------
+
+# Recompute current path after find_package().
+get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
+
+# -----------------------------------------------------------------------------
+
+if(NOT TARGET platform-synthetic-posix-interface)
+
+  add_library(platform-synthetic-posix-interface INTERFACE EXCLUDE_FROM_ALL)
 
   target_sources(
-    ${target}
+    platform-synthetic-posix-interface
 
-    PRIVATE
-      ${xpack_root_folder}/src/led.cpp      
+    INTERFACE
+      ${xpack_current_folder}/src/led.cpp      
   )
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_include_directories_micro_os_plus_platform target)
-
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_include_directories(
-    ${target}
+    platform-synthetic-posix-interface
 
-    PRIVATE
-      ${xpack_root_folder}/include
+    INTERFACE
+      ${xpack_current_folder}/include
   )
 
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_compile_definitions_micro_os_plus_platform target)
-
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
-
   target_compile_definitions(
-    ${target}
+    platform-synthetic-posix-interface
 
-    PRIVATE
+    INTERFACE
       ${xpack_platform_compile_definition}
 
-      _XOPEN_SOURCE=700
       $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_POSIX_STDOUT>
   )
 
-endfunction()
+  target_link_libraries(
+    platform-synthetic-posix-interface
+    
+    INTERFACE
+      micro-os-plus::architecture-synthetic-posix
+      micro-os-plus::diag-trace-static
+  )
 
-# -----------------------------------------------------------------------------
-
-function(target_options_micro_os_plus_platform target)
-
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
-
-  set(platform_cpu_option
+  # ---------------------------------------------------------------------------
+  # Aliases
   
-    # None
-  )
+  add_library(micro-os-plus::platform ALIAS platform-synthetic-posix-interface)
+  message(STATUS "micro-os-plus::platform")
 
-  set(platform_common_options
-
-    -fmessage-length=0
-    -fsigned-char
-    -ffunction-sections
-    -fdata-sections
-
-    # -Wunused
-    # -Wuninitialized
-    # -Wall
-    # -Wextra
-    # -Wconversion
-    # -Wpointer-arith
-    # -Wshadow
-    # -Wlogical-op
-    # -Wfloat-equal
-
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-    # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
-  )
-
-  target_compile_options(
-    ${target}
-
-    PRIVATE
-      ${platform_cpu_option}
-      ${platform_common_options}
-  )
-
-  target_link_options(
-    ${target}
-
-    PRIVATE
-      ${platform_cpu_option}
-      ${platform_common_options}
-
-      # GCC specific
-      # -Xlinker --gc-sections
-
-      # -Map not supported by clang
-      # -Wl,-Map,${CMAKE_PROJECT_NAME}.map
-  )
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_sources_micro_os_plus_device target)
-
-  # None
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_include_directories_micro_os_plus_device target)
-
-  # None
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-# Forward architecture to architecture-cortexm.
-
-function(target_sources_micro_os_plus_architecture target)
-
-  target_sources_micro_os_plus_architecture_synthetic_posix(${target})
-
-endfunction()
-
-
-function(target_include_directories_micro_os_plus_architecture target)
-
-  target_include_directories_micro_os_plus_architecture_synthetic_posix(${target})
-
-endfunction()
-
-
-function(target_compile_definitions_micro_os_plus_architecture target)
-
-  target_compile_definitions_micro_os_plus_architecture_synthetic_posix(${target})
-
-endfunction()
+endif()
 
 # -----------------------------------------------------------------------------
