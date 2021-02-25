@@ -85,5 +85,81 @@
     "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1",
     "@xpack-dev-tools/qemu-arm": "2.8.0-12.1"
   },
-  "xpack": {}
+  "xpack": {
+    "properties": {
+      "buildWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ configuration.properties.toolchainFileName }} -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }} --verbose",
+      "cleanWithCMake": "cmake --build build/{{ configuration.name }} --target clean --verbose",
+      "runWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ configuration.properties.qemuBoardName }} -d unimp,guest_errors --image build/{{ configuration.name }}/blinky.elf --semihosting-config enable=on,target=native"
+    },
+    "configurations": {
+      "stm32f4discovery-cmake-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+        }
+      },
+      "stm32f4discovery-cmake-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+        }
+      },
+      "stm32f0discovery-cmake-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f0discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F0-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+        }
+      },
+      "stm32f0discovery-cmake-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f0discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F0-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+        }
+      },
+      "sifive-hifive1-cmake-debug": {
+
+      },
+      "sifive-hifive1-cmake-release": {
+        
+      },
+      "synthetic-posix-cmake-debug": {
+
+      },
+      "synthetic-posix-cmake-release": {
+        
+      }
+    }
+  }
 }
