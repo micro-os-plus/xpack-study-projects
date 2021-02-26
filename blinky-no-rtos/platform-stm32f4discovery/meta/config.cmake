@@ -9,7 +9,7 @@
 #
 # -----------------------------------------------------------------------------
 
-# This file defines (order is important):
+# This file defines the following (the order is important):
 # - preprocessor symbols
 # - the global settings
 # - dependencies
@@ -128,8 +128,8 @@ find_package(micro-os-plus-startup REQUIRED)
 find_package(micro-os-plus-diag-trace REQUIRED)
 
 # -----------------------------------------------------------------------------
-
 # Recompute current folder after find_package().
+
 get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
 
 # -----------------------------------------------------------------------------

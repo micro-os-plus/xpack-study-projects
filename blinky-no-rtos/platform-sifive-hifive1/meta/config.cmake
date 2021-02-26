@@ -9,7 +9,7 @@
 #
 # -----------------------------------------------------------------------------
 
-# This file defines (order is important):
+# This file defines the following (the order is important):
 # - preprocessor symbols
 # - the global settings
 # - dependencies

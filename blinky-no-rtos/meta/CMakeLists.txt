@@ -77,11 +77,6 @@ add_compile_definitions(
 # Bare-metal executables have the .elf extension, and use --whole-archive.
 if(CMAKE_SYSTEM_NAME STREQUAL "Generic")
   set(CMAKE_EXECUTABLE_SUFFIX ".elf")
-
-  # Brace libraries with --whole-archive and --start-group to avoid linker
-  # ignoring the non-weak symbols, like the interrupt handlers.
-  # set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER>  <FLAGS> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> -Wl,--start-group -Wl,--whole-archive <LINK_LIBRARIES> -Wl,--no-whole-archive -Wl,--end-group")
-  # set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_C_COMPILER>  <FLAGS> <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> -Wl,--start-group -Wl,--whole-archive <LINK_LIBRARIES> -Wl,--no-whole-archive -Wl,--end-group")
 endif()
 
 # -----------------------------------------------------------------------------
@@ -90,13 +85,13 @@ endif()
 # before defining any target.
 
 if(PLATFORM_NAME STREQUAL "stm32f4discovery")
-  include("${xpack_project_folder}/platform-stm32f4discovery/meta/xpack-helper.cmake")
+  include("${xpack_project_folder}/platform-stm32f4discovery/meta/config.cmake")
 elseif(PLATFORM_NAME STREQUAL "stm32f0discovery")
-  include("${xpack_project_folder}/platform-stm32f0discovery/meta/xpack-helper.cmake")
+  include("${xpack_project_folder}/platform-stm32f0discovery/meta/config.cmake")
 elseif(PLATFORM_NAME STREQUAL "sifive-hifive1")
-  include("${xpack_project_folder}/platform-sifive-hifive1/meta/xpack-helper.cmake")
+  include("${xpack_project_folder}/platform-sifive-hifive1/meta/config.cmake")
 elseif(PLATFORM_NAME STREQUAL "synthetic-posix")
-  include("${xpack_project_folder}/platform-synthetic-posix/meta/xpack-helper.cmake")
+  include("${xpack_project_folder}/platform-synthetic-posix/meta/config.cmake")
 else()
   message(FATAL_ERROR, "Unsupported PLATFORM_NAME=${PLATFORM_NAME}")
 endif()
@@ -129,7 +124,7 @@ target_include_directories(
   application
 
   PRIVATE
-    ${xpack_project_folder}/include
+    # ${xpack_project_folder}/include
     ${xpack_project_folder}/sysclock/include
 )
 

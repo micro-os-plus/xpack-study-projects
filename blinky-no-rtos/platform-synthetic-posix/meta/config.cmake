@@ -9,7 +9,7 @@
 #
 # -----------------------------------------------------------------------------
 
-# This file defines (order is important):
+# This file defines the following (the order is important):
 # - the global settings
 # - dependencies
 # - the micro-os-plus::platform library
