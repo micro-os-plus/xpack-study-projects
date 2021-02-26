@@ -31,9 +31,8 @@
 
 #include <micro-os-plus/rtos/os.h>
 
-#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
-#include <micro-os-plus/diag/trace.h>
 #include <micro-os-plus/platform.h>
+#include <micro-os-plus/architecture-cortexm/exception-handlers.h>
 
 // #include "sysclock.h"
 
@@ -45,6 +44,8 @@ void __attribute__ ((section (".after_vectors"))) SysTick_Handler (void)
   HAL_SYSTICK_IRQHandler ();
 
   os_systick_handler ();
+  // os::sysclock.internal_increment_count ();
+
   // sysclock.internal_increment_count();
 }
 

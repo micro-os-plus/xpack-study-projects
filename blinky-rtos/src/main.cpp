@@ -27,8 +27,8 @@
 
 #include <micro-os-plus/rtos/os.h>
 
-#include <micro-os-plus/diag/trace.h>
 #include <micro-os-plus/platform.h>
+#include <micro-os-plus/diag/trace.h>
 
 // #include "sysclock.h"
 #include "led.h"
@@ -96,6 +96,7 @@ bool button_released = false;
 
 int
 os_main (int argc, char* argv[])
+// main (int argc, char* argv[])
 {
   // Send a greeting to the trace device (skipped on Release).
   trace::puts ("Hello World!");
