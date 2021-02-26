@@ -99,54 +99,5 @@
     "@xpack-dev-tools/qemu-arm": "2.8.0-12.1"
   },
   "xpack": {
-    "configurations": {
-      "stm32f4discovery-debug-cmake": {
-        "folderPath": "build/{{ configuration.name }}",
-        "platformName": "stm32f4discovery",
-        "buildType": "Debug",
-        "scripts": {
-          "build": "cmake -S {{ project.folderPath }} -GNinja -DCMAKE_TOOLCHAIN_FILE={{ project.folderPath }}/xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME={{ configuration.platformName }} -DBUILD_TYPE={{ configuration.buildType }} && cmake --build . --verbose",
-          "clean": "cmake --build . --target clean --verbose",
-          "execute": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline test"
-        }
-      },
-      "stm32f4discovery-release-cmake": {
-        "folderPath": "build/{{ configuration.name }}",
-        "platformName": "stm32f4discovery",
-        "buildType": "MinSizeRel",
-        "scripts": {
-          "build": "cmake -S {{ project.folderPath }} -GNinja -DCMAKE_TOOLCHAIN_FILE={{ project.folderPath }}/xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME={{ configuration.platformName }} -DBUILD_TYPE={{ configuration.buildType }} && cmake --build . --verbose",
-          "clean": "cmake --build . --target clean --verbose",
-          "execute": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline test"
-        }
-      },
-      
-      "stm32f0discovery-debug": {},
-      "stm32f0discovery-release": {},
-
-      "sifive-hifive1-debug": {},
-      "sifive-hifive1-release": {},
-
-      "synthetic-posix-debug-cmake": {
-        "folderPath": "build/{{ configuration.name }}",
-        "platformName": "synthetic-posix",
-        "buildType": "Debug",
-        "scripts": {
-          "build": "cmake -S {{ project.folderPath }} -GNinja -DPLATFORM_NAME={{ configuration.platformName }} -DBUILD_TYPE={{ configuration.buildType }} && cmake --build . --verbose",
-          "clean": "cmake --build . --target clean --verbose",
-          "execute": "./blinky"
-        }
-      },
-      "synthetic-posix-release-cmake": {
-        "folderPath": "build/{{ configuration.name }}",
-        "platformName": "synthetic-posix",
-        "buildType": "Release",
-        "scripts": {
-          "build": "cmake -S {{ project.folderPath }} -GNinja -DPLATFORM_NAME={{ configuration.platformName }} -DBUILD_TYPE={{ configuration.buildType }} && cmake --build . --verbose",
-          "clean": "cmake --build . --target clean --verbose",
-          "execute": "./blinky"
-        }
-      }
-    }
   }
 }

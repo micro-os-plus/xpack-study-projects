@@ -87,9 +87,10 @@
   },
   "xpack": {
     "properties": {
-      "buildWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ configuration.properties.toolchainFileName }} -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }} --verbose",
+      "buildWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ configuration.properties.toolchainFileName }} -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
+      "buildNativeWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
       "cleanWithCMake": "cmake --build build/{{ configuration.name }} --target clean --verbose",
-      "runWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ configuration.properties.qemuBoardName }} -d unimp,guest_errors --image build/{{ configuration.name }}/blinky.elf --semihosting-config enable=on,target=native"
+      "executeWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ configuration.properties.qemuBoardName }} -d unimp,guest_errors --image build/{{ configuration.name }}/blinky.elf --semihosting-config enable=on,target=native"
     },
     "configurations": {
       "stm32f4discovery-cmake-debug": {
@@ -102,8 +103,8 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
-          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
-          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
         }
       },
       "stm32f4discovery-cmake-release": {
@@ -116,8 +117,8 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
-          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
-          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
         }
       },
       "stm32f0discovery-cmake-debug": {
@@ -130,8 +131,8 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
-          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
-          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
         }
       },
       "stm32f0discovery-cmake-release": {
@@ -144,21 +145,53 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
-          "runWithQemu": "{{ package.xpack.properties.runWithQemu }} --nographic --semihosting-cmdline blinky 6",
-          "runWithQemuGui": "{{ package.xpack.properties.runWithQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
         }
       },
       "sifive-hifive1-cmake-debug": {
-
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        }
       },
       "sifive-hifive1-cmake-release": {
-        
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        }
       },
       "synthetic-posix-cmake-debug": {
-
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "synthetic-posix"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildNativeWithCMmake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "execute": "build/{{ configuration.name }}/blinky 6"
+        }
       },
       "synthetic-posix-cmake-release": {
-        
+        "properties": {
+          "buildType": "Release",
+          "platformName": "synthetic-posix"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildNativeWithCMmake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "execute": "build/{{ configuration.name }}/blinky 6"
+        }
       }
     }
   }
