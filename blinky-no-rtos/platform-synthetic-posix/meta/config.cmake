@@ -10,6 +10,7 @@
 # -----------------------------------------------------------------------------
 
 # This file defines the following (the order is important):
+# - preprocessor symbols
 # - the global settings
 # - dependencies
 # - the micro-os-plus::platform library
@@ -20,82 +21,13 @@
 message(STATUS "Including platform-synthetic-posix...")
 
 # -----------------------------------------------------------------------------
-# The current folder.
-
-get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
-
-# -----------------------------------------------------------------------------
 # Preprocessor symbols.
 
 set(xpack_platform_compile_definition "PLATFORM_SYNTHETIC_POSIX")
 
 # -----------------------------------------------------------------------------
-# Global definitions. Before any libraries.
 
-include_directories(
-
-  # The platform defines the <micro-os-plus/config.h> header, to be
-  # passed to all sources.
-  ${xpack_current_folder}/include
-)
-
-add_compile_definitions(
-
-  OS_USE_SEMIHOSTING_SYSCALLS
-  HAVE_MICRO_OS_PLUS_CONFIG_H
-
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
-)
-
-set(common_cpu_options 
-
-  # None
-)
-
-set(common_optimization_options
-
-  -fmessage-length=0
-  -fsigned-char
-  -ffunction-sections
-  -fdata-sections
-
-  # -Wunused
-  # -Wuninitialized
-  # -Wall
-  # -Wextra
-  # -Wconversion
-  # -Wpointer-arith
-  # -Wshadow
-  # -Wlogical-op
-  # -Wfloat-equal
-
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
-)
-
-add_compile_options(
-
-  ${common_cpu_options}
-  ${common_optimization_options}
-)
-
-add_link_options(
-
-  ${common_cpu_options}
-  ${common_optimization_options}
-)
-
-add_link_options(
-  
-  # GCC specific
-  # -Xlinker --gc-sections
-
-  # -Map not supported by clang
-  # -Wl,-Map,${CMAKE_PROJECT_NAME}.map
-)
+include("${CMAKE_CURRENT_LIST_DIR}/globals.cmake")
 
 # -----------------------------------------------------------------------------
 # Dependencies.

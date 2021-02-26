@@ -9,33 +9,95 @@
 #
 # -----------------------------------------------------------------------------
 
-# This file defines the following (the order is important):
-# - preprocessor symbols
-# - the global settings
-# - dependencies
-# - the micro-os-plus::device library
-# - the micro-os-plus::platform library
-
-# CubeMX generates both device and platform specific code.
-# Split it into separate libraries.
-
-message(STATUS "Including platform-stm32f0discovery...")
+# This file defines the global settings that apply to all targets.
 
 # -----------------------------------------------------------------------------
-# Preprocessor symbols. Before dependencies.
+# The current folder.
 
-# TODO: migrate them to CMake options.
-set(xpack_platform_compile_definition "PLATFORM_STM32F0DISCOVERY")
-message(STATUS "${xpack_platform_compile_definition}")
-
-set(xpack_device_compile_definition "STM32F051x8") # STM32F051R8"
-message(STATUS "${xpack_device_compile_definition}")
-
-# set(xpack_device_family_compile_definition "STM32F0")
+get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
 
 # -----------------------------------------------------------------------------
+# Global settings. Must be called before defining any libraries.
 
-include("${CMAKE_CURRENT_LIST_DIR}/globals.cmake")
+include_directories(
+
+  # The platform defines the <micro-os-plus/config.h> header, to be
+  # passed to all sources.
+  ${xpack_current_folder}/include
+)
+
+add_compile_definitions(
+
+  OS_USE_SEMIHOSTING_SYSCALLS
+  HAVE_MICRO_OS_PLUS_CONFIG_H
+
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
+)
+
+set(common_cpu_options 
+
+  -mcpu=cortex-m0
+  -mthumb
+  -mfloat-abi=soft
+)
+
+set(common_optimization_options
+
+  -fmessage-length=0
+  -fsigned-char
+  -ffunction-sections
+  -fdata-sections
+  -fno-move-loop-invariants
+
+  $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
+  $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+  $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
+  $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+  $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+
+  # -Wunused
+  # -Wuninitialized
+  # -Wall
+  # -Wextra
+  # -Wconversion
+  # -Wpointer-arith
+  # -Wshadow
+  # -Wlogical-op
+  # -Wfloat-equal
+
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
+  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+)
+
+add_compile_options(
+
+    ${common_cpu_options}
+    ${common_optimization_options}
+)
+
+add_link_options(
+
+    ${common_cpu_options}
+    ${common_optimization_options}
+)
+
+add_link_options(
+  
+    -nostartfiles
+    # nano has no exceptions.
+    -specs=nano.specs
+    -Wl,--gc-sections
+
+    # -Wl,--undefined,Reset_Handler
+
+    # Including files from other packages is not very nice, but functional.
+    # Use absolute paths, otherwise set -L.
+    -T${xpack_current_folder}/linker-scripts/mem.ld
+    -T${xpack_project_folder}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections.ld
+)
 
 # -----------------------------------------------------------------------------
 # Dependencies.
