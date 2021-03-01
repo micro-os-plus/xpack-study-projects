@@ -41,7 +41,10 @@
     "build-all-cmake": "xpm run build-stm32f4discovery-cmake-debug && xpm run build-stm32f4discovery-cmake-release && xpm run build-stm32f0discovery-cmake-debug && xpm run build-stm32f0discovery-cmake-release && xpm run build-sifive-hifive1-cmake-debug && xpm run build-sifive-hifive1-cmake-release && xpm run build-synthetic-posix-cmake-debug && xpm run build-synthetic-posix-cmake-release",
     "clean-all-cmake": "xpm run clean-stm32f4discovery-cmake-debug && xpm run clean-stm32f4discovery-cmake-release && xpm run clean-stm32f0discovery-cmake-debug && xpm run clean-stm32f0discovery-cmake-release && xpm run clean-sifive-hifive1-cmake-debug && xpm run clean-sifive-hifive1-cmake-release && xpm run clean-synthetic-posix-cmake-debug && xpm run clean-synthetic-posix-cmake-release",
     "run-all-cmake": "xpm run run-qemu-stm32f4discovery-cmake-debug && xpm run run-qemu-stm32f4discovery-cmake-release && xpm run run-qemu-stm32f0discovery-cmake-debug && xpm run run-qemu-stm32f0discovery-cmake-release",
-    "test": "xpm run build-all-cmake && xpm run run-all-cmake"
+    "test-all-cmake": "xpm run build-all-cmake && xpm run run-all-cmake",
+
+    "build": "xpm run build-all-cmake",
+    "test": "xpm run test-all-cmake"
   },
   "repository": {
     "type": "git",
@@ -62,28 +65,28 @@
   "license": "MIT",
   "config": {},
   "dependencies": {
-    "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#semver:1.1.0",
-    "@micro-os-plus/libs-c": "github:micro-os-plus/libs-c-xpack#semver:1.1.0",
-    "@micro-os-plus/libs-cpp": "github:micro-os-plus/libs-cpp-xpack#semver:1.1.0",
-    "@micro-os-plus/diag-trace": "github:micro-os-plus/diag-trace-xpack#semver:1.1.0",
-    "@micro-os-plus/semihosting": "github:micro-os-plus/semihosting-xpack#semver:2.1.0",
-    "@micro-os-plus/startup": "github:micro-os-plus/startup-xpack#semver:1.1.0",
-    "@micro-os-plus/devices-stm32f0": "github:micro-os-plus/devices-stm32f0-xpack#semver:1.1.0",
-    "@micro-os-plus/devices-stm32f4": "github:micro-os-plus/devices-stm32f4-xpack#semver:1.1.0",
-    "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#semver:1.1.0",
-    "@micro-os-plus/architecture-riscv": "github:micro-os-plus/architecture-riscv-xpack#semver:1.1.0",
-    "@xpack-sifive/devices": "github:micro-os-plus/devices-sifive-xpack#semver:1.1.0",
-    "@xpack-sifive/platform-hifive1": "github:micro-os-plus/platform-sifive-hifive1-xpack#semver:1.1.0",
-    "@xpack-sifive/platform-arty": "github:micro-os-plus/platform-sifive-arty-xpack#semver:1.1.0",
-    "@micro-os-plus/version": "github:micro-os-plus/version-xpack#semver:7.0.0",
-    "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#semver:1.1.0"
   },
   "devDependencies": {
     "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2",
     "@xpack-dev-tools/cmake": "3.19.2-1.1",
     "@xpack-dev-tools/ninja-build": "1.10.1-1.1",
+    "@xpack-dev-tools/qemu-arm": "2.8.0-12.1",
     "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1",
-    "@xpack-dev-tools/qemu-arm": "2.8.0-12.1"
+    
+    "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#semver:2.0.0",
+    "@micro-os-plus/architecture-riscv": "github:micro-os-plus/architecture-riscv-xpack#semver:2.0.0",
+    "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#semver:2.0.0",
+    "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#semver:2.0.0",
+    "@micro-os-plus/devices-stm32f0": "github:micro-os-plus/devices-stm32f0-xpack#semver:2.0.0",
+    "@micro-os-plus/devices-stm32f4": "github:micro-os-plus/devices-stm32f4-xpack#semver:2.0.0",
+    "@micro-os-plus/diag-trace": "github:micro-os-plus/diag-trace-xpack#semver:2.0.0",
+    "@micro-os-plus/libs-c": "github:micro-os-plus/libs-c-xpack#semver:2.0.0",
+    "@micro-os-plus/libs-cpp": "github:micro-os-plus/libs-cpp-xpack#semver:2.0.0",
+    "@micro-os-plus/semihosting": "github:micro-os-plus/semihosting-xpack#semver:3.0.0",
+    "@micro-os-plus/startup": "github:micro-os-plus/startup-xpack#semver:2.0.0",
+    "@micro-os-plus/version": "github:micro-os-plus/version-xpack#semver:7.0.2",
+    "@xpack-sifive/devices": "github:micro-os-plus/devices-sifive-xpack#semver:2.0.0",
+    "@xpack-sifive/platform-hifive1": "github:micro-os-plus/platform-sifive-hifive1-xpack#semver:2.0.0"
   },
   "xpack": {
     "properties": {
