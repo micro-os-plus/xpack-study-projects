@@ -43,7 +43,7 @@
 //
 // ----------------------------------------------------------------------------
 
-using namespace os;
+using namespace micro_os_plus;
 
 // Definitions visible only within this translation unit.
 namespace
@@ -259,7 +259,7 @@ main (int argc, char* argv[])
           // Wait for button to be released.
           while (!button_released)
             {
-              os::arch::wfi ();
+              architecture::wfi ();
             }
 
           blink_leds[count].turn_on ();
@@ -269,7 +269,7 @@ main (int argc, char* argv[])
           // Wait for button to be pushed.
           while (!button_pushed)
             {
-              os::arch::wfi ();
+              architecture::wfi ();
             }
 
           blink_leds[count].turn_off ();

@@ -66,7 +66,7 @@ if(NOT TARGET platform-synthetic-posix-interface)
     INTERFACE
       ${xpack_platform_compile_definition}
 
-      $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_POSIX_STDOUT>
+      $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_POSIX_STDOUT>
   )
 
   target_link_libraries(

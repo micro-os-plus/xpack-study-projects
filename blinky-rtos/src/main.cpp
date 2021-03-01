@@ -25,7 +25,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <micro-os-plus/rtos/os.h>
+#include <micro-os-plus/rtos.h>
 
 #include <micro-os-plus/platform.h>
 #include <micro-os-plus/diag/trace.h>
@@ -45,8 +45,8 @@
 //
 // ----------------------------------------------------------------------------
 
-using namespace os;
-using namespace os::rtos;
+using namespace micro_os_plus;
+using namespace micro_os_plus::rtos;
 
 // Definitions visible only within this translation unit.
 namespace
@@ -263,7 +263,7 @@ os_main (int argc, char* argv[])
           // Wait for button to be released.
           while (!button_released)
             {
-              os::arch::wfi ();
+              architecture::wfi ();
             }
 
           blink_leds[count].turn_on ();
@@ -273,7 +273,7 @@ os_main (int argc, char* argv[])
           // Wait for button to be pushed.
           while (!button_pushed)
             {
-              os::arch::wfi ();
+              architecture::wfi ();
             }
 
           blink_leds[count].turn_off ();

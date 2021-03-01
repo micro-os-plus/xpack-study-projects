@@ -28,7 +28,7 @@
 #if (!(defined(__APPLE__) || defined(__linux__) || defined(__unix__)))
 
 // Do not include on semihosting and when freestanding!
-#if !defined(OS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__ == 0)
+#if !defined(MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__ == 0)
 
 // ----------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ _write (int fd __attribute__ ((unused)),
 
 // ----------------------------------------------------------------------------
 
-#endif // !defined(OS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__ == 0)
+#endif // !defined(MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__ == 0)
 
 #endif // Unix
 

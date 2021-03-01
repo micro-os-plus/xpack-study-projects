@@ -28,10 +28,13 @@ include_directories(
 
 add_compile_definitions(
 
-  OS_USE_SEMIHOSTING_SYSCALLS
+  MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS
   HAVE_MICRO_OS_PLUS_CONFIG_H
 
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:OS_USE_TRACE_SEMIHOSTING_DEBUG>
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_SEMIHOSTING_DEBUG>
+
+  # Disable asserts to fit the small 64KB flash.
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:NDEBUG>
 )
 
 set(common_cpu_options 
@@ -42,6 +45,8 @@ set(common_cpu_options
 )
 
 set(common_optimization_options
+
+  #$<$<STREQUAL:"${CMAKE_BUILD_TYPE}","MinSizeRel">:-flto>
 
   -fmessage-length=0
   -fsigned-char
@@ -87,8 +92,10 @@ add_link_options(
 add_link_options(
   
     -nostartfiles
+
     # nano has no exceptions.
     -specs=nano.specs
+
     -Wl,--gc-sections
 
     # -Wl,--undefined,Reset_Handler

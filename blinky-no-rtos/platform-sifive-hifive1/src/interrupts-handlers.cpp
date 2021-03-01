@@ -34,7 +34,7 @@
 
 #include "sysclock.h"
 
-using namespace os;
+using namespace micro_os_plus;
 
 // ----------------------------------------------------------------------------
 
@@ -58,8 +58,8 @@ using namespace os;
 
 // ----------------------------------------------------------------------------
 
-#if !defined(OS_USE_CPP_INTERRUPTS)
-#error "Define OS_USE_CPP_INTERRUPTS to use namespaces."
+#if !defined(MICRO_OS_PLUS_USE_CPP_INTERRUPTS)
+#error "Define MICRO_OS_PLUS_USE_CPP_INTERRUPTS to use namespaces."
 #endif
 
 namespace riscv

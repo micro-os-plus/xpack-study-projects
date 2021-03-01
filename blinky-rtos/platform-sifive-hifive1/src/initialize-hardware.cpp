@@ -37,7 +37,7 @@
 // Called early, before copying .data and clearing .bss.
 // Should initialize the clocks and possible other RAM areas.
 void
-os_startup_initialize_hardware_early (void)
+micro_os_plus_startup_initialize_hardware_early (void)
 {
   // Disable all interrupts.
   riscv::csr::clear_mstatus_bits (RISCV_CSR_MSTATUS_MIE);
@@ -45,7 +45,7 @@ os_startup_initialize_hardware_early (void)
   riscv::csr::mie (0);
 
   // Set the trap assembly handler.
-  riscv::csr::mtvec ((riscv::arch::register_t)riscv_trap_entry);
+  riscv::csr::mtvec ((riscv::architecture::register_t)riscv_trap_entry);
 
   // TODO: add support for the PRCI peripheral and use it.
 
@@ -67,7 +67,7 @@ os_startup_initialize_hardware_early (void)
 
 // Called before running the static constructors.
 void
-os_startup_initialize_hardware (void)
+micro_os_plus_startup_initialize_hardware (void)
 {
   // Measure the CPU frequency in cycles, with the RTC as reference.
   riscv::core::update_running_frequency ();

@@ -32,31 +32,34 @@
 
 // ----------------------------------------------------------------------------
 
-// Constructor. Not much to do.
-os::sysclock::sysclock (void)
+namespace micro_os_plus
 {
-  ;
-}
+  // --------------------------------------------------------------------------
 
-void
-os::sysclock::sleep_for (duration_t duration)
-{
-  // Compute the timestamp when the sleep should end.
-  timestamp_t then = steady_now () + duration;
+  // Constructor. Not much to do.
+  sysclock::sysclock (void)
+  {
+    ;
+  }
 
-  // Busy wait until the current time reaches the desired timestamp.
-  while (steady_now () < then)
-    {
-      os::arch::wfi ();
-    }
-}
+  void
+  sysclock::sleep_for (duration_t duration)
+  {
+    // Compute the timestamp when the sleep should end.
+    timestamp_t then = steady_now () + duration;
 
-// ----------------------------------------------------------------------------
+    // Busy wait until the current time reaches the desired timestamp.
+    while (steady_now () < then)
+      {
+        architecture::wfi ();
+      }
+  }
 
-namespace os
-{
   // Instantiate a static system clock object.
-  class os::sysclock sysclock;
-} // namespace os
+  class sysclock sysclock;
+
+  // --------------------------------------------------------------------------
+
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------

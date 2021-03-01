@@ -34,15 +34,15 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
   class sysclock;
   extern class sysclock sysclock;
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
 
   /*
@@ -84,19 +84,20 @@ namespace os
 
 #pragma GCC diagnostic pop
 
-} // namespace os
 
 inline void __attribute__ ((always_inline))
-os::sysclock::internal_increment_count ()
+sysclock::internal_increment_count ()
 {
   ++steady_count_;
 }
 
-inline os::clock::timestamp_t __attribute__ ((always_inline))
-os::sysclock::steady_now (void)
+inline clock::timestamp_t __attribute__ ((always_inline))
+sysclock::steady_now (void)
 {
   return steady_count_;
 }
+
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 
