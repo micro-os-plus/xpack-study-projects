@@ -19,38 +19,32 @@ run fine on QEMU.
 
 The other two need more work, the synthetic POSIX requires a proper
 implementation for the clock, and the empty RISC-V port needs the
-implemetation.
+implementation.
 
 ## How to test
 
 For the prerequisites, follow the steps in the parent
 [README](../README.md) file.
 
-### Build in a terminal
+### Build and run in a terminal
 
 To build binaries for all platforms with CMake, run:
 
 ```sh
 xpm install --force -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
-xpm run build-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+xpm run test -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
 ```
 
 The result is a set of folders below `build/`.
 
-### Run the tests
-
 The Arm binaries run via QEMU
-in non-graphical mode:
-
-```sh
-xpm run run-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
-```
+in non-graphical mode.
 
 To run the QEMU tests in graphical mode, use:
 
 ```sh
-xpm run run-qemu-gui-stm32f4discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
-xpm run run-qemu-gui-stm32f0discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+xpm run run-qemu-gui-stm32f4discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
+xpm run run-qemu-gui-stm32f0discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-no-rtos"
 
 ```
 

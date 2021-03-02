@@ -32,26 +32,20 @@ For the prerequisites, follow the steps in the parent
 To build binaries for all platforms with CMake, run:
 
 ```sh
-xpm install --force -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run build-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run run -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 ```
 
 The result is a set of folders below `build/`.
 
-### Run the tests
-
 The native binaries run on macOS/Linux, and the Arm binaries run via QEMU
-in non-graphical mode:
-
-```sh
-xpm run run-all-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-```
+in non-graphical mode.
 
 To run the QEMU tests in graphical mode, use:
 
 ```sh
-xpm run run-qemu-gui-stm32f4discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run run-qemu-gui-stm32f0discovery-debug-cmake -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run run-qemu-gui-stm32f4discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run run-qemu-gui-stm32f0discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 
 ```
 
