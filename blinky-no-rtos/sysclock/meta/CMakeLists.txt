@@ -42,9 +42,8 @@ target_link_libraries(
   sysclock-static
 
   PUBLIC
-    micro-os-plus::diag-trace-static
+    micro-os-plus::diag-trace
     micro-os-plus::platform
 )
-
 
 # -----------------------------------------------------------------------------

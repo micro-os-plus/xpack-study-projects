@@ -166,8 +166,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Generic")
     PRIVATE 
       micro-os-plus::libs-c
       micro-os-plus::libs-cpp
-      micro-os-plus::semihosting-static
-      micro-os-plus::startup-static
+      micro-os-plus::semihosting
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------

@@ -93,7 +93,7 @@ if (NOT TARGET micro-os-plus-device-interface)
       micro-os-plus::architecture-cortexm-device
 
       micro-os-plus::devices-stm32f4-extras
-      micro-os-plus::startup-static
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------

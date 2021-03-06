@@ -163,7 +163,7 @@ target_link_libraries(
   PRIVATE 
     micro-os-plus::libs-cpp-estd
     micro-os-plus::rtos
-    micro-os-plus::posix-io-static
+    micro-os-plus::posix-io
     micro-os-plus::cmsis-os
 )
 
@@ -183,8 +183,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Generic")
     PRIVATE 
       micro-os-plus::libs-c
       micro-os-plus::libs-cpp
-      micro-os-plus::semihosting-static
-      micro-os-plus::startup-static
+      micro-os-plus::semihosting
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------

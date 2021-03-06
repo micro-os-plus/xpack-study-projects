@@ -95,7 +95,7 @@ if (NOT TARGET micro-os-plus-device-interface)
       micro-os-plus::architecture-cortexm-device
 
       micro-os-plus::devices-stm32f0-extras
-      micro-os-plus::startup-static
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------
@@ -177,8 +177,8 @@ if(NOT TARGET platform-stm32f0discovery-interface)
     
     INTERFACE
       micro-os-plus::device
-      micro-os-plus::diag-trace-static
-      micro-os-plus::startup-static
+      micro-os-plus::diag-trace
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------

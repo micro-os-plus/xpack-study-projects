@@ -74,7 +74,7 @@ if(NOT TARGET platform-synthetic-posix-interface)
     
     INTERFACE
       micro-os-plus::architecture-synthetic-posix
-      micro-os-plus::diag-trace-static
+      micro-os-plus::diag-trace
   )
 
   # ---------------------------------------------------------------------------

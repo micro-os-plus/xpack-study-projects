@@ -87,8 +87,8 @@ if(NOT TARGET platform-sifive-hifive1-interface)
     
     INTERFACE
       sifive::platform-hifive1
-      micro-os-plus::diag-trace-static
-      micro-os-plus::startup-static
+      micro-os-plus::diag-trace
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------
