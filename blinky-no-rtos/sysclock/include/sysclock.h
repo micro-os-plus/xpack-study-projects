@@ -37,17 +37,21 @@
 namespace micro_os_plus
 {
   class sysclock;
-  extern class sysclock sysclock;
+  extern sysclock sysclock;
 } // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 
 namespace micro_os_plus
 {
+  // --------------------------------------------------------------------------
 
-  /*
-   * These classes are super simple versions of the µOS++ clocks.
-   */
+  // These classes are super simple versions of the µOS++ clocks.
+
+#pragma GCC diagnostic push
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
 
   class clock
   {
@@ -56,7 +60,6 @@ namespace micro_os_plus
     using timestamp_t = uint64_t;
   };
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wpadded"
 
   class sysclock : public clock
@@ -84,11 +87,12 @@ namespace micro_os_plus
 
 #pragma GCC diagnostic pop
 
-
 inline void __attribute__ ((always_inline))
 sysclock::internal_increment_count ()
 {
-  ++steady_count_;
+  // Avoid ++, since C++20 will deprecate it on volatiles. Currently it throws
+  // expression of 'volatile'-qualified type is deprecated [-Werror=volatile]
+  steady_count_ = steady_count_ + 1;
 }
 
 inline clock::timestamp_t __attribute__ ((always_inline))

@@ -132,7 +132,7 @@ namespace sifive
             button_released = true;
 
             // Clear rising interrupt.
-            GPIO->riseip |= (1 << BUTTON_0_OFFSET);
+            GPIO->riseip = GPIO->riseip | (1 << BUTTON_0_OFFSET);
           }
 
         if (GPIO->fallip & (1 << BUTTON_0_OFFSET))
@@ -141,7 +141,7 @@ namespace sifive
             button_pushed = true;
 
             // Clear falling interrupt.
-            GPIO->fallip |= (1 << BUTTON_0_OFFSET);
+            GPIO->fallip = GPIO->fallip | (1 << BUTTON_0_OFFSET);
           }
       }
 

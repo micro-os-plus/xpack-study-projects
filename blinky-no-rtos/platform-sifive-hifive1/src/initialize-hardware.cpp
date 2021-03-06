@@ -45,19 +45,19 @@ micro_os_plus_startup_initialize_hardware_early (void)
   riscv::csr::mie (0);
 
   // Set the trap assembly handler.
-  riscv::csr::mtvec ((riscv::architecture::register_t)riscv_trap_entry);
+  riscv::csr::mtvec (reinterpret_cast<riscv::architecture::register_t>(riscv_trap_entry));
 
   // TODO: add support for the PRCI peripheral and use it.
 
   // TODO: add to C/C++ API
   // Make sure the HFROSC is on before the next line:
-  PRCI->hfrosccfg |= SIFIVE_FE310_PRCI_HFROSCCFG_EN;
+  PRCI->hfrosccfg = PRCI->hfrosccfg | SIFIVE_FE310_PRCI_HFROSCCFG_EN;
   // Run off 16 MHz Crystal for accuracy.
-  PRCI->pllcfg
-      |= (SIFIVE_FE310_PRCI_PLLCFG_REFSEL | SIFIVE_FE310_PRCI_PLLCFG_BYPASS
+  PRCI->pllcfg = PRCI->pllcfg
+      | (SIFIVE_FE310_PRCI_PLLCFG_REFSEL | SIFIVE_FE310_PRCI_PLLCFG_BYPASS
           | SIFIVE_FE310_PRCI_PLLCFG_SEL);
   // Turn off HFROSC to save power
-  PRCI->hfrosccfg &= ~(SIFIVE_FE310_PRCI_HFROSCCFG_EN);
+  PRCI->hfrosccfg = PRCI->hfrosccfg & ~(SIFIVE_FE310_PRCI_HFROSCCFG_EN);
 
   // TODO: check Arduino main.cpp for more/better initialisations.
 }
@@ -88,18 +88,18 @@ micro_os_plus_startup_initialize_hardware (void)
   // Configure Button 0 as a global GPIO irq.
 
   // Disable output.
-  GPIO->outputen &= ~(1u << BUTTON_0_OFFSET);
+  GPIO->outputen = GPIO->outputen & ~(1u << BUTTON_0_OFFSET);
 
   // Disable hw io function
-  GPIO->iofen &= ~(1u << BUTTON_0_OFFSET);
+  GPIO->iofen = GPIO->iofen & ~(1u << BUTTON_0_OFFSET);
 
   // Configure as input
-  GPIO->inputen |= (1u << BUTTON_0_OFFSET);
-  GPIO->pue |= (1u << BUTTON_0_OFFSET);
+  GPIO->inputen = GPIO->inputen | (1u << BUTTON_0_OFFSET);
+  GPIO->pue = GPIO->pue | (1u << BUTTON_0_OFFSET);
 
   // Configure to interrupt on both falling and rising edges.
-  GPIO->fallie |= (1u << BUTTON_0_OFFSET);
-  GPIO->riseie |= (1u << BUTTON_0_OFFSET);
+  GPIO->fallie = GPIO->fallie | (1u << BUTTON_0_OFFSET);
+  GPIO->riseie = GPIO->riseie | (1u << BUTTON_0_OFFSET);
 
   // Enable the BUTTON interrupt in PLIC.
   riscv::plic::enable_interrupt (INT_DEVICE_BUTTON_0);

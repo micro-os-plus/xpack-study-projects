@@ -38,21 +38,21 @@
 led::led (unsigned int port, unsigned int bit, bool active_low)
 {
   gpio_ptr_ = GPIO; // Fixed, there is only one GPIO port.
-  port_number_ = (uint16_t)port;
-  bit_number_ = (uint16_t)bit;
+  port_number_ = static_cast<uint16_t>(port);
+  bit_number_ = static_cast<uint16_t>(bit);
   is_active_low_ = active_low;
-  bit_mask_ = (uint32_t) (1 << bit);
+  bit_mask_ = static_cast<uint32_t> (1 << bit);
 }
 
 void
 led::power_up ()
 {
   // Disable I/O Functions on this bit, keep it as plain digital pin.
-  gpio_ptr_->iofen &= ~bit_mask_;
+  gpio_ptr_->iofen = gpio_ptr_->iofen & ~bit_mask_;
   // Clear the toggle bit.
-  gpio_ptr_->outxor &= ~bit_mask_;
+  gpio_ptr_->outxor = gpio_ptr_->outxor & ~bit_mask_;
   // Enable output.
-  gpio_ptr_->outputen |= bit_mask_;
+  gpio_ptr_->outputen = gpio_ptr_->outputen | bit_mask_;
 
   // Start with led turned off
   turn_off ();
@@ -63,11 +63,11 @@ led::turn_on ()
 {
   if (is_active_low_)
     {
-      gpio_ptr_->port &= ~bit_mask_;
+      gpio_ptr_->port = gpio_ptr_->port & ~bit_mask_;
     }
   else
     {
-      gpio_ptr_->port |= bit_mask_;
+      gpio_ptr_->port = gpio_ptr_->port | bit_mask_;
     }
 }
 
@@ -76,18 +76,18 @@ led::turn_off ()
 {
   if (is_active_low_)
     {
-      gpio_ptr_->port |= bit_mask_;
+      gpio_ptr_->port = gpio_ptr_->port | bit_mask_;
     }
   else
     {
-      gpio_ptr_->port &= ~bit_mask_;
+      gpio_ptr_->port = gpio_ptr_->port & ~bit_mask_;
     }
 }
 
 void
 led::toggle ()
 {
-  gpio_ptr_->outxor |= bit_mask_;
+  gpio_ptr_->outxor = gpio_ptr_->outxor | bit_mask_;
 }
 
 bool

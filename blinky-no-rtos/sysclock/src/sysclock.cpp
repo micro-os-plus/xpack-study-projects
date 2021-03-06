@@ -55,8 +55,16 @@ namespace micro_os_plus
       }
   }
 
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wglobal-constructors"
+#endif
+
   // Instantiate a static system clock object.
   class sysclock sysclock;
+
+#pragma GCC diagnostic pop
 
   // --------------------------------------------------------------------------
 

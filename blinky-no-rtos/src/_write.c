@@ -77,4 +77,9 @@ _write (int fd __attribute__ ((unused)),
 
 #endif // Unix
 
+#pragma GCC diagnostic ignored "-Wpedantic"
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wempty-translation-unit"
+#endif
+
 // ----------------------------------------------------------------------------
