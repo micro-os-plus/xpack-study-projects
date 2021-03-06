@@ -172,6 +172,20 @@ if(NOT TARGET platform-stm32f0discovery-interface)
       USE_HAL_DRIVER
   )
 
+  target_compile_options(
+    platform-stm32f0discovery-interface
+
+    INTERFACE
+
+      -Wno-padded
+      -Wno-switch-enum
+      -Wno-conversion
+      -Wno-unused-parameter
+      # -Wno-redundant-decls
+      # -Wno-switch-default
+      # $<$<COMPILE_LANG_AND_ID:C,GNU>:-Wno-bad-function-cast>
+  )
+
   target_link_libraries(
     platform-stm32f0discovery-interface
     

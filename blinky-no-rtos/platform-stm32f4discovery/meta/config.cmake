@@ -172,13 +172,26 @@ if(NOT TARGET platform-stm32f4discovery-interface)
       USE_HAL_DRIVER
   )
 
+  target_compile_options(
+    platform-stm32f4discovery-interface
+
+    INTERFACE
+
+      -Wno-padded
+      -Wno-switch-enum
+      -Wno-conversion
+      -Wno-redundant-decls
+      -Wno-switch-default
+      $<$<COMPILE_LANG_AND_ID:C,GNU>:-Wno-bad-function-cast>
+  )
+
   target_link_libraries(
     platform-stm32f4discovery-interface
     
     INTERFACE
       micro-os-plus::device
-      micro-os-plus::diag-trace-static
-      micro-os-plus::startup-static
+      micro-os-plus::diag-trace
+      micro-os-plus::startup
   )
 
   # ---------------------------------------------------------------------------

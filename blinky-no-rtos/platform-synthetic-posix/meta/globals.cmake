@@ -34,54 +34,36 @@ add_compile_definitions(
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_SEMIHOSTING_DEBUG>
 )
 
-set(common_cpu_options 
+xpack_set_all_compiler_warnings(all_warnings)
 
-  # None
-)
-
-set(common_optimization_options
+set(common_options 
 
   -fmessage-length=0
   -fsigned-char
+
   -ffunction-sections
   -fdata-sections
 
-  # -Wunused
-  # -Wuninitialized
-  # -Wall
-  # -Wextra
-  # -Wconversion
-  # -Wpointer-arith
-  # -Wshadow
-  # -Wlogical-op
-  # -Wfloat-equal
+  ${all_warnings}
 
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+  -Werror
+  -pedantic-errors
 )
 
 add_compile_options(
 
-  ${common_cpu_options}
-  ${common_optimization_options}
+  ${common_options}
 )
 
 add_link_options(
 
-  ${common_cpu_options}
-  ${common_optimization_options}
+  ${common_options}
 )
 
 add_link_options(
   
   # GCC specific
-  # -Xlinker --gc-sections
-
-  # -Map not supported by clang
-  # -Wl,-Map,${CMAKE_PROJECT_NAME}.map
+  $<$<CXX_COMPILER_ID:GNU>:-Wl,--gc-sections>
 )
 
 # -----------------------------------------------------------------------------

@@ -23,7 +23,6 @@ message(STATUS "Including platform-sifive-hifive1...")
 
 # TODO: migrate them to CMake options.
 set(xpack_device_compile_definition "SIFIVE_FE310")
-message(STATUS "${xpack_device_compile_definition}")
 
 # -----------------------------------------------------------------------------
 
@@ -80,6 +79,13 @@ if(NOT TARGET platform-sifive-hifive1-interface)
     INTERFACE
       # Passed globally.
       # ${xpack_current_folder}/include
+  )
+
+  target_compile_options(
+    platform-sifive-hifive1-interface
+
+    INTERFACE
+      # ...
   )
 
   target_link_libraries(

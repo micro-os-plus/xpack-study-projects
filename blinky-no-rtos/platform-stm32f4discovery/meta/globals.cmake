@@ -34,54 +34,41 @@ add_compile_definitions(
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_SEMIHOSTING_DEBUG>
 )
 
-set(common_cpu_options 
+xpack_set_all_compiler_warnings(all_warnings)
+
+set(common_options 
 
   -mcpu=cortex-m4
   -mthumb
   -mfloat-abi=soft
-)
-
-set(common_optimization_options
 
   -fmessage-length=0
   -fsigned-char
+
   -ffunction-sections
   -fdata-sections
-  -fno-move-loop-invariants
+  
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:-fno-move-loop-invariants>
 
-  $<$<COMPILE_LANGUAGE:CXX>:-fabi-version=0>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
 
-  # -Wunused
-  # -Wuninitialized
-  # -Wall
-  # -Wextra
-  # -Wconversion
-  # -Wpointer-arith
-  # -Wshadow
-  # -Wlogical-op
-  # -Wfloat-equal
+  ${all_warnings}
 
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+  -Werror
+  -pedantic-errors
 )
 
 add_compile_options(
 
-    ${common_cpu_options}
-    ${common_optimization_options}
+    ${common_options}
 )
 
 add_link_options(
 
-    ${common_cpu_options}
-    ${common_optimization_options}
+    ${common_options}
 )
 
 add_link_options(
@@ -89,6 +76,7 @@ add_link_options(
     -nostartfiles
     # nano has no exceptions.
     -specs=nano.specs
+
     -Wl,--gc-sections
 
     # -Wl,--undefined,Reset_Handler
