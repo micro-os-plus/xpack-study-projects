@@ -81,7 +81,7 @@ if(NOT TARGET platform-synthetic-posix-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-synthetic-posix-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

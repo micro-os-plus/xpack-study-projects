@@ -26,10 +26,7 @@ message(STATUS "Including platform-stm32f4discovery...")
 
 # TODO: migrate them to CMake options.
 set(xpack_platform_compile_definition "PLATFORM_STM32F4DISCOVERY")
-message(STATUS "${xpack_platform_compile_definition}")
-
 set(xpack_device_compile_definition "STM32F407xx")
-message(STATUS "${xpack_device_compile_definition}")
 
 # -----------------------------------------------------------------------------
 
@@ -59,12 +56,17 @@ if (NOT TARGET micro-os-plus-device-interface)
 
   # ---------------------------------------------------------------------------
 
+  set(source_files
+    ${xpack_current_folder}/stm32cubemx/Core/Src/system_stm32f4xx.c
+  )
+  xpack_display_relative_paths("${source_files}" "${xpack_current_folder}")
+
   # Add the CubeMX device specific definitions.
   target_sources(
     micro-os-plus-device-interface
 
     INTERFACE
-      ${xpack_current_folder}/stm32cubemx/Core/Src/system_stm32f4xx.c
+      ${source_files}
     )
 
   target_include_directories(
@@ -115,38 +117,31 @@ if(NOT TARGET platform-stm32f4discovery-interface)
 
   # ---------------------------------------------------------------------------
 
+  xpack_glob_recurse_cxx(source_files "${xpack_current_folder}/src")
+
+  # system_stm32f4xx.c is not here but in the device library.
+  list(APPEND source_files
+    ${xpack_current_folder}/stm32cubemx/Core/Src/gpio.c
+    ${xpack_current_folder}/stm32cubemx/Core/Src/main.c
+    ${xpack_current_folder}/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
+    ${xpack_current_folder}/stm32cubemx/Core/Src/stm32f4xx_it.c
+  )
+
+  # These are not in the device library because they include
+  # stm32f4xx_hal_conf.h, which is part of the platform.
+  xpack_glob_recurse_cxx(source_files_hal "${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src")
+
+  list(APPEND source_files 
+    ${source_files_hal}
+  )
+
+  xpack_display_relative_paths("${source_files}" "${xpack_current_folder}")
+
   target_sources(
     platform-stm32f4discovery-interface
 
     INTERFACE
-      ${xpack_current_folder}/src/initialize-hardware.cpp
-      ${xpack_current_folder}/src/interrupts-handlers.cpp
-      ${xpack_current_folder}/src/led.cpp
-      
-      ${xpack_current_folder}/stm32cubemx/Core/Src/gpio.c
-      ${xpack_current_folder}/stm32cubemx/Core/Src/main.c
-      ${xpack_current_folder}/stm32cubemx/Core/Src/stm32f4xx_hal_msp.c
-      ${xpack_current_folder}/stm32cubemx/Core/Src/stm32f4xx_it.c
-
-      # system_stm32f4xx.c is not here but in the device library.
-
-      # These are not in the device library because they include
-      # stm32f4xx_hal_conf.h, which is part of the platform.
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
-      ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+      ${source_files}
   )
 
   target_include_directories(
@@ -163,6 +158,8 @@ if(NOT TARGET platform-stm32f4discovery-interface)
       ${xpack_current_folder}/stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc
   )
 
+  message(STATUS "+ ${xpack_platform_compile_definition}")
+
   target_compile_definitions(
     platform-stm32f4discovery-interface
 
@@ -170,6 +167,21 @@ if(NOT TARGET platform-stm32f4discovery-interface)
       ${xpack_platform_compile_definition}
 
       USE_HAL_DRIVER
+  )
+
+  target_compile_options(
+    platform-stm32f4discovery-interface
+
+    INTERFACE
+      # To silence HAL warnings.
+      -Wno-padded
+      -Wno-switch-enum
+      -Wno-conversion
+      -Wno-redundant-decls
+      -Wno-switch-default
+      -Wno-unused-parameter
+
+      $<$<COMPILE_LANG_AND_ID:C,GNU>:-Wno-bad-function-cast>
   )
 
   target_link_libraries(
@@ -185,7 +197,7 @@ if(NOT TARGET platform-stm32f4discovery-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-stm32f4discovery-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

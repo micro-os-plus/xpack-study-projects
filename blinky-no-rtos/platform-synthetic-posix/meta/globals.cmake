@@ -28,11 +28,10 @@ include_directories(
 
 add_compile_definitions(
 
-  MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS
   HAVE_MICRO_OS_PLUS_CONFIG_H
 
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_SEMIHOSTING_DEBUG>
-)
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_POSIX_STDOUT>
+  )
 
 xpack_set_all_compiler_warnings(all_warnings)
 

@@ -101,7 +101,7 @@ endif()
 # Create the application.
 
 add_executable(application)
-message(STATUS "application")
+message(STATUS "==> application")
 
 set_target_properties(
   application

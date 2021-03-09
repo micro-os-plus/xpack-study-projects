@@ -101,7 +101,7 @@ if(NOT TARGET platform-sifive-hifive1-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-sifive-hifive1-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

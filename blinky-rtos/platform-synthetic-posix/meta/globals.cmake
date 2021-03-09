@@ -17,11 +17,6 @@
 get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
 
 # -----------------------------------------------------------------------------
-# Preprocessor symbols.
-
-set(xpack_platform_compile_definition "PLATFORM_SYNTHETIC_POSIX")
-
-# -----------------------------------------------------------------------------
 # Global settings. Must be called before defining any libraries.
 
 include_directories(
@@ -33,51 +28,37 @@ include_directories(
 
 add_compile_definitions(
 
-  MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS
   HAVE_MICRO_OS_PLUS_CONFIG_H
 
-  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_SEMIHOSTING_DEBUG>
+  $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:MICRO_OS_PLUS_USE_TRACE_POSIX_STDOUT>
 )
 
-set(common_cpu_options 
+xpack_set_all_compiler_warnings(all_warnings)
 
-  # None
-)
-
-set(common_optimization_options
+set(common_options 
 
   -fmessage-length=0
   -fsigned-char
+
   -ffunction-sections
   -fdata-sections
 
-  # -Wunused
-  # -Wuninitialized
-  # -Wall
-  # -Wextra
-  # -Wconversion
-  # -Wpointer-arith
-  # -Wshadow
-  # -Wlogical-op
-  # -Wfloat-equal
+  ${all_warnings}
 
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wctor-dtor-privacy>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnoexcept>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wstrict-null-sentinel>
-  # $<$<COMPILE_LANGUAGE:CXX>:-Wsign-promo>
+  -Werror
+  -pedantic-errors
+  -Wno-error=documentation-unknown-command
+  -Wno-documentation-unknown-command
 )
 
 add_compile_options(
 
-  ${common_cpu_options}
-  ${common_optimization_options}
+  ${common_options}
 )
 
 add_link_options(
 
   ${common_cpu_options}
-  ${common_optimization_options}
 )
 
 add_link_options(

@@ -23,7 +23,6 @@ message(STATUS "Including platform-sifive-hifive1...")
 
 # TODO: migrate them to CMake options.
 set(xpack_device_compile_definition "SIFIVE_FE310")
-message(STATUS "${xpack_device_compile_definition}")
 
 # -----------------------------------------------------------------------------
 
@@ -95,7 +94,7 @@ if(NOT TARGET platform-sifive-hifive1-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-sifive-hifive1-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

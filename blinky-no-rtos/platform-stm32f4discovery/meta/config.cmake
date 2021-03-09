@@ -26,10 +26,7 @@ message(STATUS "Including platform-stm32f4discovery...")
 
 # TODO: migrate them to CMake options.
 set(xpack_platform_compile_definition "PLATFORM_STM32F4DISCOVERY")
-message(STATUS "${xpack_platform_compile_definition}")
-
 set(xpack_device_compile_definition "STM32F407xx")
-message(STATUS "${xpack_device_compile_definition}")
 
 # -----------------------------------------------------------------------------
 
@@ -198,7 +195,7 @@ if(NOT TARGET platform-stm32f4discovery-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-stm32f4discovery-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

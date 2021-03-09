@@ -103,7 +103,7 @@ endif()
 # Create the application.
 
 add_executable(application)
-message(STATUS "application")
+message(STATUS "==> application")
 
 set_target_properties(
   application
@@ -164,7 +164,7 @@ target_link_libraries(
 
   PRIVATE 
     micro-os-plus::libs-cpp-estd
-    micro-os-plus::rtos
+    micro-os-plus::rtos-port
     micro-os-plus::posix-io
     micro-os-plus::cmsis-os
 )

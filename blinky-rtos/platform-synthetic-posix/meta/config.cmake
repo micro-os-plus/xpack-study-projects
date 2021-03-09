@@ -60,6 +60,8 @@ if(NOT TARGET platform-synthetic-posix-interface)
       ${xpack_current_folder}/include
   )
 
+  message(STATUS "+ ${xpack_platform_compile_definition}")
+
   target_compile_definitions(
     platform-synthetic-posix-interface
 
@@ -81,7 +83,7 @@ if(NOT TARGET platform-synthetic-posix-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-synthetic-posix-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 

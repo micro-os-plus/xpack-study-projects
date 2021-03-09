@@ -26,12 +26,7 @@ message(STATUS "Including platform-stm32f0discovery...")
 
 # TODO: migrate them to CMake options.
 set(xpack_platform_compile_definition "PLATFORM_STM32F0DISCOVERY")
-message(STATUS "${xpack_platform_compile_definition}")
-
 set(xpack_device_compile_definition "STM32F051x8") # STM32F051R8"
-message(STATUS "${xpack_device_compile_definition}")
-
-# set(xpack_device_family_compile_definition "STM32F0")
 
 # -----------------------------------------------------------------------------
 
@@ -199,7 +194,7 @@ if(NOT TARGET platform-stm32f0discovery-interface)
   # Aliases
   
   add_library(micro-os-plus::platform ALIAS platform-stm32f0discovery-interface)
-  message(STATUS "micro-os-plus::platform")
+  message(STATUS "=> micro-os-plus::platform")
 
 endif()
 
