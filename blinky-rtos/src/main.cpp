@@ -48,6 +48,15 @@
 using namespace micro_os_plus;
 using namespace micro_os_plus::rtos;
 
+extern bool button_pushed;
+extern bool button_released;
+
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
+
 // Definitions visible only within this translation unit.
 namespace
 {
@@ -59,8 +68,14 @@ namespace
       = sysclock.frequency_hz - BLINK_ON_TICKS;
 } // namespace
 
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wglobal-constructors"
+#endif
+
 // Instantiate a static array of led objects.
-led blink_leds[] = {
+static led blink_leds[] = {
 #if defined(PLATFORM_STM32F4DISCOVERY)
   // Specific to STM32F4DISCOVERY.
   { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_HIGH },
@@ -83,6 +98,8 @@ led blink_leds[] = {
 #endif
 };
 
+#pragma GCC diagnostic pop
+
 // ----------------------------------------------------------------------------
 
 bool button_pushed = false;
@@ -90,7 +107,6 @@ bool button_released = false;
 
 // ----------------------------------------------------------------------------
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 
@@ -129,7 +145,9 @@ os_main (int argc, char* argv[])
 
 #define LOOP_COUNT (1 << (sizeof (blink_leds) / sizeof (blink_leds[0])))
 
-  int loops = LOOP_COUNT > 2 ? LOOP_COUNT : (5);
+  // clang: code will never be executed [-Werror,-Wunreachable-code]
+  // silence by adding parentheses to mark code as explicitly dead
+  int loops = (LOOP_COUNT > (2)) ? (LOOP_COUNT) : (5);
   if (argc > 1)
     {
       // If defined, get the number of loops from the command line,

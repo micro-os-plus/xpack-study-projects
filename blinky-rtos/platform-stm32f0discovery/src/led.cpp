@@ -42,6 +42,10 @@
 
 // ----------------------------------------------------------------------------
 
+#pragma GCC diagnostic push
+
+#pragma GCC diagnostic ignored "-Wold-style-cast"
+
 led::led (unsigned int port, unsigned int bit, bool active_low)
 {
   port_number_ = (uint16_t)port;
@@ -55,7 +59,8 @@ led::led (unsigned int port, unsigned int bit, bool active_low)
 void
 led::power_up ()
 {
-  RCC->AHBENR |= BLINK_RCC_MASKx (port_number_);
+  RCC->AHBENR
+      = RCC->AHBENR | BLINK_RCC_MASKx (port_number_); // Volatile bit set.
 
   GPIO_InitTypeDef GPIO_InitStruct;
   GPIO_InitStruct.Pin = bit_mask_;
@@ -68,6 +73,8 @@ led::power_up ()
   // Start with led turned off
   turn_off ();
 }
+
+#pragma GCC diagnostic pop
 
 // GPIO_PIN_RESET, GPIO_PIN_SET
 

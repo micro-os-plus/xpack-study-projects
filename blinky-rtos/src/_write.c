@@ -77,4 +77,10 @@ _write (int fd __attribute__ ((unused)),
 
 #endif // Unix
 
+// ISO C forbids an empty translation unit [-Wpedantic]
+#pragma GCC diagnostic ignored "-Wpedantic"
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wempty-translation-unit"
+#endif
+
 // ----------------------------------------------------------------------------
