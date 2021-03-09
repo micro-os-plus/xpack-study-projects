@@ -85,6 +85,8 @@ endif()
 # This also defines the global options, and must be performed
 # before defining any target.
 
+option(MICRO_OS_PLUS_INCLUDE_RTOS "Include the RTOS" true)
+
 if(PLATFORM_NAME STREQUAL "stm32f4discovery")
   include("${xpack_project_folder}/platform-stm32f4discovery/meta/config.cmake")
 elseif(PLATFORM_NAME STREQUAL "stm32f0discovery")
