@@ -47,9 +47,16 @@ set(common_options
 
   -Werror
   -pedantic-errors
-  -Wno-error=documentation-unknown-command
-  -Wno-documentation-unknown-command
 )
+
+# clang complains about some @cond/@endcond; temporarily disable warning.
+if("${CMAKE_C_COMPILER_ID}" MATCHES ".*Clang")
+  list(APPEND common_options
+
+    -Wno-error=documentation-unknown-command
+    -Wno-documentation-unknown-command
+  )
+endif()
 
 add_compile_options(
 
