@@ -100,7 +100,7 @@
       "executeWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ configuration.properties.qemuBoardName }} -d unimp,guest_errors --image build/{{ configuration.name }}/blinky.elf --semihosting-config enable=on,target=native"
     },
     "configurations": {
-      "stm32f4discovery-cmake-debug": {
+      "stm32f4discovery-cmake-gcc10-debug": {
         "properties": {
           "buildType": "Debug",
           "platformName": "stm32f4discovery",
@@ -112,9 +112,12 @@
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
           "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
           "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
         }
       },
-      "stm32f4discovery-cmake-release": {
+      "stm32f4discovery-cmake-gcc10-release": {
         "properties": {
           "buildType": "MinSizeRel",
           "platformName": "stm32f4discovery",
@@ -126,9 +129,80 @@
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
           "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
           "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
         }
       },
-      "stm32f0discovery-cmake-debug": {
+      "stm32f4discovery-cmake-gcc9-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc9-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc8-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc8-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}",
+          "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
+        }
+      },
+      "stm32f0discovery-cmake-gcc10-debug": {
         "properties": {
           "buildType": "Debug",
           "platformName": "stm32f0discovery",
@@ -140,9 +214,12 @@
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
           "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
           "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
         }
       },
-      "stm32f0discovery-cmake-release": {
+      "stm32f0discovery-cmake-gcc10-release": {
         "properties": {
           "buildType": "MinSizeRel",
           "platformName": "stm32f0discovery",
@@ -154,9 +231,12 @@
           "clean": "{{ package.xpack.properties.cleanWithCMake }}",
           "executeWithQemu": "{{ package.xpack.properties.executeWithQemu }} --nographic --semihosting-cmdline blinky 6",
           "executeWithQemuGui": "{{ package.xpack.properties.executeWithQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
         }
       },
-      "sifive-hifive1-cmake-debug": {
+      "sifive-hifive1-cmake-gcc10-debug": {
         "properties": {
           "buildType": "Debug",
           "platformName": "sifive-hifive1",
@@ -165,9 +245,12 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1"
         }
       },
-      "sifive-hifive1-cmake-release": {
+      "sifive-hifive1-cmake-gcc10-release": {
         "properties": {
           "buildType": "MinSizeRel",
           "platformName": "sifive-hifive1",
@@ -176,6 +259,37 @@
         "actions": {
           "build": "{{ package.xpack.properties.buildWithCMake }}",
           "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1"
+        }
+      },
+      "sifive-hifive1-cmake-gcc8-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "8.3.0-2.3.1"
+        }
+      },
+      "sifive-hifive1-cmake-gcc8-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": "{{ package.xpack.properties.buildWithCMake }}",
+          "clean": "{{ package.xpack.properties.cleanWithCMake }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "8.3.0-2.3.1"
         }
       },
       "synthetic-posix-cmake-debug": {
