@@ -20,6 +20,32 @@ endif()
 
 # -----------------------------------------------------------------------------
 
+enable_language(C)
+enable_language(CXX)
+enable_language(ASM)
+
+# Specify the C/C++ standards.
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+message(STATUS "Compiler: ${CMAKE_C_COMPILER_ID} ${CMAKE_C_COMPILER_VERSION}")
+
+# Not effecitve, no idea why.
+set(CMAKE_C_OUTPUT_EXTENSION ".o")
+set(CMAKE_CXX_OUTPUT_EXTENSION ".o")
+
+# Generate the compile_commands.json file to feed the indexer.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Enable this to see the dependency graph.
+# set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
+
+# -----------------------------------------------------------------------------
+
 get_filename_component(xpack_project_folder ${CMAKE_SOURCE_DIR} DIRECTORY)
 
 include("${xpack_project_folder}/xpacks/micro-os-plus-build-helper/cmake/xpack-helper.cmake")
@@ -41,28 +67,6 @@ project(
 	blinky
 	DESCRIPTION "A blinky not using the µOS++ RTOS"
 )
-
-enable_language(C)
-enable_language(CXX)
-enable_language(ASM)
-
-# Specify the C/C++ standards.
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Not effecitve, no idea why.
-set(CMAKE_C_OUTPUT_EXTENSION ".o")
-set(CMAKE_CXX_OUTPUT_EXTENSION ".o")
-
-# Generate the compile_commands.json file to feed the indexer.
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-# Enable this to see the dependency graph.
-# set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
 
 # -----------------------------------------------------------------------------
 
