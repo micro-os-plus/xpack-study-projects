@@ -49,7 +49,7 @@ set(common_options
   -fdata-sections
   $<$<STREQUAL:"${CMAKE_BUILD_TYPE}","Debug">:-fno-move-loop-invariants>
 
-  $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+  # $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
