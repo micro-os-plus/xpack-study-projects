@@ -33,7 +33,7 @@ To build binaries for all platforms with CMake, run:
 
 ```sh
 xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run run -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+xpm run test -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
 ```
 
 The result is a set of folders below `build/`.
