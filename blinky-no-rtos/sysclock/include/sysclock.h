@@ -87,19 +87,20 @@ namespace micro_os_plus
 
 #pragma GCC diagnostic pop
 
-inline void __attribute__ ((always_inline))
-sysclock::internal_increment_count ()
-{
-  // Avoid ++, since C++20 will deprecate it on volatiles. Currently it throws
-  // expression of 'volatile'-qualified type is deprecated [-Werror=volatile]
-  steady_count_ = steady_count_ + 1;
-}
+  inline void __attribute__ ((always_inline))
+  sysclock::internal_increment_count ()
+  {
+    // Avoid ++, since C++20 will deprecate it on volatiles. Currently it
+    // throws expression of 'volatile'-qualified type is deprecated
+    // [-Werror=volatile]
+    steady_count_ = steady_count_ + 1;
+  }
 
-inline clock::timestamp_t __attribute__ ((always_inline))
-sysclock::steady_now (void)
-{
-  return steady_count_;
-}
+  inline clock::timestamp_t __attribute__ ((always_inline))
+  sysclock::steady_now (void)
+  {
+    return steady_count_;
+  }
 
 } // namespace micro_os_plus
 

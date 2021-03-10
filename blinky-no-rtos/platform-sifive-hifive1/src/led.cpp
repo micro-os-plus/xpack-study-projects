@@ -38,8 +38,8 @@
 led::led (unsigned int port, unsigned int bit, bool active_low)
 {
   gpio_ptr_ = GPIO; // Fixed, there is only one GPIO port.
-  port_number_ = static_cast<uint16_t>(port);
-  bit_number_ = static_cast<uint16_t>(bit);
+  port_number_ = static_cast<uint16_t> (port);
+  bit_number_ = static_cast<uint16_t> (bit);
   is_active_low_ = active_low;
   bit_mask_ = static_cast<uint32_t> (1 << bit);
 }

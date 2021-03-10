@@ -36,8 +36,8 @@
 
 // ----------------------------------------------------------------------------
 
-#define BLINK_ACTIVE_LOW          (true)
-#define BLINK_ACTIVE_HIGH         (false)
+#define BLINK_ACTIVE_LOW (true)
+#define BLINK_ACTIVE_HIGH (false)
 
 // ----------------------------------------------------------------------------
 

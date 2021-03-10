@@ -73,6 +73,7 @@ namespace riscv
       // Disable M timer interrupt.
       riscv::csr::clear_mie_bits (RISCV_CSR_MIP_MTIP);
 
+#if 0
       uint64_t tim = riscv::device::mtime ();
       uint64_t cmp;
 
@@ -91,7 +92,6 @@ namespace riscv
       // not produce accurate results at very high values.
       // The variable duration will add an occasional jitter of the
       // system clock, but this should not be a problem.
-#if 0
       do
         {
           sysclock.internal_increment_count ();
@@ -99,6 +99,8 @@ namespace riscv
               / sysclock.frequency_hz;
         }
       while (cmp <= tim);
+#else
+      uint64_t cmp = 0;
 #endif
 
       // The interrupt remains posted until it is cleared by writing
@@ -134,7 +136,7 @@ namespace sifive
             button_released = true;
 
             // Clear rising interrupt.
-            GPIO->riseip |= (1 << BUTTON_0_OFFSET);
+            GPIO->riseip = GPIO->riseip | (1 << BUTTON_0_OFFSET); // Volatile.
           }
 
         if (GPIO->fallip & (1 << BUTTON_0_OFFSET))
@@ -143,7 +145,7 @@ namespace sifive
             button_pushed = true;
 
             // Clear falling interrupt.
-            GPIO->fallip |= (1 << BUTTON_0_OFFSET);
+            GPIO->fallip = GPIO->fallip | (1 << BUTTON_0_OFFSET); // Volatile.
           }
       }
 

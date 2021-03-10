@@ -73,7 +73,8 @@ _write (int fd __attribute__ ((unused)),
 
 // ----------------------------------------------------------------------------
 
-#endif // !defined(MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__ == 0)
+#endif // !defined(MICRO_OS_PLUS_USE_SEMIHOSTING_SYSCALLS) && !(__STDC_HOSTED__
+       // == 0)
 
 #endif // Unix
 

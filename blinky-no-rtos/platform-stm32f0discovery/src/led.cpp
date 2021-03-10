@@ -36,7 +36,8 @@
 // ----------------------------------------------------------------------------
 
 #define BLINK_GPIOx(_N) \
-  (reinterpret_cast<GPIO_TypeDef*>(GPIOA_BASE + (GPIOB_BASE - GPIOA_BASE) * (_N)))
+  (reinterpret_cast<GPIO_TypeDef*> (GPIOA_BASE \
+                                    + (GPIOB_BASE - GPIOA_BASE) * (_N)))
 #define BLINK_PIN_MASK(_N) (1 << (_N))
 #define BLINK_RCC_MASKx(_N) (RCC_AHBENR_GPIOAEN << (_N))
 
@@ -48,9 +49,9 @@
 
 led::led (unsigned int port, unsigned int bit, bool active_low)
 {
-  port_number_ = static_cast<uint16_t>(port);
-  bit_number_ = static_cast<uint16_t>(bit);
-  bit_mask_ = static_cast<uint16_t>(BLINK_PIN_MASK (bit));
+  port_number_ = static_cast<uint16_t> (port);
+  bit_number_ = static_cast<uint16_t> (bit);
+  bit_mask_ = static_cast<uint16_t> (BLINK_PIN_MASK (bit));
   is_active_low_ = active_low;
 
   gpio_ptr_ = BLINK_GPIOx (port_number_);
@@ -59,8 +60,9 @@ led::led (unsigned int port, unsigned int bit, bool active_low)
 void
 led::power_up ()
 {
-  // Explicit bitwise or, to avoid C++20 
-  // compound assignment with 'volatile'-qualified left operand is deprecated [-Werror=volatile]
+  // Explicit bitwise or, to avoid C++20
+  // compound assignment with 'volatile'-qualified left operand is deprecated
+  // [-Werror=volatile]
   RCC->AHBENR = RCC->AHBENR | BLINK_RCC_MASKx (port_number_);
 
   GPIO_InitTypeDef GPIO_InitStruct;
