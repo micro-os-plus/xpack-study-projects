@@ -27,6 +27,14 @@ Running the STM32F4DISCOVERY under QEMU should also be possible on all
 platforms, but QEMU has some issues starting under xpm, and will be fixed
 in the next release.
 
+The projects were tested on:
+
+- macOS 11.2
+- macOS 10.15 (GitHub Actions)
+- Ubuntu 20 (GitHub Actions)
+- Ubuntu 18 (GitHub Actions)
+- Raspberry Pi OS 64-bit (Debian 10 buster)
+
 ### Update xpm
 
 If you already have xpm installed, be sure you use the most recent version.
