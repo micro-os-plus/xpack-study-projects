@@ -60,6 +60,13 @@ git clone https://github.com/micro-os-plus/xpack-study-projects.git \
   "${HOME}/Work/xpack-study-projects.git"
 ```
 
+For development purposes, use the `develop` branch:
+
+```sh
+git clone --branch develop https://github.com/micro-os-plus/xpack-study-projects.git \
+  "${HOME}/Work/xpack-study-projects.git"
+```
+
 ### Proceed with the tests
 
 Go to the [blinky-rtos/README](blinky-rtos/README.md) and follow the
@@ -77,6 +84,9 @@ the original repos and link via the central packages repo.
 ```sh
 bash "${HOME}/Work/xpack-study-projects.git/scripts/xpm-install-git.sh"
 ```
+
+This will clone all Git repos for all xPacks (the `xpack-develop` branch)
+and link them to both projects, instead of the read-only copies.
 
 ## Eclipse
 
