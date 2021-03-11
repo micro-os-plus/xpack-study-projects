@@ -39,17 +39,28 @@ function xpm-install-git()
 {
   local repo_name="$1"
 
+  local branch_name
+  if [ "$(whoami)" == "ilg" ]
+  then
+    branch_name="xpack-develop"
+  else
+    branch_name="$(whoami)-work"
+  fi
+
   if [ -d "${repo_name}.git" ]
   then
     echo "${repo_name}.git already present, skiped..."
   else
     git clone --branch xpack-develop https://github.com/micro-os-plus/${repo_name}.git ${repo_name}.git
-    if [ $# -gt 2 ]
+    if [ "${branch_name}" != "xpack-develop" ]
     then
-      local commit_id="$2"
-      (cd ${repo_name}.git; git checkout -b work ${commit_id})
-    else
-      (cd ${repo_name}.git; git checkout -b work HEAD)
+      if [ $# -gt 2 ]
+      then
+        local commit_id="$2"
+        (cd ${repo_name}.git; git checkout -b ${branch_name} ${commit_id})
+      else
+        (cd ${repo_name}.git; git checkout -b ${branch_name} HEAD)
+      fi
     fi
   fi
 
@@ -61,7 +72,7 @@ function xpm-install-git()
 
 
 (
-  dest="${script_folder_path}/../xpack-repos"
+  dest="${script_folder_path}/../../micro-os-plus-xpack-repos"
   mkdir -p "${dest}"
   cd "${dest}"
 
