@@ -46,7 +46,6 @@ set(common_options
   ${all_warnings}
 
   -Werror
-  -pedantic-errors
 )
 
 # clang complains about some @cond/@endcond; temporarily disable warning.

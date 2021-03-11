@@ -57,7 +57,6 @@ set(common_options
   ${all_warnings}
 
   -Werror
-  -pedantic-errors
 )
 
 add_compile_options(
