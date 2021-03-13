@@ -142,6 +142,22 @@ target_compile_definitions(
 )
 
 # -----------------------------------------------------------------------------
+# Add the compile options.
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Generic")
+
+  target_compile_options(
+    application
+
+    PRIVATE
+      # For bare-metal the compiler version is controlled, and there
+      # should be no warnings.
+      -Werror
+  )
+
+endif()
+
+# -----------------------------------------------------------------------------
 # Add the platform libraries.
 
 target_link_libraries(
