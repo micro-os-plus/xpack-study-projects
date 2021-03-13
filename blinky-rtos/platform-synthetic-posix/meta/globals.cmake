@@ -44,8 +44,6 @@ set(common_options
   -fdata-sections
 
   ${all_warnings}
-
-  -Werror
 )
 
 # clang complains about some @cond/@endcond; temporarily disable warning.

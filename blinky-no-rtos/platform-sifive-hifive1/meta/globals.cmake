@@ -59,8 +59,6 @@ set(common_options
   $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
 
   ${warnings}
-
-  -Werror
 )
 
 add_compile_options(
