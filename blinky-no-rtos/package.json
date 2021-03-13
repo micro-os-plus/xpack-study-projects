@@ -79,11 +79,11 @@
     
     "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#semver:3.0.1",
     "@micro-os-plus/architecture-riscv": "github:micro-os-plus/architecture-riscv-xpack#semver:3.0.2",
-    "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#semver:3.0.2",
+    "@micro-os-plus/architecture-synthetic-posix": "github:micro-os-plus/architecture-synthetic-posix-xpack#semver:3.0.3",
     "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#semver:2.1.2",
     "@micro-os-plus/devices-stm32f0": "github:micro-os-plus/devices-stm32f0-xpack#semver:2.0.2",
     "@micro-os-plus/devices-stm32f4": "github:micro-os-plus/devices-stm32f4-xpack#semver:2.0.2",
-    "@micro-os-plus/diag-trace": "github:micro-os-plus/diag-trace-xpack#semver:2.1.0",
+    "@micro-os-plus/diag-trace": "github:micro-os-plus/diag-trace-xpack#semver:2.2.1",
     "@micro-os-plus/libs-c": "github:micro-os-plus/libs-c-xpack#semver:2.0.1",
     "@micro-os-plus/libs-cpp": "github:micro-os-plus/libs-cpp-xpack#semver:2.0.2",
     "@micro-os-plus/semihosting": "github:micro-os-plus/semihosting-xpack#semver:3.0.1",
