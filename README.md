@@ -29,11 +29,10 @@ in the next release.
 
 The projects were tested on:
 
-- macOS 11.2
-- macOS 10.15 (GitHub Actions)
-- Ubuntu 20 (GitHub Actions)
-- Ubuntu 18 (GitHub Actions)
-- Raspberry Pi OS 64-bit (Debian 10 buster)
+- macOS 10.15 / clang 12  (GitHub Actions)
+- Ubuntu 20 / gcc 9.3 (GitHub Actions)
+- Ubuntu 18 / gcc 7.5 (GitHub Actions)
+- Raspberry Pi OS 64-bit (Debian 10 buster) / gcc 8
 
 ### Update xpm
 
@@ -90,11 +89,24 @@ For development use cases, when the content must be writable, clone
 the original repos and link via the central packages repo.
 
 ```sh
-bash "${HOME}/Work/xpack-study-projects.git/scripts/xpm-install-git.sh"
+curl -L "https://raw.githubusercontent.com/micro-os-plus/build-helper-xpack/xpack/scripts/clone-and-link-all-git-repos.sh" | bash "${HOME}/Work/micro-os-plus-xpack-repos"
 ```
 
-This will clone all Git repos for all xPacks (the `xpack-develop` branch)
-and link them to both projects, instead of the read-only copies.
+This script will clone the `xpack-develop` branches from all µOS++
+source Git repos
+in `${HOME}/Work/micro-os-plus-xpack-repos/`.
+The destination folder can be anywhere in the home folder.
+
+The script also executes the `xpm install` command in each folder,
+to create a link from the central xPacks repository
+(in users's home folder) to the writable repo clone.
+
+The next step is to replace the links from projects to the
+read-only folders in the central xPacks repo with links to the writable
+folders.
+
+To simplify things, each project has a named script, that can be
+invoked with `xpm run link-deps`.
 
 ## Eclipse
 

@@ -32,8 +32,10 @@ For the prerequisites, follow the steps in the parent
 To build binaries for all platforms with CMake, run:
 
 ```sh
-xpm install -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run test -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+cd "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
+
+xpm install
+xpm run test
 ```
 
 The result is a set of folders below `build/`.
@@ -44,10 +46,23 @@ in non-graphical mode.
 To run the QEMU tests in graphical mode, use:
 
 ```sh
-xpm run run-qemu-gui-stm32f4discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-xpm run run-qemu-gui-stm32f0discovery-cmake-debug -C "${HOME}/Work/xpack-study-projects.git/blinky-rtos"
-
+xpm run run-qemu-gui-stm32f4discovery-cmake-debug
+xpm run run-qemu-gui-stm32f0discovery-cmake-debug
 ```
+
+### Link to writable folders
+
+If the writable folders were created (as described in the top
+[README](../README.md) file),
+after `xpm install` also run 
+
+```sh
+xpm run link-deps
+```
+
+to replace the links created by `install`
+(to the read-only folders in the central xPacks repo) with links to the
+writable folders.
 
 ### Build with Eclipse
 
