@@ -89,13 +89,16 @@ For development use cases, when the content must be writable, clone
 the original repos and link via the central packages repo.
 
 ```sh
-curl -L "https://raw.githubusercontent.com/micro-os-plus/build-helper-xpack/xpack/scripts/clone-and-link-all-git-repos.sh" | bash "${HOME}/Work/micro-os-plus-xpack-repos"
+curl -L "https://raw.githubusercontent.com/micro-os-plus/build-helper-xpack/xpack/scripts/clone-and-link-all-git-repos.sh" | bash
 ```
 
 This script will clone the `xpack-develop` branches from all µOS++
 source Git repos
 in `${HOME}/Work/micro-os-plus-xpack-repos/`.
-The destination folder can be anywhere in the home folder.
+
+If needed, the script can be executed separately, with an
+optional argument, the destination folder, which can be
+anywhere in the home folder.
 
 The script also executes the `xpm install` command in each folder,
 to create a link from the central xPacks repository
