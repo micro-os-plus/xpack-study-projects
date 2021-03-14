@@ -16,6 +16,10 @@
     "clean-stm32f4discovery-cmake-release": "cmake --build build/stm32f4discovery-cmake-release --target clean --verbose",
     "run-qemu-stm32f4discovery-cmake-release": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-cmake-release/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
 
+    "build-stm32f4discovery-cmake": "xpm run build-stm32f4discovery-cmake-debug && xpm run build-stm32f4discovery-cmake-release",
+    "clean-stm32f4discovery-cmake": "xpm run clean-stm32f4discovery-cmake-debug && xpm run clean-stm32f4discovery-cmake-release",
+    "run-qemu-stm32f4discovery-cmake": "xpm run run-qemu-stm32f4discovery-cmake-debug && xpm run run-qemu-stm32f4discovery-cmake-release",
+
     "build-stm32f0discovery-cmake-debug": "cmake -S meta -B build/stm32f0discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f0discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f0discovery-cmake-debug",
     "build-stm32f0discovery-cmake-debug-verbose": "cmake -S meta -B build/stm32f0discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f0discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f0discovery-cmake-debug --verbose",
     "clean-stm32f0discovery-cmake-debug": "cmake --build build/stm32f0discovery-cmake-debug --target clean --verbose",
@@ -26,12 +30,19 @@
     "clean-stm32f0discovery-cmake-release": "cmake --build build/stm32f0discovery-cmake-release --target clean --verbose",
     "run-qemu-stm32f0discovery-cmake-release": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-cmake-release/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
 
+    "build-stm32f0discovery-cmake": "xpm run build-stm32f0discovery-cmake-debug && xpm run build-stm32f0discovery-cmake-release",
+    "clean-stm32f0discovery-cmake": "xpm run clean-stm32f0discovery-cmake-debug && xpm run clean-stm32f0discovery-cmake-release",
+    "run-qemu-stm32f0discovery-cmake": "xpm run run-qemu-stm32f0discovery-cmake-debug && xpm run run-qemu-stm32f0discovery-cmake-release",
+
     "build-sifive-hifive1-cmake-debug": "cmake -S meta -B build/sifive-hifive1-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=Debug && cmake --build build/sifive-hifive1-cmake-debug",
     "build-sifive-hifive1-cmake-debug-verbose": "cmake -S meta -B build/sifive-hifive1-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=Debug && cmake --build build/sifive-hifive1-cmake-debug --verbose",
     "clean-sifive-hifive1-cmake-debug": "cmake --build build/sifive-hifive1-cmake-debug --target clean --verbose",
 
     "build-sifive-hifive1-cmake-release": "cmake -S meta -B build/sifive-hifive1-cmake-release -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=MinSizeRel && cmake --build build/sifive-hifive1-cmake-release",
     "clean-sifive-hifive1-cmake-release": "cmake --build build/sifive-hifive1-cmake-release --target clean --verbose",
+
+    "clean-sifive-hifive1-cmake": "xpm run clean-sifive-hifive1-cmake-debug && xpm run clean-sifive-hifive1-cmake-release",
+    "build-sifive-hifive1-cmake": "xpm run build-sifive-hifive1-cmake-debug && xpm run build-sifive-hifive1-cmake-release",
 
     "build-synthetic-posix-cmake-debug": "cmake -S meta -B build/synthetic-posix-cmake-debug -GNinja -DPLATFORM_NAME=synthetic-posix -DCMAKE_BUILD_TYPE=Debug && cmake --build build/synthetic-posix-cmake-debug",
     "build-synthetic-posix-cmake-debug-verbose": "cmake -S meta -B build/synthetic-posix-cmake-debug -GNinja -DPLATFORM_NAME=synthetic-posix -DCMAKE_BUILD_TYPE=Debug && cmake --build build/synthetic-posix-cmake-debug --verbose",
@@ -42,9 +53,12 @@
     "clean-synthetic-posix-cmake-release": "cmake --build build/synthetic-posix-cmake-release --target clean --verbose",
     "run-synthetic-posix-cmake-release": "build/synthetic-posix-cmake-release/blinky 6",
 
-    "build-all-cmake": "xpm run build-stm32f4discovery-cmake-debug && xpm run build-stm32f4discovery-cmake-release && xpm run build-stm32f0discovery-cmake-debug && xpm run build-stm32f0discovery-cmake-release && xpm run build-sifive-hifive1-cmake-debug && xpm run build-sifive-hifive1-cmake-release && xpm run build-synthetic-posix-cmake-debug && xpm run build-synthetic-posix-cmake-release",
-    "clean-all-cmake": "xpm run clean-stm32f4discovery-cmake-debug && xpm run clean-stm32f4discovery-cmake-release && xpm run clean-stm32f0discovery-cmake-debug && xpm run clean-stm32f0discovery-cmake-release && xpm run clean-sifive-hifive1-cmake-debug && xpm run clean-sifive-hifive1-cmake-release && xpm run clean-synthetic-posix-cmake-debug && xpm run clean-synthetic-posix-cmake-release",
-    "run-all-cmake": "xpm run run-qemu-stm32f4discovery-cmake-debug && xpm run run-qemu-stm32f4discovery-cmake-release && xpm run run-qemu-stm32f0discovery-cmake-debug && xpm run run-qemu-stm32f0discovery-cmake-release",
+    "build-synthetic-posix-cmake": "xpm run build-synthetic-posix-cmake-debug && xpm run build-synthetic-posix-cmake-release",
+    "clean-synthetic-posix-cmake": "xpm run clean-synthetic-posix-cmake-debug && xpm run clean-synthetic-posix-cmake-release",
+
+    "build-all-cmake": "xpm run build-stm32f4discovery-cmake && xpm run build-stm32f0discovery-cmake && xpm run build-sifive-hifive1-cmake && xpm run build-synthetic-posix-cmake",
+    "clean-all-cmake": "xpm run clean-stm32f4discovery-cmake && xpm run clean-stm32f0discovery-cmake && xpm run clean-sifive-hifive1-cmake && xpm run clean-synthetic-posix-cmake",
+    "run-all-cmake": "xpm run run-qemu-stm32f4discovery-cmake && xpm run run-qemu-stm32f0discovery-cmake",
     "test-all-cmake": "xpm run build-all-cmake && xpm run run-all-cmake",
 
     "build": "xpm run build-all-cmake",
