@@ -87,8 +87,8 @@
   "devDependencies": {
     "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2",
     "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1",
-    "@xpack-dev-tools/cmake": "3.19.2-1.1",
-    "@xpack-dev-tools/ninja-build": "1.10.1-1.1",
+    "@xpack-dev-tools/cmake": "3.19.2-2.1",
+    "@xpack-dev-tools/ninja-build": "1.10.2-2.1",
     "@xpack-dev-tools/qemu-arm": "2.8.0-12.1",
     
     "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#semver:3.0.1",
