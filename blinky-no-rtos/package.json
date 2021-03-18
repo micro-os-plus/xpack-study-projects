@@ -108,8 +108,8 @@
   },
   "xpack": {
     "properties": {
-      "buildWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ configuration.properties.toolchainFileName }} -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
-      "buildNativeWithCMmake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
+      "buildWithCMake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ configuration.properties.toolchainFileName }} -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
+      "buildNativeWithCMake": "cmake -S meta -B build/{{ configuration.name }} -GNinja -DPLATFORM_NAME={{ configuration.properties.platformName }} -DCMAKE_BUILD_TYPE={{ configuration.properties.buildType }} && cmake --build build/{{ configuration.name }}",
       "cleanWithCMake": "cmake --build build/{{ configuration.name }} --target clean --verbose",
       "executeWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ configuration.properties.qemuBoardName }} -d unimp,guest_errors --image build/{{ configuration.name }}/blinky.elf --semihosting-config enable=on,target=native"
     },
