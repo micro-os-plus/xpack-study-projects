@@ -60,6 +60,7 @@ message(STATUS "Platform name: ${PLATFORM_NAME}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Project path: ${xpack_project_folder}")
 message(STATUS "Prefix path: ${CMAKE_PREFIX_PATH}")
+message(STATUS "PATH: $ENV{PATH}")
 
 # -----------------------------------------------------------------------------
 
