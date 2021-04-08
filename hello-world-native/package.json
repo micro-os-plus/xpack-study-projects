@@ -1,5 +1,5 @@
 {
-  "name": "@<scope>/hello-world-native",
+  "name": "hello-world-native",
   "version": "0.1.0",
   "description": "A Hello World project",
   "main": "",
@@ -18,9 +18,9 @@
     "xpack"
   ],
   "author": {
-    "name": "<author-name>",
-    "email": "<author-email>",
-    "url": "<author-url>"
+    "name": "Liviu Ionescu",
+    "email": "ilg@livius.net",
+    "url": "https://github.com/ilg-ul/"
   },
   "license": "MIT",
   "config": {},
