@@ -35,6 +35,8 @@ set(CMAKE_CXX_EXTENSIONS ON)
 message(STATUS "Compiler: ${CMAKE_C_COMPILER_ID} ${CMAKE_C_COMPILER_VERSION}")
 
 # Generate the compile_commands.json file to feed the indexer.
+# It is recommended to be passed on the command line to make it very clear
+# that it is mandatory, but can also be passed here, for just in case.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # -----------------------------------------------------------------------------
