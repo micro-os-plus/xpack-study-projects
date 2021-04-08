@@ -1,75 +1,10 @@
 {
-  "name": "blinky",
+  "name": "blinky-rtos",
   "version": "0.1.0",
   "description": "An xPack project with multi-platform Blinky applications",
   "main": "",
   "scripts": {
-    "link-deps": "xpm link @micro-os-plus/build-helper @micro-os-plus/libs-c @micro-os-plus/libs-cpp @micro-os-plus/diag-trace @micro-os-plus/semihosting @micro-os-plus/startup @micro-os-plus/devices-stm32f0-extras @micro-os-plus/devices-stm32f4-extras @micro-os-plus/architecture-cortexm @micro-os-plus/architecture-riscv @xpack-sifive/devices @xpack-sifive/platform-hifive1 @xpack-sifive/platform-arty @micro-os-plus/libs-cpp-estd @micro-os-plus/memory-allocators @micro-os-plus/posix-io @micro-os-plus/utils-lists @micro-os-plus/rtos @micro-os-plus/version @micro-os-plus/architecture-synthetic-posix @micro-os-plus/cmsis-os",
-
-    "build-stm32f4discovery-cmake-debug": "cmake -S meta -B build/stm32f4discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f4discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f4discovery-cmake-debug",
-    "build-stm32f4discovery-cmake-debug-verbose": "cmake -S meta -B build/stm32f4discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f4discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f4discovery-cmake-debug --verbose",
-    "clean-stm32f4discovery-cmake-debug": "cmake --build build/stm32f4discovery-cmake-debug --target clean --verbose",
-    "run-qemu-stm32f4discovery-cmake-debug": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-cmake-debug/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-    "run-qemu-gui-stm32f4discovery-cmake-debug": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --image build/stm32f4discovery-cmake-debug/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-
-    "build-stm32f4discovery-cmake-release": "cmake -S meta -B build/stm32f4discovery-cmake-release -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f4discovery -DCMAKE_BUILD_TYPE=MinSizeRel && cmake --build build/stm32f4discovery-cmake-release",
-    "clean-stm32f4discovery-cmake-release": "cmake --build build/stm32f4discovery-cmake-release --target clean --verbose",
-    "run-qemu-stm32f4discovery-cmake-release": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F4-Discovery -d unimp,guest_errors --nographic --image build/stm32f4discovery-cmake-release/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-    
-    "build-stm32f4discovery-cmake": "xpm run build-stm32f4discovery-cmake-debug && xpm run build-stm32f4discovery-cmake-release",
-    "clean-stm32f4discovery-cmake": "xpm run clean-stm32f4discovery-cmake-debug && xpm run clean-stm32f4discovery-cmake-release",
-    "run-qemu-stm32f4discovery-cmake": "xpm run run-qemu-stm32f4discovery-cmake-debug && xpm run run-qemu-stm32f4discovery-cmake-release",
-
-    "build-stm32f0discovery-cmake-debug": "cmake -S meta -B build/stm32f0discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f0discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f0discovery-cmake-debug",
-    "build-stm32f0discovery-cmake-debug-verbose": "cmake -S meta -B build/stm32f0discovery-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f0discovery -DCMAKE_BUILD_TYPE=Debug && cmake --build build/stm32f0discovery-cmake-debug --verbose",
-    "clean-stm32f0discovery-cmake-debug": "cmake --build build/stm32f0discovery-cmake-debug --target clean --verbose",
-    "run-qemu-stm32f0discovery-cmake-debug": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-cmake-debug/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-    "run-qemu-gui-stm32f0discovery-cmake-debug": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --image build/stm32f0discovery-cmake-debug/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-
-    "build-stm32f0discovery-cmake-release": "cmake -S meta -B build/stm32f0discovery-cmake-release -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-arm-none-eabi-gcc.cmake -DPLATFORM_NAME=stm32f0discovery -DCMAKE_BUILD_TYPE=MinSizeRel && cmake --build build/stm32f0discovery-cmake-release",
-    "clean-stm32f0discovery-cmake-release": "cmake --build build/stm32f0discovery-cmake-release --target clean --verbose",
-    "run-qemu-stm32f0discovery-cmake-release": "qemu-system-gnuarmeclipse --verbose --verbose --board STM32F0-Discovery -d unimp,guest_errors --nographic --image build/stm32f0discovery-cmake-release/blinky.elf --semihosting-config enable=on,target=native --semihosting-cmdline blinky 6",
-    
-    "build-stm32f0discovery-cmake": "xpm run build-stm32f0discovery-cmake-debug && xpm run build-stm32f0discovery-cmake-release",
-    "clean-stm32f0discovery-cmake": "xpm run clean-stm32f0discovery-cmake-debug && xpm run clean-stm32f0discovery-cmake-release",
-    "run-qemu-stm32f0discovery-cmake": "xpm run run-qemu-stm32f0discovery-cmake-debug && xpm run run-qemu-stm32f0discovery-cmake-release",
-
-    "build-sifive-hifive1-cmake-debug": "cmake -S meta -B build/sifive-hifive1-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=Debug && cmake --build build/sifive-hifive1-cmake-debug",
-    "build-sifive-hifive1-cmake-debug-verbose": "cmake -S meta -B build/sifive-hifive1-cmake-debug -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=Debug && cmake --build build/sifive-hifive1-cmake-debug --verbose",
-    "clean-sifive-hifive1-cmake-debug": "cmake --build build/sifive-hifive1-cmake-debug --target clean --verbose",
-
-    "build-sifive-hifive1-cmake-release": "cmake -S meta -B build/sifive-hifive1-cmake-release -GNinja -DCMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/toolchain-riscv-none-embed-gcc.cmake -DPLATFORM_NAME=sifive-hifive1 -DCMAKE_BUILD_TYPE=MinSizeRel && cmake --build build/sifive-hifive1-cmake-release",
-    "clean-sifive-hifive1-cmake-release": "cmake --build build/sifive-hifive1-cmake-release --target clean --verbose",
-
-    "clean-sifive-hifive1-cmake": "xpm run clean-sifive-hifive1-cmake-debug && xpm run clean-sifive-hifive1-cmake-release",
-    "build-sifive-hifive1-cmake": "xpm run build-sifive-hifive1-cmake-debug && xpm run build-sifive-hifive1-cmake-release",
-
-    "build-synthetic-posix-cmake-debug": "cmake -S meta -B build/synthetic-posix-cmake-debug -GNinja -DPLATFORM_NAME=synthetic-posix -DCMAKE_BUILD_TYPE=Debug && cmake --build build/synthetic-posix-cmake-debug",
-    "build-synthetic-posix-cmake-debug-verbose": "cmake -S meta -B build/synthetic-posix-cmake-debug -GNinja -DPLATFORM_NAME=synthetic-posix -DCMAKE_BUILD_TYPE=Debug && cmake --build build/synthetic-posix-cmake-debug --verbose",
-    "clean-synthetic-posix-cmake-debug": "cmake --build build/synthetic-posix-cmake-debug --target clean --verbose",
-    "run-synthetic-posix-cmake-debug": "build/synthetic-posix-cmake-debug/blinky 6",
-
-    "build-synthetic-posix-cmake-release": "cmake -S meta -B build/synthetic-posix-cmake-release -GNinja -DPLATFORM_NAME=synthetic-posix -DCMAKE_BUILD_TYPE=Release && cmake --build build/synthetic-posix-cmake-release",
-    "clean-synthetic-posix-cmake-release": "cmake --build build/synthetic-posix-cmake-release --target clean --verbose",
-    "run-synthetic-posix-cmake-release": "build/synthetic-posix-cmake-release/blinky 6",
-    
-    "build-synthetic-posix-cmake": "xpm run build-synthetic-posix-cmake-debug && xpm run build-synthetic-posix-cmake-release",
-    "clean-synthetic-posix-cmake": "xpm run clean-synthetic-posix-cmake-debug && xpm run clean-synthetic-posix-cmake-release",
-    "run-synthetic-posix-cmake": "xpm run run-synthetic-posix-cmake-debug && xpm run run-synthetic-posix-cmake-release",
-
-    "build-all-cmake": "xpm run build-stm32f4discovery-cmake && xpm run build-stm32f0discovery-cmake && xpm run build-sifive-hifive1-cmake && xpm run build-synthetic-posix-cmake",
-    "clean-all-cmake": "xpm run clean-stm32f4discovery-cmake && xpm run clean-stm32f0discovery-cmake && xpm run clean-sifive-hifive1-cmake && xpm run clean-synthetic-posix-cmake",
-    "run-all-cmake": "xpm run run-qemu-stm32f4discovery-cmake && xpm run run-qemu-stm32f0discovery-cmake && xpm run run-synthetic-posix-cmake",
-    "test-all-cmake": "xpm run build-all-cmake && xpm run run-all-cmake",
-
-    "build": "xpm run build-all-cmake",
-    "test": "xpm run test-all-cmake"
-  },
-  "scripts-todo": {
-    "stm32f4discovery-debug-meson-prepare": "meson setup build/stm32f4discovery-debug-meson . ...n",
-    "stm32f4discovery-release-meson-prepare": "meson build/stm32f4discovery-release-meson . ...",
-    "stm32f4discovery-debug-meson-build": "meson compile -C build/stm32f4discovery-debug-meson",
-    "stm32f4discovery-release-meson-build": "meson compile -C build/stm32f4discovery-release-meson"
+    "test": "echo 'upgrade xpm to v0.9 or later' && exit 1"
   },
   "repository": {
     "type": "git",
@@ -90,6 +25,7 @@
   "license": "MIT",
   "config": {},
   "dependencies": {},
+  "devDependenciesComment": "Toolchains are defined in each configuration; arm 10.2.1-1.1.2  9.3.1-1.4.1  8.3.1-1.4.1 ; riscv 10.1.0-1.1.1 8.3.0-2.3.1",
   "devDependencies": {
     "@micro-os-plus/architecture-cortexm": "github:micro-os-plus/architecture-cortexm-xpack#semver:3.0.1",
     "@micro-os-plus/architecture-riscv": "github:micro-os-plus/architecture-riscv-xpack#semver:3.0.2",
@@ -111,14 +47,340 @@
     "@micro-os-plus/version": "github:micro-os-plus/version-xpack#semver:7.0.3",
     "@xpack-sifive/devices": "github:micro-os-plus/devices-sifive-xpack#semver:2.0.1",
     "@xpack-sifive/platform-hifive1": "github:micro-os-plus/platform-sifive-hifive1-xpack#semver:2.0.1",
-
-    "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2",
-    "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1",
     "@xpack-dev-tools/cmake": "3.19.2-2.1",
     "@xpack-dev-tools/ninja-build": "1.10.2-2.1",
     "@xpack-dev-tools/qemu-arm": "2.8.0-12.1"
   },
-  "depComments": "arm 10.2.1-1.1.2  9.3.1-1.4.1  8.3.1-1.4.1 ; riscv 10.1.0-1.1.1 8.3.0-2.3.1",
   "xpack": {
+    "minimumXpmRequired": "0.9.0",
+    "actions": {
+      "link-deps": [
+        "xpm link @micro-os-plus/build-helper",
+        "xpm link @micro-os-plus/libs-c",
+        "xpm link @micro-os-plus/libs-cpp",
+        "xpm link @micro-os-plus/diag-trace",
+        "xpm link @micro-os-plus/semihosting",
+        "xpm link @micro-os-plus/startup",
+        "xpm link @micro-os-plus/devices-stm32f0-extras",
+        "xpm link @micro-os-plus/devices-stm32f4-extras",
+        "xpm link @micro-os-plus/architecture-cortexm",
+        "xpm link @micro-os-plus/architecture-riscv",
+        "xpm link @micro-os-plus/architecture-synthetic-posix",
+        "xpm link @xpack-sifive/devices",
+        "xpm link @xpack-sifive/platform-hifive1",
+        "xpm link @micro-os-plus/version"
+      ],
+      "build": [
+        "xpm run build --config stm32f4discovery-cmake-gcc10-debug",
+        "xpm run build --config stm32f4discovery-cmake-gcc10-release",
+        "xpm run build --config stm32f4discovery-cmake-gcc9-debug",
+        "xpm run build --config stm32f4discovery-cmake-gcc9-release",
+        "xpm run build --config stm32f4discovery-cmake-gcc8-debug",
+        "xpm run build --config stm32f4discovery-cmake-gcc8-release",
+        "xpm run build --config stm32f0discovery-cmake-gcc10-debug",
+        "xpm run build --config stm32f0discovery-cmake-gcc10-release",
+        "xpm run build --config sifive-hifive1-cmake-gcc10-debug",
+        "xpm run build --config sifive-hifive1-cmake-gcc10-release",
+        "xpm run build --config sifive-hifive1-cmake-gcc8-debug",
+        "xpm run build --config sifive-hifive1-cmake-gcc8-release",
+        "{% if os.platform != 'win32' %}xpm run build --config synthetic-posix-cmake-debug{% endif %}",
+        "{% if os.platform != 'win32' %}xpm run build --config synthetic-posix-cmake-release{% endif %}"
+      ],
+      "clean": [
+        "xpm run clean --config stm32f4discovery-cmake-gcc10-debug",
+        "xpm run clean --config stm32f4discovery-cmake-gcc10-release",
+        "xpm run clean --config stm32f4discovery-cmake-gcc9-debug",
+        "xpm run clean --config stm32f4discovery-cmake-gcc9-release",
+        "xpm run clean --config stm32f4discovery-cmake-gcc8-debug",
+        "xpm run clean --config stm32f4discovery-cmake-gcc8-release",
+        "xpm run clean --config stm32f0discovery-cmake-gcc10-debug",
+        "xpm run clean --config stm32f0discovery-cmake-gcc10-release",
+        "xpm run clean --config sifive-hifive1-cmake-gcc10-debug",
+        "xpm run clean --config sifive-hifive1-cmake-gcc10-release",
+        "xpm run clean --config sifive-hifive1-cmake-gcc8-debug",
+        "xpm run clean --config sifive-hifive1-cmake-gcc8-release",
+        "{% if os.platform != 'win32' %}xpm run clean --config synthetic-posix-cmake-debug{% endif %}",
+        "{% if os.platform != 'win32' %}xpm run clean --config synthetic-posix-cmake-release{% endif %}"
+      ],
+      "execute": [
+        "xpm run executeWithQemu --config stm32f4discovery-cmake-gcc10-debug",
+        "xpm run executeWithQemu --config stm32f4discovery-cmake-gcc10-release",
+        "xpm run executeWithQemu --config stm32f0discovery-cmake-gcc10-debug",
+        "xpm run executeWithQemu --config stm32f0discovery-cmake-gcc10-release",
+        "{% if os.platform != 'win32' %}xpm run execute --config synthetic-posix-cmake-debug{% endif %}",
+        "{% if os.platform != 'win32' %}xpm run execute --config synthetic-posix-cmake-release{% endif %}"
+      ],
+      "test": [
+        "xpm run build",
+        "xpm run execute"
+      ],
+      "deep-clean": "rm -rf build xpacks"
+    },
+    "properties": {
+      "buildFolderRelativePath": "build/{{ configuration.name }}",
+      "commandCmakeGenerateWithToolchain": "cmake -S meta -B {{ properties.buildFolderRelativePath }} -G Ninja -D CMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ properties.toolchainFileName }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
+      "commandCmakeGenerate": "cmake -S meta -B {{ properties.buildFolderRelativePath }} -G Ninja -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
+      "commandCmakeBuild": "cmake --build {{ properties.buildFolderRelativePath }}",
+      "commandCmakeClean": "cmake --build {{ properties.buildFolderRelativePath }} --target clean",
+      "commandQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ properties.qemuBoardName }} -d unimp,guest_errors --image {{ properties.buildFolderRelativePath }}/blinky.elf --semihosting-config enable=on,target=native"
+    },
+    "buildConfigurations": {
+      "stm32f4discovery-cmake-gcc10-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
+        }
+      },
+      "stm32f4discovery-cmake-gcc10-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
+        }
+      },
+      "stm32f4discovery-cmake-gcc9-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc9-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc8-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
+        }
+      },
+      "stm32f4discovery-cmake-gcc8-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f4discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F4-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
+        }
+      },
+      "stm32f0discovery-cmake-gcc10-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "stm32f0discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F0-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
+        }
+      },
+      "stm32f0discovery-cmake-gcc10-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "stm32f0discovery",
+          "toolchainFileName": "toolchain-arm-none-eabi-gcc.cmake",
+          "qemuBoardName": "STM32F0-Discovery"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
+        }
+      },
+      "sifive-hifive1-cmake-gcc10-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1"
+        }
+      },
+      "sifive-hifive1-cmake-gcc10-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "10.1.0-1.1.1"
+        }
+      },
+      "sifive-hifive1-cmake-gcc8-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "8.3.0-2.3.1"
+        }
+      },
+      "sifive-hifive1-cmake-gcc8-release": {
+        "properties": {
+          "buildType": "MinSizeRel",
+          "platformName": "sifive-hifive1",
+          "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerateWithToolchain }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}"
+        },
+        "devDependencies": {
+          "@xpack-dev-tools/riscv-none-embed-gcc": "8.3.0-2.3.1"
+        }
+      },
+      "synthetic-posix-cmake-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "synthetic-posix"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerate }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "execute": "{{ properties.buildFolderRelativePath }}/blinky 6"
+        }
+      },
+      "synthetic-posix-cmake-release": {
+        "properties": {
+          "buildType": "Release",
+          "platformName": "synthetic-posix"
+        },
+        "actions": {
+          "build": [
+            "{{ properties.commandCmakeGenerate }}",
+            "{{ properties.commandCmakeBuild }}"
+          ],
+          "clean": "{{ properties.commandCmakeClean }}",
+          "execute": "{{ properties.buildFolderRelativePath }}/blinky 6"
+        }
+      }
+    }
   }
 }
