@@ -31,24 +31,24 @@
   },
   "xpack": {
     "properties": {
-      "buildFolderRelativePath": "build/{{ configuration.name }}",
-      "commandCmakeGenerate": "cmake -S . -B {{ properties.buildFolderRelativePath }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
+      "buildFolderRelativePath": "build/{{ configuration.name | downcase }}",
+      "commandCmakeGenerate": "cmake -S . -B {{ properties.buildFolderRelativePath }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
       "commandCmakeGenerateMake": "cmake -S . -B {{ properties.buildFolderRelativePath }} -G make -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
       "commandCmakeBuild": "cmake --build {{ properties.buildFolderRelativePath }}",
       "commandCmakeClean": "cmake --build {{ properties.buildFolderRelativePath }} --target clean"
     },
     "actions": {
-      "build": [
-        "xpm run build --config debug",
-        "xpm run build --config release"
+      "build-all": [
+        "xpm run build --config Debug",
+        "xpm run build --config Release"
       ],
-      "clean": [
-        "xpm run clean --config debug",
-        "xpm run clean --config release"
+      "clean-all": [
+        "xpm run clean --config Debug",
+        "xpm run clean --config Release"
       ]
     },
     "buildConfigurations": {
-      "debug": {
+      "Debug": {
         "properties": {
           "buildType": "Debug"
         },
@@ -61,7 +61,7 @@
           "execute": "{{ properties.buildFolderRelativePath }}/hello-world"
         }
       },
-      "release": {
+      "Release": {
         "properties": {
           "buildType": "Release"
         },
