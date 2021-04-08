@@ -1,2 +1,2 @@
-project('blinky-no-rtos')
+project('blinky')
 
