@@ -50,7 +50,12 @@
       "execute-all": [
         "xpm run execute --config Debug",
         "xpm run execute --config Release"
-      ]
+      ],
+      "test": [
+        "xpm run build-all",
+        "xpm run execute-all"
+      ],
+      "deep-clean": "cmake -E rm -rf build xpacks"
     },
     "buildConfigurations": {
       "Debug": {
