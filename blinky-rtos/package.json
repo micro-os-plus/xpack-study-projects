@@ -54,6 +54,22 @@
   "xpack": {
     "minimumXpmRequired": "0.9.0",
     "actions": {
+      "generate-all": [
+        "xpm run generate --config stm32f4discovery-cmake-gcc10-debug",
+        "xpm run generate --config stm32f4discovery-cmake-gcc10-release",
+        "xpm run generate --config stm32f4discovery-cmake-gcc9-debug",
+        "xpm run generate --config stm32f4discovery-cmake-gcc9-release",
+        "xpm run generate --config stm32f4discovery-cmake-gcc8-debug",
+        "xpm run generate --config stm32f4discovery-cmake-gcc8-release",
+        "xpm run generate --config stm32f0discovery-cmake-gcc10-debug",
+        "xpm run generate --config stm32f0discovery-cmake-gcc10-release",
+        "xpm run generate --config sifive-hifive1-cmake-gcc10-debug",
+        "xpm run generate --config sifive-hifive1-cmake-gcc10-release",
+        "xpm run generate --config sifive-hifive1-cmake-gcc8-debug",
+        "xpm run generate --config sifive-hifive1-cmake-gcc8-release",
+        "{% if os.platform != 'win32' %}xpm run generate --config synthetic-posix-cmake-debug{% endif %}",
+        "{% if os.platform != 'win32' %}xpm run generate --config synthetic-posix-cmake-release{% endif %}"
+      ],
       "build-all": [
         "xpm run build --config stm32f4discovery-cmake-gcc10-debug",
         "xpm run build --config stm32f4discovery-cmake-gcc10-release",
@@ -117,12 +133,12 @@
       ]
     },
     "properties": {
-      "buildFolderRelativePath": "build/{{ configuration.name }}",
-      "commandCmakeGenerateWithToolchain": "cmake -S meta -B {{ properties.buildFolderRelativePath }} -G Ninja -D CMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ properties.toolchainFileName }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
+      "buildFolderRelativePath": "{% if os.platform == 'win32' %}build\\{{ configuration.name | downcase }}{% else %}build/{{ configuration.name | downcase }}{% endif %}",
+      "commandCmakeGenerateWithToolchain": "cmake -S meta -B {{ properties.buildFolderRelativePath }} -G Ninja -D CMAKE_TOOLCHAIN_FILE=../xpacks/micro-os-plus-build-helper/cmake/{{ properties.toolchainFileName }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
       "commandCmakeGenerate": "cmake -S meta -B {{ properties.buildFolderRelativePath }} -G Ninja -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_BUILD_TYPE={{ properties.buildType }}",
       "commandCmakeBuild": "cmake --build {{ properties.buildFolderRelativePath }}",
       "commandCmakeClean": "cmake --build {{ properties.buildFolderRelativePath }} --target clean",
-      "commandQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ properties.qemuBoardName }} -d unimp,guest_errors --image {{ properties.buildFolderRelativePath }}/blinky.elf --semihosting-config enable=on,target=native"
+      "commandExecuteWithQemu": "qemu-system-gnuarmeclipse --verbose --verbose --board {{ properties.qemuBoardName }} -d unimp,guest_errors --image {{ properties.buildFolderRelativePath }}/blinky.elf --semihosting-config enable=on,target=native"
     },
     "buildConfigurations": {
       "stm32f4discovery-cmake-gcc10-debug": {
@@ -133,13 +149,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
@@ -153,13 +170,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
@@ -173,13 +191,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
@@ -193,13 +212,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "9.3.1-1.4.1"
@@ -213,13 +233,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
@@ -233,13 +254,14 @@
           "qemuBoardName": "STM32F4-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "8.3.1-1.4.1"
@@ -253,13 +275,14 @@
           "qemuBoardName": "STM32F0-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
@@ -273,13 +296,14 @@
           "qemuBoardName": "STM32F0-Discovery"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
           ],
           "clean": "{{ properties.commandCmakeClean }}",
-          "executeWithQemu": "{{ properties.commandQemu }} --nographic --semihosting-cmdline blinky 6",
-          "executeWithQemuGraphical": "{{ properties.commandQemu }} --semihosting-cmdline blinky 6"
+          "executeWithQemu": "{{ properties.commandExecuteWithQemu }} --nographic --semihosting-cmdline blinky 6",
+          "executeWithQemuGraphical": "{{ properties.commandExecuteWithQemu }} --semihosting-cmdline blinky 6"
         },
         "devDependencies": {
           "@xpack-dev-tools/arm-none-eabi-gcc": "10.2.1-1.1.2"
@@ -292,6 +316,7 @@
           "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
@@ -309,6 +334,7 @@
           "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
@@ -326,6 +352,7 @@
           "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
@@ -343,6 +370,7 @@
           "toolchainFileName": "toolchain-riscv-none-embed-gcc.cmake"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerateWithToolchain }}",
           "build": [
             "{{ properties.commandCmakeGenerateWithToolchain }}",
             "{{ properties.commandCmakeBuild }}"
@@ -359,6 +387,7 @@
           "platformName": "synthetic-posix"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerate }}",
           "build": [
             "{{ properties.commandCmakeGenerate }}",
             "{{ properties.commandCmakeBuild }}"
@@ -373,6 +402,7 @@
           "platformName": "synthetic-posix"
         },
         "actions": {
+          "generate": "{{ properties.commandCmakeGenerate }}",
           "build": [
             "{{ properties.commandCmakeGenerate }}",
             "{{ properties.commandCmakeBuild }}"

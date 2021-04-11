@@ -39,6 +39,10 @@
       "commandExecuteHello": "{% if os.platform == 'win32' %}{{ properties.buildFolderRelativePath }}\\hello-world{% else %}{{ properties.buildFolderRelativePath }}/hello-world{% endif %}"
     },
     "actions": {
+      "generate-all": [
+        "xpm run generate --config Debug",
+        "xpm run generate --config Release"
+      ],
       "build-all": [
         "xpm run build --config Debug",
         "xpm run build --config Release"
