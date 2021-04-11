@@ -16,7 +16,8 @@ If you don't have the xPack tools on your machine, follow the steps in the
 [prerequisites](https://xpack.github.io/install/) page.
 
 For the moment building and running the native build configurations
-is possible only on macOS and GNU/Linux.
+is possible only on macOS and GNU/Linux, and require a C++ compiler
+installed in the system in a location where CMake will find it.
 
 Building the embedded Arm and RISC-V build configurations should be possible
 on all platforms, since the xPack toolchains are cross-platform, but
@@ -42,7 +43,7 @@ If you already have xpm installed, be sure you use the most recent version.
 npm install -g xpm@latest
 ```
 
-It must be 0.8.1 or later.
+It must be 0.9.1 or later.
 
 ### Start with a clean slate
 
